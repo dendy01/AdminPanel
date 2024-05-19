@@ -5,9 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, defineProps } from "vue";
-
-const name = ref<string>("my-button");
+import { defineProps } from "vue";
 
 const props = defineProps({
   btnClass: {
