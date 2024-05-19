@@ -1,14 +1,2 @@
+@import "./reset.scss";
 @import "./variables.scss";
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: 0;
-  ::after {
-    content: "";
-  }
-
-  ::before {
-    content: "";
-  }
-}
