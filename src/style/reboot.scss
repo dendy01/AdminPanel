@@ -1,0 +1,19 @@
+:root {
+    --color-white: #fff;
+    --color-gray: #aba8b1;
+    --color-gray-light: #2e263d0f;
+
+    --color-dark: #433c50;
+
+    --padding-menu-item: 8px 20px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 0;
+    outline: none;
+    text-decoration: none;
+    font-family: "Inter", -apple-system, BlinkMcSystemFont, "SegoeUI", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
