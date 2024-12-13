@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
-const BASE_URL = 'AdminPanel';
+const BASE_URL = '/AdminPanel';
 const routes = [
     {
         name: "Home",
