@@ -9,6 +9,7 @@
             <i class="ri-computer-line"></i>
             <i class="ri-star-smile-line"></i>
             <i class="ri-notification-2-line"></i>
+            <img src="../assets/icons/prifile.png" alt="profile">
         </div>
     </header>
 
