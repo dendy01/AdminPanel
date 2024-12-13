@@ -48,9 +48,9 @@ interface IPropsType {
 }
 
 const props = defineProps<IPropsType>();
-let previosElem = null;
+let previosElem: any = null;
 
-const changeActive = (event) => {
+const changeActive = (event: any) => {
 
     const currentElem = event.target;
 
