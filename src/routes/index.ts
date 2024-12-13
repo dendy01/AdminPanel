@@ -1,21 +1,22 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
+const BASE_URL = 'AdminPanel';
 const routes = [
     {
         name: "Home",
-        path: "/",
+        path: `${BASE_URL}/`,
         component: () => import("@/views/HomeView.vue"),
         children: [
             {
                 name: "Layout",
-                path: "layout",
+                path: `${BASE_URL}/layout`,
                 component: () => import("@/components/VLayout.vue")
             }
         ]
     },
     {
         name: "Login",
-        path: "/login",
+        path: `${BASE_URL}/login`,
         component: () => import("@/views/LoginView.vue")
     }
 ];
