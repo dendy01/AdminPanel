@@ -1,7 +1,10 @@
 <template>
 
     <aside class="aside">
-        <a href="#" class="aside-head">
+        <a
+            href="#"
+            class="aside-head"
+        >
             <LogoIcon></LogoIcon>
 
             <h2 class="aside-title">{{ props.title }}</h2>
@@ -18,7 +21,6 @@
 import LogoIcon from '@/assets/icons/logo.svg';
 import VSidebarUl from '@/components/Sidebar/VSidebarUl.vue';
 import { ISidebarGroup } from '@/model/layout/Sidebar';
-// import { ref } from "vue";
 
 interface IPropsType {
     title?: string,
@@ -28,7 +30,6 @@ interface IPropsType {
 // Template Ref
 
 const props = defineProps<IPropsType>();
-// const hasActivated = ref<boolean>(false);
 
 </script>
 
@@ -70,19 +71,6 @@ const props = defineProps<IPropsType>();
         font-size: 20px;
         font-weight: 600;
         text-transform: uppercase;
-    }
-}
-
-.active {
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    background: var(--color-gray-light);
-
-    .icon {
-        transform: rotate(90deg);
-    }
-
-    ~.aside-menu__item-grop {
-        max-height: 1000px;
     }
 }
 </style>
