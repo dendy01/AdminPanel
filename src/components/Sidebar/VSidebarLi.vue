@@ -1,11 +1,10 @@
 <template>
 
     <li
-        class="aside-menu__item"
-        :class="{ active: isOpen }"
+        :class="{ active: isOpen, 'aside-menu__item': groupItem.select }"
         :style="{ 'margin-bottom': (isOpen ? height : 0) + 'px' }"
     >
-        <RouterLink to="#">
+        <span v-if="groupItem.select">
             <component
                 :is="groupItem.icon"
                 class="icon-class"
@@ -14,6 +13,23 @@
                 class="icon"
                 v-if="groupItem.select"
             ></ArrowIcon>
+        </span>
+
+        <RouterLink
+            v-else
+            to="layout"
+            :class="{ 'aside-menu__item--link': !groupItem.select }"
+        >
+            <span>
+                <component
+                    :is="groupItem.icon"
+                    class="icon-class"
+                ></component>
+                {{ groupItem.content }} <ArrowIcon
+                    class="icon"
+                    v-if="groupItem.select"
+                ></ArrowIcon>
+            </span>
         </RouterLink>
 
         <Transition>
@@ -47,35 +63,39 @@ const changeHeight = (newHeight: number) => {
 </script>
 
 <style scoped lang="scss">
-.aside-menu__item {
+.aside-menu__item,
+.aside-menu__item--link {
     margin-top: 4px;
     margin-right: 20px;
     padding: var(--padding-menu-item);
     border-radius: 0 50px 50px 0;
-    cursor: pointer;
-    position: relative;
-    transition: all .3s ease;
-
 
     &:hover {
         background: var(--color-gray-light);
     }
 
-    a {
+    .icon-class {
+        margin-right: 8px;
+    }
+
+    span {
         display: flex;
         align-items: center;
 
         color: var(--color-dark);
     }
+}
+
+
+.aside-menu__item {
+    cursor: pointer;
+    position: relative;
+    transition: all .3s ease;
 
     .icon {
         transition: all .3s ease;
         position: absolute;
         right: 20px;
-    }
-
-    .icon-class {
-        margin-right: 8px;
     }
 }
 
@@ -85,6 +105,11 @@ const changeHeight = (newHeight: number) => {
     .icon {
         transform: rotate(90deg);
     }
+}
+
+.aside-menu__item--link {
+    display: block;
+    color: var(--color-dark);
 }
 
 .v-enter-active,

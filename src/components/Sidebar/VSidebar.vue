@@ -1,17 +1,20 @@
 <template>
 
     <aside class="aside">
-        <a
-            href="#"
-            class="aside-head"
-        >
-            <LogoIcon></LogoIcon>
+        <div class="aside-head">
+            <RouterLink to="#">
+                <span class="aside-head__logo">
+                    <LogoIcon></LogoIcon>
+                    <h2 class="aside-title">{{ props.title }}</h2>
+                </span>
+            </RouterLink>
 
-            <h2 class="aside-title">{{ props.title }}</h2>
             <input type="checkbox" />
-        </a>
+        </div>
 
-        <VSidebarUl :li="props.li"></VSidebarUl>
+        <div class="aside-body">
+            <VSidebarUl :li="props.li"></VSidebarUl>
+        </div>
 
     </aside>
 
@@ -26,8 +29,6 @@ interface IPropsType {
     title?: string,
     li?: ISidebarGroup[];
 }
-
-// Template Ref
 
 const props = defineProps<IPropsType>();
 
@@ -44,9 +45,39 @@ const props = defineProps<IPropsType>();
     position: fixed;
     top: 0;
     left: 0;
-    overflow-y: scroll;
 
+    transition: all .3s ease;
     color: var(--color-dark);
+}
+
+.aside-head {
+    height: 64px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: var(--padding-menu-item);
+
+    .aside-head__logo {
+        display: flex;
+        color: var(--color-purple);
+
+        .aside-title {
+            font-size: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+
+            margin-left: 12px;
+
+            color: var(--color-dark);
+        }
+    }
+}
+
+.aside-body {
+    max-height: calc(100% - 64px);
+    overflow-y: scroll;
 
     &::-webkit-scrollbar {
         width: 2px;
@@ -59,18 +90,9 @@ const props = defineProps<IPropsType>();
     }
 }
 
-.aside-head {
-    height: 64px;
-
-    display: flex;
-    align-items: center;
-
-    padding: var(--padding-menu-item);
-
-    .aside-title {
-        font-size: 20px;
-        font-weight: 600;
-        text-transform: uppercase;
+@media (max-width: 920px) {
+    .aside {
+        transform: translateX(-260px);
     }
 }
 </style>

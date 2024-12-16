@@ -7,9 +7,11 @@
         <li
             v-for="selectItem in select"
             :key="selectItem.id"
-            class="aside-menu__item"
         >
-            <RouterLink to="layout">
+            <RouterLink
+                to="layout"
+                class="aside-menu__item"
+            >
                 <Circle></Circle><span>{{ selectItem.content }}</span>
             </RouterLink>
         </li>
@@ -67,6 +69,7 @@ onMounted(() => {
     border-radius: 0 50px 50px 0;
     cursor: pointer;
     position: relative;
+    display: block;
 
 
     &:hover {

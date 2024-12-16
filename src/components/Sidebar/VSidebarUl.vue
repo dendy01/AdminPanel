@@ -17,8 +17,8 @@
             :groupItem="groupItem"
             :key="groupItem.id"
             :id="groupItem.id"
-            @click="toggle(groupItem.id)"
             :isOpen="isOpen(groupItem.id)"
+            @click="isId(groupItem.id)"
         ></VSidebarLi>
     </ul>
 
@@ -34,18 +34,22 @@ interface IPropsType {
 }
 
 defineProps<IPropsType>();
-const openItem = ref<string | null>(null);
+const currentId = ref<string | null>(null);
 
-const toggle = (id: string) => {
-    openItem.value = openItem.value === id ? null : id;
+const isId = (id: string) => {
+    currentId.value = currentId.value === id ? null : id;
 }
 
 const isOpen = (id: string) => {
-    return openItem.value === id;
+    return currentId.value === id;
 }
 </script>
 
 <style scoped lang="scss">
+.aside-menu:last-child {
+    margin: 4px 0;
+}
+
 .aside-menu__title {
     padding: var(--padding-menu-item);
     padding-top: 30px;
