@@ -37,6 +37,7 @@
                 v-if="isOpen"
                 :select="groupItem.select"
                 @calc-height="changeHeight"
+                @click.stop
             ></VSidebarSelectUl>
         </Transition>
     </li>
@@ -47,14 +48,16 @@
 import ArrowIcon from "@/assets/icons/arrow.svg";
 import VSidebarSelectUl from "@/components/Sidebar/VSidebarSelectUl.vue";
 import { ISidebarLink } from '@/model/layout/Sidebar';
-import { ref } from "vue";
+import { defineEmits, ref } from "vue";
 
 interface IPropsType {
     groupItem: ISidebarLink;
     isOpen: boolean;
+    id: string;
 }
 
 defineProps<IPropsType>();
+const emit = defineEmits(["isLink"])
 const height = ref<number>(0);
 
 const changeHeight = (newHeight: number) => {

@@ -11,6 +11,8 @@
             <RouterLink
                 to="layout"
                 class="aside-menu__item"
+                :class="{ active: isActive(selectItem.id) }"
+                @click="handleLink(selectItem.id)"
             >
                 <Circle></Circle><span>{{ selectItem.content }}</span>
             </RouterLink>
@@ -22,7 +24,7 @@
 <script setup lang="ts">
 import Circle from "@/assets/icons/circle.svg";
 import { ISelect } from '@/model/layout/Sidebar';
-import { onMounted, useTemplateRef } from "vue";
+import { onMounted, ref, useTemplateRef } from "vue";
 
 interface IPropsType {
     hasActive?: boolean;
@@ -32,12 +34,21 @@ interface IPropsType {
 defineProps<IPropsType>();
 const emit = defineEmits(["calcHeight"])
 const ulRef = useTemplateRef("ulRef");
+const currentId = ref<string | null>(null);
+
+const handleLink = (id: string) => {
+    currentId.value = currentId.value === id ? null : id;
+}
+
+const isActive = (id: string) => {
+    return currentId.value === id;
+}
 
 onMounted(() => {
     if (ulRef.value) {
         emit("calcHeight", ulRef.value.scrollHeight);
     }
-})
+});
 </script>
 
 <style scoped lang="scss">
@@ -60,6 +71,19 @@ onMounted(() => {
 
     a {
         color: var(--color-dark);
+
+        &:hover {
+            background: var(--color-gray-light);
+        }
+    }
+
+    .active {
+        color: var(--color-white);
+        background: var(--color-purple);
+
+        &:hover {
+            background: var(--color-purple);
+        }
     }
 }
 
@@ -70,10 +94,5 @@ onMounted(() => {
     cursor: pointer;
     position: relative;
     display: block;
-
-
-    &:hover {
-        background: var(--color-gray-light);
-    }
 }
 </style>

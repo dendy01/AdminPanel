@@ -1,11 +1,15 @@
 <template>
 
-    <aside class="aside">
+    <aside
+        class="aside"
+        ref="asideWidth"
+        :style="{ width: 260 + 'px' }"
+    >
         <div class="aside-head">
             <RouterLink to="#">
                 <span class="aside-head__logo">
                     <LogoIcon></LogoIcon>
-                    <h2 class="aside-title">{{ props.title }}</h2>
+                    <h2 class="aside-title">{{ title }}</h2>
                 </span>
             </RouterLink>
 
@@ -13,7 +17,7 @@
         </div>
 
         <div class="aside-body">
-            <VSidebarUl :li="props.li"></VSidebarUl>
+            <VSidebarUl :li="li"></VSidebarUl>
         </div>
 
     </aside>
@@ -30,14 +34,13 @@ interface IPropsType {
     li?: ISidebarGroup[];
 }
 
-const props = defineProps<IPropsType>();
+defineProps<IPropsType>();
 
 </script>
 
 
 <style scoped lang="scss">
 .aside {
-    width: 260px;
     height: 100%;
     font-size: 15px;
     font-weight: 400;
@@ -45,7 +48,6 @@ const props = defineProps<IPropsType>();
     position: fixed;
     top: 0;
     left: 0;
-
     transition: all .3s ease;
     color: var(--color-dark);
 }

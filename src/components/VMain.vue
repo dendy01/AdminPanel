@@ -15,8 +15,8 @@ import VHeader from "@/components/VHeader.vue";
 .main {
     width: calc(100% - 260px);
     margin-left: 260px;
-    padding: 0 120px;
-    border: 1px solid blue;
+    padding: 0 20px;
+    background: #ccc;
 }
 
 @media (max-width: 920px) {
