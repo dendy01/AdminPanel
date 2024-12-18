@@ -18,13 +18,13 @@
 
 <script setup lang="ts">
 import Close from "@/assets/icons/icons-header/close.svg";
-import { nextTick, useTemplateRef } from 'vue';
+import { onMounted, useTemplateRef } from 'vue';
 
 interface IPropsType {
     isActive: boolean;
 }
 
-const props = defineProps<IPropsType>();
+defineProps<IPropsType>();
 const emit = defineEmits(["changeAcitve"]);
 const inputSearch = useTemplateRef("inputSearch");
 
@@ -32,15 +32,13 @@ const setActive = () => {
     emit("changeAcitve", false);
 }
 
-if (props.isActive) {
+onMounted(() => {
 
-    nextTick(() => {
-        if (inputSearch.value) {
-            inputSearch.value.focus();
-        }
-    });
+    if (inputSearch.value) {
+        inputSearch.value.focus();
+    }
 
-}
+})
 </script>
 
 <style lang="scss">

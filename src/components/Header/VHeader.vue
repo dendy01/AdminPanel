@@ -2,23 +2,8 @@
 
     <header class="header">
         <div class="container">
-            <!-- <label
-                class="header-search__wrap"
-                :style="{ display: isActive ? 'block' : 'none' }"
-            >
-                <input
-                    type="search"
-                    class="header-search__input"
-                    placeholder="Search..."
-                    ref="inputSearch"
-                >
-                <Close
-                    @click="isActive = false"
-                    class="header-search__close"
-                ></Close>
-            </label> -->
-
             <VHeaderInput
+                v-if="isActive"
                 :isActive="isActive"
                 @change-acitve="isActive = false"
             ></VHeaderInput>
@@ -62,7 +47,7 @@ const isActive = ref<boolean>(false);
 
 const changeActive = () => {
     isActive.value = !isActive.value;
-}
+};
 </script>
 
 <style scoped lang="scss">
