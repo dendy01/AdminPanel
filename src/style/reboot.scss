@@ -7,6 +7,8 @@
 
     --color-purple: #8c57ff;
 
+    --bg-primery: #f4f5fa;
+
     --padding-menu-item: 8px 20px;
 }
 
@@ -19,4 +21,8 @@
     text-decoration: none;
     list-style: none;
     font-family: "Inter", -apple-system, BlinkMcSystemFont, "SegoeUI", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+body {
+    background: var(--bg-primery);
 }

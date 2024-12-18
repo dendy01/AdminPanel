@@ -41,6 +41,9 @@ import Main from "@/components/VMain.vue";
 import { ISidebarGroup } from '@/model/layout/Sidebar';
 import { provide, shallowRef, useId } from "vue";
 
+import Notification from "@/assets/icons/icons-header/notification.svg";
+import Star from "@/assets/icons/icons-header/star.svg";
+import Sun from "@/assets/icons/icons-header/sun.svg";
 import Translate from "@/assets/icons/icons-header/translate.svg";
 import { IHeaderGroup } from "@/model/layout/Header";
 
@@ -66,7 +69,73 @@ const header = shallowRef<IHeaderGroup[]>([
                 content: "Russian",
             }
         ]
-    }
+    },
+    {
+        id: useId(),
+        icon: Sun,
+        group: [
+            {
+                id: useId(),
+                content: "English",
+            },
+            {
+                id: useId(),
+                content: "French",
+            },
+            {
+                id: useId(),
+                content: "Arabic",
+            },
+            {
+                id: useId(),
+                content: "Russian",
+            }
+        ]
+    },
+    {
+        id: useId(),
+        icon: Star,
+        group: [
+            {
+                id: useId(),
+                content: "English",
+            },
+            {
+                id: useId(),
+                content: "French",
+            },
+            {
+                id: useId(),
+                content: "Arabic",
+            },
+            {
+                id: useId(),
+                content: "Russian",
+            }
+        ]
+    },
+    {
+        id: useId(),
+        icon: Notification,
+        group: [
+            {
+                id: useId(),
+                content: "English",
+            },
+            {
+                id: useId(),
+                content: "French",
+            },
+            {
+                id: useId(),
+                content: "Arabic",
+            },
+            {
+                id: useId(),
+                content: "Russian",
+            }
+        ]
+    },
 ]);
 
 provide("header", header);

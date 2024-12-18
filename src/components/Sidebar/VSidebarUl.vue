@@ -78,7 +78,7 @@ const isOpen = (id: string) => {
     span {
         position: relative;
         z-index: 20;
-        background: var(--color-white);
+        background: var(--bg-primery);
     }
 }
 </style>

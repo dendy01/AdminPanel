@@ -59,8 +59,6 @@ onMounted(() => {
     top: 40px;
     left: 0;
 
-    background: var(--color-white);
-
     svg {
         margin-left: 4px;
     }
