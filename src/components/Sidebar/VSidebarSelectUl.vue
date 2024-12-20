@@ -9,7 +9,7 @@
             :key="selectItem.id"
         >
             <RouterLink
-                to="layout"
+                :to="selectItem.link ? selectItem.link : 'layout'"
                 class="aside-menu__item"
                 :class="{ active: isActive(selectItem.id) }"
                 @click="handleLink(selectItem.id)"
@@ -68,10 +68,18 @@ onMounted(() => {
     }
 
     a {
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+
         color: var(--color-dark);
 
         &:hover {
             background: var(--color-gray-light);
+        }
+
+        span {
+            text-wrap: nowrap;
         }
     }
 

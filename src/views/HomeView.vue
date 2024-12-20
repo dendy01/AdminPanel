@@ -395,7 +395,7 @@ const sidebar = shallowRef<ISidebarGroup[]>([
                 select: [
                     {
                         id: useId(),
-                        content: "User Prifile",
+                        content: "User Profile",
                     },
                     {
                         id: useId(),
@@ -515,6 +515,7 @@ const sidebar = shallowRef<ISidebarGroup[]>([
                     {
                         id: useId(),
                         content: "Accordion",
+                        link: "accordion"
                     },
                     {
                         id: useId(),

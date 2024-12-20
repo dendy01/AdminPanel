@@ -2,17 +2,24 @@
 
     <li
         :class="{ active: isOpen, 'aside-menu__item': groupItem.select }"
-        :style="{ 'margin-bottom': (isOpen ? height : 0) + 'px' }"
+        :style="{ 'margin-bottom': (isOpen && (isCheck || isOpenSidebar) ? height : 0) + 'px' }"
     >
         <span v-if="groupItem.select">
-            <component
-                :is="groupItem.icon"
-                class="icon-class"
-            ></component>
-            {{ groupItem.content }} <ArrowIcon
-                class="icon"
-                v-if="groupItem.select"
-            ></ArrowIcon>
+            <span>
+                <component
+                    :is="groupItem.icon"
+                    class="icon-class"
+                ></component>
+            </span>
+            <span
+                class="aside-menu__item--icon"
+                :class="{ open: isCheck || isOpenSidebar }"
+            >
+                {{ groupItem.content }} <ArrowIcon
+                    class="icon"
+                    v-if="groupItem.select"
+                ></ArrowIcon>
+            </span>
         </span>
 
         <RouterLink
@@ -21,20 +28,27 @@
             :class="{ 'aside-menu__item--link': !groupItem.select }"
         >
             <span>
-                <component
-                    :is="groupItem.icon"
-                    class="icon-class"
-                ></component>
-                {{ groupItem.content }} <ArrowIcon
-                    class="icon"
-                    v-if="groupItem.select"
-                ></ArrowIcon>
+                <span>
+                    <component
+                        :is="groupItem.icon"
+                        class="icon-class"
+                    ></component>
+                </span>
+                <span
+                    class="aside-menu__item--link_icon"
+                    :class="{ open: isCheck || isOpenSidebar }"
+                >
+                    {{ groupItem.content }} <ArrowIcon
+                        class="icon"
+                        v-if="groupItem.select"
+                    ></ArrowIcon>
+                </span>
             </span>
         </RouterLink>
 
         <Transition>
             <VSidebarSelectUl
-                v-if="isOpen"
+                v-if="isOpen && (isCheck || isOpenSidebar)"
                 :select="groupItem.select"
                 @calc-height="changeHeight"
                 @click.stop
@@ -54,6 +68,8 @@ interface IPropsType {
     groupItem: ISidebarLink;
     isOpen: boolean;
     id: string;
+    isCheck: boolean;
+    isOpenSidebar: boolean;
 }
 
 defineProps<IPropsType>();
@@ -100,6 +116,17 @@ const changeHeight = (newHeight: number) => {
         position: absolute;
         right: 20px;
     }
+
+    .aside-menu__item--icon {
+        text-wrap: nowrap;
+        display: none;
+        transition: all .3s ease;
+    }
+
+    .open {
+        display: block;
+        transition: all .3s ease;
+    }
 }
 
 .active {
@@ -113,6 +140,17 @@ const changeHeight = (newHeight: number) => {
 .aside-menu__item--link {
     display: block;
     color: var(--color-dark);
+
+    .aside-menu__item--link_icon {
+        text-wrap: nowrap;
+        display: none;
+        transition: all .3s ease;
+    }
+
+    .open {
+        display: block;
+        transition: all .3s ease;
+    }
 }
 
 .v-enter-active,

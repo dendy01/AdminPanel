@@ -2,8 +2,9 @@
 
     <aside
         class="aside"
-        ref="asideWidth"
-        :style="{ width: 260 + 'px' }"
+        :class="{ 'aside-active': isCheck }"
+        @mouseenter="isOpenSidebar = true"
+        @mouseleave="isOpenSidebar = false"
     >
         <div class="aside-head">
             <RouterLink to="#">
@@ -13,11 +14,19 @@
                 </span>
             </RouterLink>
 
-            <input type="checkbox" />
+            <input
+                type="checkbox"
+                class="aside-head__input"
+                @change="isCheck = !isCheck"
+            />
         </div>
 
         <div class="aside-body">
-            <VSidebarUl :li="li"></VSidebarUl>
+            <VSidebarUl
+                :isCheck="isCheck"
+                :isOpenSidebar="isOpenSidebar"
+                :li="li"
+            ></VSidebarUl>
         </div>
 
     </aside>
@@ -28,6 +37,7 @@
 import LogoIcon from '@/assets/icons/logo.svg';
 import VSidebarUl from '@/components/Sidebar/VSidebarUl.vue';
 import { ISidebarGroup } from '@/model/layout/Sidebar';
+import { ref } from 'vue';
 
 interface IPropsType {
     title?: string,
@@ -36,11 +46,14 @@ interface IPropsType {
 
 defineProps<IPropsType>();
 
+const isCheck = ref<boolean>(false);
+const isOpenSidebar = ref<boolean>(false);
 </script>
 
 
 <style scoped lang="scss">
 .aside {
+    width: 80px;
     height: 100%;
     font-size: 15px;
     font-weight: 400;
@@ -48,10 +61,41 @@ defineProps<IPropsType>();
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 1000;
     transition: all .3s ease;
 
     color: var(--color-dark);
     background: var(--bg-primery);
+
+    &:hover {
+        width: 260px;
+        padding-right: 4px;
+        box-shadow: 0 0 5px;
+
+        .aside-title,
+        .aside-head__input {
+            display: block;
+        }
+    }
+
+    .aside-title,
+    .aside-head__input {
+        display: none;
+    }
+}
+
+.aside-active {
+    width: 260px;
+
+    &:hover {
+        padding-right: 0;
+        box-shadow: none;
+    }
+
+    .aside-title,
+    .aside-head__input {
+        display: block;
+    }
 }
 
 .aside-head {
@@ -94,9 +138,5 @@ defineProps<IPropsType>();
     }
 }
 
-@media (max-width: 920px) {
-    .aside {
-        transform: translateX(-260px);
-    }
-}
+@media (max-width: 920px) {}
 </style>

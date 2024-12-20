@@ -11,6 +11,11 @@ const routes = [
                 name: "Layout",
                 path: `${BASE_URL}/layout`,
                 component: () => import("@/components/VLayout.vue")
+            },
+            {
+                name: "Accordion",
+                path: `${BASE_URL}/accordion`,
+                component: () => import("@/components/UI/UserInterface/Accordion/VAccordion.vue")
             }
         ]
     },

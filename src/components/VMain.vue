@@ -1,8 +1,10 @@
 <template>
 
     <main class="main">
-        <VHeader></VHeader>
-        <RouterView />
+        <div class="container">
+            <VHeader></VHeader>
+            <RouterView />
+        </div>
     </main>
 
 </template>
@@ -17,6 +19,11 @@ import VHeader from "@/components/Header/VHeader.vue";
     margin-left: 260px;
     padding: 0 120px;
     background: var(--bg-primery);
+
+    .container {
+        width: 100%;
+        position: relative;
+    }
 }
 
 @media (max-width: 920px) {
