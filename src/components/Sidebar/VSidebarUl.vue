@@ -1,5 +1,4 @@
 <template>
-
     <ul
         class="aside-menu"
         v-for="link in li"
@@ -14,22 +13,21 @@
 
         <VSidebarLi
             v-for="groupItem in link.group"
-            :groupItem="groupItem"
+            :group-item="groupItem"
             :key="groupItem.id"
             :id="groupItem.id"
-            :isCheck="isCheck"
-            :isOpenSidebar="isOpenSidebar"
-            :isOpen="isOpen(groupItem.id)"
+            :is-check="isCheck"
+            :is-open-sidebar="isOpenSidebar"
+            :is-open="isOpen(groupItem.id)"
             @click="isId(groupItem.id)"
-        ></VSidebarLi>
+        />
     </ul>
-
 </template>
 
 <script setup lang="ts">
 import VSidebarLi from '@/components/Sidebar/VSidebarLi.vue';
 import { ISidebarGroup } from '@/model/layout/Sidebar';
-import { ref } from "vue";
+import { ref } from 'vue';
 
 interface IPropsType {
     li?: ISidebarGroup[];
@@ -42,11 +40,11 @@ const currentId = ref<string | null>(null);
 
 const isId = (id: string) => {
     currentId.value = currentId.value === id ? null : id;
-}
+};
 
 const isOpen = (id: string) => {
     return currentId.value === id;
-}
+};
 </script>
 
 <style scoped lang="scss">

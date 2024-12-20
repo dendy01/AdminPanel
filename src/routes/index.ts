@@ -3,26 +3,26 @@ import { createRouter, createWebHistory } from 'vue-router';
 const BASE_URL = '/AdminPanel';
 const routes = [
     {
-        name: "Home",
+        name: 'Home',
         path: `${BASE_URL}/`,
-        component: () => import("@/views/HomeView.vue"),
+        component: () => import('@/views/HomeView.vue'),
         children: [
             {
-                name: "Layout",
+                name: 'Layout',
                 path: `${BASE_URL}/layout`,
-                component: () => import("@/components/VLayout.vue")
+                component: () => import('@/components/VLayout.vue')
             },
             {
-                name: "Accordion",
+                name: 'Accordion',
                 path: `${BASE_URL}/accordion`,
-                component: () => import("@/components/UI/UserInterface/Accordion/VAccordion.vue")
+                component: () => import('@/components/UI/UserInterface/Accordion/VAccordion.vue')
             }
         ]
     },
     {
-        name: "Login",
+        name: 'Login',
         path: `${BASE_URL}/login`,
-        component: () => import("@/views/LoginView.vue")
+        component: () => import('@/views/LoginView.vue')
     }
 ];
 

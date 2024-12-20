@@ -1,16 +1,14 @@
 <template>
-
     <main class="main">
         <div class="container">
-            <VHeader></VHeader>
+            <VHeader />
             <RouterView />
         </div>
     </main>
-
 </template>
 
 <script setup lang="ts">
-import VHeader from "@/components/Header/VHeader.vue";
+import VHeader from '@/components/Header/VHeader.vue';
 </script>
 
 <style scoped lang="scss">

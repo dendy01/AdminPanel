@@ -5,15 +5,17 @@ import svgLoader from 'vite-svg-loader';
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [
-    vue(),
-    svgLoader()
-  ],
-  resolve: {
-    alias: {
-      "@": fileURLToPath(new URL("./src", import.meta.url))
+    plugins: [
+        vue(),
+        svgLoader()
+    ],
+    resolve: {
+        alias: {
+            '@': fileURLToPath(new URL('./src', import.meta.url))
+        }
     },
-  },
-  base: "/AdminPanel/",
-  build: { outDir: './docs' },
+    base: '/AdminPanel/',
+    build: {
+        outDir: './docs' 
+    }
 });

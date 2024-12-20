@@ -1,10 +1,9 @@
 <template>
-
     <div class="wrapper">
-
         <div class="wrapper-accordion">
-
-            <h5 class="title">Accordion</h5>
+            <h5 class="title">
+                Accordion
+            </h5>
 
             <div class="wrapper-accordion__row">
                 <div class="wrapper-accordion__col">
@@ -19,7 +18,7 @@
                             :class="{ active: isActive }"
                             @click="isActive = !isActive"
                         >
-                            Accordion Item 1 <Arrow></Arrow>
+                            Accordion Item 1 <Arrow />
                         </p>
                         <div
                             class="wrapper-accordion__col--content"
@@ -34,25 +33,22 @@
                     <small class="small-text">Accordion Without Arrow</small>
                 </div>
             </div>
-
         </div>
 
-        <hr />
+        <hr>
 
         <div>
-
-            <h5 class="title">Customized Accordion</h5>
+            <h5 class="title">
+                Customized Accordion
+            </h5>
             <small class="small-text">Accordion Customized Button</small>
-
         </div>
-
     </div>
-
 </template>
 
 <script setup lang="ts">
-import Arrow from "@/assets/icons/icons-accordion/arrow.svg";
-import { ref } from "vue";
+import Arrow from '@/assets/icons/icons-accordion/arrow.svg';
+import { ref } from 'vue';
 
 const isActive = ref<boolean>(false);
 

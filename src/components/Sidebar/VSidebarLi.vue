@@ -1,7 +1,9 @@
 <template>
-
     <li
-        :class="{ active: isOpen, 'aside-menu__item': groupItem.select }"
+        :class="{
+            active: isOpen,
+            'aside-menu__item': groupItem.select
+        }"
         :style="{ 'margin-bottom': (isOpen && (isCheck || isOpenSidebar) ? height : 0) + 'px' }"
     >
         <span v-if="groupItem.select">
@@ -9,16 +11,17 @@
                 <component
                     :is="groupItem.icon"
                     class="icon-class"
-                ></component>
+                />
             </span>
             <span
                 class="aside-menu__item--icon"
                 :class="{ open: isCheck || isOpenSidebar }"
             >
-                {{ groupItem.content }} <ArrowIcon
+                {{ groupItem.content }}
+                <ArrowIcon
                     class="icon"
                     v-if="groupItem.select"
-                ></ArrowIcon>
+                />
             </span>
         </span>
 
@@ -32,16 +35,17 @@
                     <component
                         :is="groupItem.icon"
                         class="icon-class"
-                    ></component>
+                    />
                 </span>
                 <span
                     class="aside-menu__item--link_icon"
                     :class="{ open: isCheck || isOpenSidebar }"
                 >
-                    {{ groupItem.content }} <ArrowIcon
+                    {{ groupItem.content }}
+                    <ArrowIcon
                         class="icon"
                         v-if="groupItem.select"
-                    ></ArrowIcon>
+                    />
                 </span>
             </span>
         </RouterLink>
@@ -52,17 +56,16 @@
                 :select="groupItem.select"
                 @calc-height="changeHeight"
                 @click.stop
-            ></VSidebarSelectUl>
+            />
         </Transition>
     </li>
-
 </template>
 
 <script setup lang="ts">
-import ArrowIcon from "@/assets/icons/arrow.svg";
-import VSidebarSelectUl from "@/components/Sidebar/VSidebarSelectUl.vue";
+import ArrowIcon from '@/assets/icons/arrow.svg';
+import VSidebarSelectUl from '@/components/Sidebar/VSidebarSelectUl.vue';
 import { ISidebarLink } from '@/model/layout/Sidebar';
-import { defineEmits, ref } from "vue";
+import { ref } from 'vue';
 
 interface IPropsType {
     groupItem: ISidebarLink;
@@ -73,12 +76,11 @@ interface IPropsType {
 }
 
 defineProps<IPropsType>();
-const emit = defineEmits(["isLink"])
 const height = ref<number>(0);
 
 const changeHeight = (newHeight: number) => {
     height.value = newHeight + 4;
-}
+};
 </script>
 
 <style scoped lang="scss">

@@ -1,5 +1,4 @@
 <template>
-
     <aside
         class="aside"
         :class="{ 'aside-active': isCheck }"
@@ -9,7 +8,7 @@
         <div class="aside-head">
             <RouterLink to="#">
                 <span class="aside-head__logo">
-                    <LogoIcon></LogoIcon>
+                    <LogoIcon />
                     <h2 class="aside-title">{{ title }}</h2>
                 </span>
             </RouterLink>
@@ -18,19 +17,17 @@
                 type="checkbox"
                 class="aside-head__input"
                 @change="isCheck = !isCheck"
-            />
+            >
         </div>
 
         <div class="aside-body">
             <VSidebarUl
-                :isCheck="isCheck"
-                :isOpenSidebar="isOpenSidebar"
+                :is-check="isCheck"
+                :is-open-sidebar="isOpenSidebar"
                 :li="li"
-            ></VSidebarUl>
+            />
         </div>
-
     </aside>
-
 </template>
 
 <script setup lang="ts">

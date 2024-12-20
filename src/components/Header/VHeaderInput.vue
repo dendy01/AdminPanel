@@ -12,33 +12,35 @@
         <Close
             @click="setActive"
             class="header-search__close"
-        ></Close>
+        />
     </label>
 </template>
 
 <script setup lang="ts">
-import Close from "@/assets/icons/icons-header/close.svg";
+import Close from '@/assets/icons/icons-header/close.svg';
 import { onMounted, useTemplateRef } from 'vue';
 
 interface IPropsType {
     isActive: boolean;
 }
 
-defineProps<IPropsType>();
-const emit = defineEmits(["changeAcitve"]);
-const inputSearch = useTemplateRef("inputSearch");
-
-const setActive = () => {
-    emit("changeAcitve", false);
+interface IEmitsType {
+    (event: 'changeActive', value: boolean): void;
 }
 
-onMounted(() => {
+defineProps<IPropsType>();
+const emit = defineEmits<IEmitsType>();
+const inputSearch = useTemplateRef('inputSearch');
 
+const setActive = () => {
+    emit('changeActive', false);
+};
+
+onMounted(() => {
     if (inputSearch.value) {
         inputSearch.value.focus();
     }
-
-})
+});
 </script>
 
 <style lang="scss">
