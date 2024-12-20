@@ -1,7 +1,7 @@
 <template>
     <div
         class="observer"
-        ref="observer"
+        ref="myObserver"
     ></div>
     <header
         class="header"
@@ -46,12 +46,12 @@
 import Search from "@/assets/icons/icons-header/search.svg";
 import VHeaderInput from "@/components/Header/VHeaderInput.vue";
 import { IHeaderGroup } from "@/model/layout/Header";
-import { inject, onMounted, ref, useTemplateRef } from "vue";
+import { inject, onMounted, ref } from "vue";
 
 const props = inject<IHeaderGroup[]>("header");
 const isActive = ref<boolean>(false);
-const myObserver = useTemplateRef("observer");
-const myHeader = useTemplateRef("myHeader");
+const myObserver = ref<HTMLElement | null>(null);
+const myHeader = ref<HTMLElement | null>(null);
 
 const options = {
     rootMargin: "0px",
