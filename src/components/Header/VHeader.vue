@@ -1,10 +1,7 @@
 <template>
-    <div
-        class="observer"
-        ref="myObserver"
-    ></div>
     <header
         class="header"
+        :class="{ 'header-observer': isScrolling }"
         ref="myHeader"
     >
         <div class="container">
@@ -46,41 +43,28 @@
 import Search from "@/assets/icons/icons-header/search.svg";
 import VHeaderInput from "@/components/Header/VHeaderInput.vue";
 import { IHeaderGroup } from "@/model/layout/Header";
-import { inject, onMounted, ref } from "vue";
+import { inject, onMounted, onUnmounted, ref } from "vue";
 
 const props = inject<IHeaderGroup[]>("header");
 const isActive = ref<boolean>(false);
-const myObserver = ref<HTMLElement | null>(null);
-const myHeader = ref<HTMLElement | null>(null);
+const isScrolling = ref<boolean>(false);
 
-const options = {
-    rootMargin: "0px",
-    threshold: 1.0,
-};
-
-const callback = function (entries: any) {
-
-    if (myHeader.value) {
-        if (!entries[0].isIntersecting) {
-            myHeader.value.classList.add("header-observer");
-        } else {
-            myHeader.value.classList.remove("header-observer");
-        }
-    }
-
-};
-
-const observer = new IntersectionObserver(callback, options);
 
 const changeActive = () => {
     isActive.value = !isActive.value;
 };
 
+const changeScroll = () => {
+    isScrolling.value = window.scrollY > 0 ? true : false;
+}
+
 onMounted(() => {
-    if (myObserver.value && myHeader.value) {
-        observer.observe(myObserver.value);
-    }
+    window.addEventListener("scroll", changeScroll);
 });
+
+onUnmounted(() => {
+    window.removeEventListener("scroll", changeScroll);
+})
 </script>
 
 <style scoped lang="scss">
