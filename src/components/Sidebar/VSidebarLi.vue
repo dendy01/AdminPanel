@@ -4,7 +4,7 @@
             active: isOpen,
             'aside-menu__item': groupItem.select
         }"
-        :style="{ 'margin-bottom': (isOpen && (isCheck.checking || isOpenSidebar || isCheck.openMenu) ? height : 0) + 'px' }"
+        :style="{ 'margin-bottom': (isOpen && isValid ? height : 0) + 'px' }"
     >
         <span v-if="groupItem.select">
             <span>
@@ -15,7 +15,7 @@
             </span>
             <span
                 class="aside-menu__item--icon"
-                :class="{ open: isCheck.checking || isOpenSidebar || isCheck.openMenu }"
+                :class="{ open: isValid }"
             >
                 {{ groupItem.content }}
                 <ArrowIcon
@@ -39,7 +39,7 @@
                 </span>
                 <span
                     class="aside-menu__item--link_icon"
-                    :class="{ open: isCheck.checking || isOpenSidebar || isCheck.openMenu }"
+                    :class="{ open: isValid }"
                 >
                     {{ groupItem.content }}
                     <ArrowIcon
@@ -52,7 +52,7 @@
 
         <Transition>
             <VSidebarSelectUl
-                v-if="isOpen && (isCheck.checking || isOpenSidebar || isCheck.openMenu)"
+                v-if="isOpen && isValid"
                 :select="groupItem.select"
                 @calc-height="changeHeight"
                 @click.stop
@@ -65,8 +65,8 @@
 import ArrowIcon from '@/assets/icons/arrow.svg';
 import VSidebarSelectUl from '@/components/Sidebar/VSidebarSelectUl.vue';
 import { ISidebarLink } from '@/model/layout/Sidebar';
-import { isChecking } from '@/store';
-import { ref } from 'vue';
+import { useChecking } from '@/store/useCheck.ts';
+import { computed, ref } from 'vue';
 
 interface IPropsType {
     groupItem: ISidebarLink;
@@ -75,13 +75,17 @@ interface IPropsType {
     isOpenSidebar: boolean;
 }
 
-defineProps<IPropsType>();
+const props = defineProps<IPropsType>();
 const height = ref<number>(0);
-const isCheck = isChecking();
+const isCheck = useChecking();
 
 const changeHeight = (newHeight: number) => {
     height.value = newHeight + 4;
 };
+
+const isValid = computed<boolean>(() => {
+    return (isCheck.checking || props.isOpenSidebar || isCheck.openMenu);
+});
 </script>
 
 <style scoped lang="scss">
@@ -107,7 +111,7 @@ const changeHeight = (newHeight: number) => {
         display: flex;
         align-items: center;
 
-        color: var(--color-dark);
+        color: var(--color-text-dark);
     }
 }
 
@@ -145,7 +149,7 @@ const changeHeight = (newHeight: number) => {
 
 .aside-menu__item--link {
     display: block;
-    color: var(--color-dark);
+    color: var(--color-text-dark);
 
     .aside-menu__item--link_icon {
         text-wrap: nowrap;

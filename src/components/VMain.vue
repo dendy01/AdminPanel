@@ -12,37 +12,49 @@
 
 <script setup lang="ts">
 import VHeader from '@/components/Header/VHeader.vue';
-import { isChecking } from '@/store';
+import { useChecking } from '@/store/useCheck.ts';
 
-const isCheck = isChecking();
+const isCheck = useChecking();
 </script>
 
 <style scoped lang="scss">
 .main {
-    width: calc(100% - 260px);
-    margin-left: 260px;
-    background: var(--bg-primery);
+    width: calc(100% - $sidebar-width);
+    margin-left: $sidebar-width;
+    transition: width .3s ease;
+    background: var(--bg-primary);
 
     .container {
-        width: 100%;
-        max-width: 1440px;
+        width: $fullscrin-width;
+        max-width: $container-width;
         padding: 0 20px;
         margin: 0 auto;
-        position: relative;
+        position: $position-rel;
     }
 }
 
 .main-check {
-    width: 100%;
-    max-width: 1440px;
-    padding-left: 80px;
+    width: $fullscrin-width;
     margin: 0 auto;
-    background: var(--bg-primery);
+    padding-left: 80px;
+    background: var(--bg-primary);
 
     .container {
-        width: 100%;
+        width: $fullscrin-width;
+        max-width: $container-width;
         padding: 0 20px;
-        position: relative;
+        margin: 0 auto;
+        position: $position-rel;
+    }
+}
+
+@media (max-width: $response-sw) {
+
+    .main,
+    .main-check {
+        width: $fullscrin-width;
+        margin: 0;
+        padding-left: 0;
     }
 }
 </style>

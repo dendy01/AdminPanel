@@ -26,7 +26,7 @@
 <script setup lang="ts">
 import VSidebarLi from '@/components/Sidebar/VSidebarLi.vue';
 import { ISidebarGroup } from '@/model/layout/Sidebar';
-import { isChecking } from '@/store';
+import { useChecking } from '@/store/useCheck.ts';
 import { ref } from 'vue';
 
 interface IPropsType {
@@ -36,7 +36,7 @@ interface IPropsType {
 
 defineProps<IPropsType>();
 const currentId = ref<string | null>(null);
-const isCheck = isChecking();
+const isCheck = useChecking();
 
 
 const isId = (id: string) => {
@@ -83,7 +83,7 @@ const isOpen = (id: string) => {
         opacity: 0;
         position: relative;
         z-index: 20;
-        background: var(--bg-primery);
+        background: var(--bg-primary);
         transition: all .3s ease;
     }
 

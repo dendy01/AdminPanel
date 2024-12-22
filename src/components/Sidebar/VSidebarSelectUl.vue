@@ -74,7 +74,7 @@ onMounted(() => {
         align-items: center;
         flex-wrap: nowrap;
 
-        color: var(--color-dark);
+        color: var(--color-text-dark);
 
         &:hover {
             background: var(--color-gray-light);
@@ -87,10 +87,10 @@ onMounted(() => {
 
     .active {
         color: var(--color-white);
-        background: var(--color-purple);
+        background: var(--color-primary);
 
         &:hover {
-            background: var(--color-purple);
+            background: var(--color-primary);
         }
     }
 }

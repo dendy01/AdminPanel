@@ -1,17 +1,31 @@
-$response-sl: 567px;
-$response-sx: 767px;
-$response-sw: 1199px;
-
 :root {
     --color-white: #fff;
     --color-gray: #aba8b1;
     --color-gray-light: #2e263d0f;
+    --color-text-dark: #433c50;
 
-    --color-dark: #433c50;
+    --color-primary: #8c57ff;
+    --color-primary-light: #ede4ff;
 
-    --color-purple: #8c57ff;
+    --color-secondary: #8a8d93;
+    --color-secondary-light: #ecedee;
 
-    --bg-primery: #f4f5fa;
+    --color-success: #56ca00;
+    --color-success-light: #e4f7d6;
+
+    --color-danger: #ff4c51;
+    --color-danger-light: #ffe2e3;
+
+    --color-warning: #ffb400;
+    --color-warning-light: #fff3d6;
+
+    --color-info: #16b1ff;
+    --color-info-light: #daf3ff;
+
+    --color-dark: #4b4b4b;
+    --color-dark-light: #e2e2e2;
+
+    --bg-primary: #f4f5fa;
 
     --padding-menu-item: 8px 20px;
 }
@@ -24,9 +38,15 @@ $response-sw: 1199px;
     outline: none;
     text-decoration: none;
     list-style: none;
-    font-family: "Inter", -apple-system, BlinkMcSystemFont, "SegoeUI", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-family: "Apple-system";
+}
+
+@font-face {
+    font-family: "Apple-system";
+    src: url("../assets/fonts/Inter-VariableFont_opsz.ttf");
+    font-size: 16px;
 }
 
 body {
-    background: var(--bg-primery);
+    background: var(--bg-primary);
 }

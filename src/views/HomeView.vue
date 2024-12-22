@@ -3,7 +3,7 @@
         title="Materio"
         :li="sidebar"
     />
-    <VMain />
+    <v-main />
 </template>
 
 <script setup lang="ts">

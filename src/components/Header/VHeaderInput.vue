@@ -75,13 +75,13 @@ onUnmounted(() => {
         height: 100%;
         width: 100%;
         font-size: 16px;
-        color: var(--color-dark);
+        color: var(--color-text-dark);
 
         position: absolute;
         top: 0;
         left: 0;
 
-        background: var(--bg-primery);
+        background: var(--bg-primary);
     }
 
     .header-search__input::placeholder {

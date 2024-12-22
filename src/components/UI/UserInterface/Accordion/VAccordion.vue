@@ -18,7 +18,8 @@
                             :class="{ active: isActive }"
                             @click="isActive = !isActive"
                         >
-                            Accordion Item 1 <Arrow />
+                            Accordion Item 1
+                            <arrow />
                         </p>
                         <div
                             class="wrapper-accordion__col--content"
@@ -106,7 +107,7 @@ const isActive = ref<boolean>(false);
         font-size: 18px;
         font-weight: 500;
         margin-bottom: 20px;
-        color: var(--color-dark);
+        color: var(--color-text-dark);
     }
 
     .small-text {

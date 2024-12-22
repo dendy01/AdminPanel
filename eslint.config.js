@@ -38,7 +38,9 @@ export default [
                 ['script-setup', 'composition']
             ],
             'vue/html-comment-content-spacing': ['error', 'always'],
-            'vue/html-indent': ['error', 4],
+            'vue/max-attributes-per-line': ['error', {
+                'singleline': 1, 'multiline': 1 
+            }],
             'indent': ['error', 4],
             'no-tabs': 'off',
             'semi': ['error', 'always'],
@@ -60,7 +62,18 @@ export default [
                 'ObjectPattern': {
                     'multiline': true, 'minProperties': 1 
                 }
-            }]
+            }],
+            'vue/html-indent': [
+                'error',
+                4,
+                {
+                    attribute: 1,
+                    baseIndent: 1,
+                    closeBracket: 0,
+                    alignAttributesVertically: true,
+                    ignores: []
+                }
+            ]
         }
     }
 ];

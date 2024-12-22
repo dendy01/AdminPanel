@@ -59,13 +59,13 @@ import Menu from '@/assets/icons/icons-header/menu.svg';
 import Search from '@/assets/icons/icons-header/search.svg';
 import VHeaderInput from '@/components/Header/VHeaderInput.vue';
 import { IHeaderGroup } from '@/model/layout/Header';
-import { isChecking } from '@/store';
+import { useChecking } from '@/store/useCheck.ts';
 import { inject, onMounted, onUnmounted, ref } from 'vue';
 
 const props = inject<IHeaderGroup[]>('header');
 const isActive = ref<boolean>(false);
 const isScrolling = ref<boolean>(false);
-const isOpen = isChecking();
+const isOpen = useChecking();
 
 const changeActive = (active: boolean) => {
     isActive.value = active;
@@ -91,7 +91,7 @@ onUnmounted(() => {
 <style scoped lang="scss">
 .header {
     width: 100%;
-    color: var(--color-dark);
+    color: var(--color-text-dark);
     background: var(--bg-primery);
     position: sticky;
     top: 0;
@@ -99,12 +99,6 @@ onUnmounted(() => {
 
     .header-search__wrapper {
         display: flex;
-
-        .header-search__menu {
-            margin-right: 12px;
-            display: none;
-            cursor: pointer;
-        }
 
         .header-search {
             display: flex;
@@ -148,10 +142,22 @@ onUnmounted(() => {
     }
 }
 
+.header-search__menu {
+    margin-right: 12px;
+    display: none;
+    cursor: pointer;
+}
+
 .header-observer {
     opacity: .9;
     padding: 0 16px;
     background: var(--color-white);
     border-radius: 0 0 8px 8px;
+}
+
+@media (max-width: $response-sw) {
+    .header-search__menu {
+        display: block;
+    }
 }
 </style>

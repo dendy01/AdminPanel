@@ -1,7 +1,10 @@
 <template>
     <aside
         class="aside"
-        :class="{ 'aside-active': isCheck.checking, 'open-menu': isCheck.openMenu }"
+        :class="{
+            'aside-active': isCheck.checking,
+            'open-menu': isCheck.openMenu
+        }"
         @mouseenter="isOpenSidebar = true"
         @mouseleave="isOpenSidebar = false"
     >
@@ -18,6 +21,7 @@
                 type="checkbox"
                 class="aside-head__input"
                 @change="isCheck.checking = !isCheck.checking"
+                v-model="inputChecked"
             >
             <span
                 v-else
@@ -42,8 +46,8 @@ import Close from '@/assets/icons/icons-header/close.svg';
 import LogoIcon from '@/assets/icons/logo.svg';
 import VSidebarUl from '@/components/Sidebar/VSidebarUl.vue';
 import { ISidebarGroup } from '@/model/layout/Sidebar';
-import { isChecking } from '@/store';
-import { ref } from 'vue';
+import { useChecking } from '@/store/useCheck.ts';
+import { onMounted, onUnmounted, ref } from 'vue';
 
 interface IPropsType {
     title?: string,
@@ -52,8 +56,26 @@ interface IPropsType {
 
 defineProps<IPropsType>();
 
-const isCheck = isChecking();
+const isCheck = useChecking();
 const isOpenSidebar = ref<boolean>(false);
+const inputChecked = ref<boolean>(false);
+
+const resizeDisplay = () => {
+    if (window.innerWidth > isCheck.responseSw) {
+        isCheck.openMenu = false;
+    } else {
+        isCheck.checking = false;
+        inputChecked.value = false;
+    }
+};
+
+onMounted(() => {
+    window.addEventListener('resize', resizeDisplay);
+});
+
+onUnmounted(() => {
+    window.removeEventListener('resize', resizeDisplay);
+});
 </script>
 
 
@@ -70,11 +92,11 @@ const isOpenSidebar = ref<boolean>(false);
     z-index: 1000;
     transition: all .3s ease;
 
-    color: var(--color-dark);
-    background: var(--bg-primery);
+    color: var(--color-text-dark);
+    background: var(--bg-primary);
 
     &:hover {
-        width: 260px;
+        width: $sidebar-width;
         padding-right: 4px;
         box-shadow: 0 0 5px;
 
@@ -95,26 +117,11 @@ const isOpenSidebar = ref<boolean>(false);
 }
 
 .aside-active {
-    width: 260px;
+    width: $sidebar-width;
 
     &:hover {
         padding-right: 0;
         box-shadow: none;
-    }
-
-    .aside-title,
-    .aside-head__input {
-        display: block;
-    }
-}
-
-.open-menu {
-    width: 260px;
-    transform: translateX(0px);
-    box-shadow: 0 0 5px;
-
-    &:hover {
-        padding-right: 0;
     }
 
     .aside-title,
@@ -134,7 +141,7 @@ const isOpenSidebar = ref<boolean>(false);
 
     .aside-head__logo {
         display: flex;
-        color: var(--color-purple);
+        color: var(--color-primary);
 
         .aside-title {
             font-size: 20px;
@@ -143,7 +150,7 @@ const isOpenSidebar = ref<boolean>(false);
 
             margin-left: 12px;
 
-            color: var(--color-dark);
+            color: var(--color-text-dark);
         }
     }
 }
@@ -160,6 +167,31 @@ const isOpenSidebar = ref<boolean>(false);
     &:hover::-webkit-scrollbar-thumb {
         background: var(--color-gray);
         transition: all .3s ease;
+    }
+}
+
+@media (max-width: $response-sw) {
+    .aside {
+        transform: translateX(-$sidebar-width);
+    }
+
+    .aside-active {
+        transform: translateX(-$sidebar-width);
+    }
+
+    .open-menu {
+        width: $sidebar-width;
+        transform: translateX(0px);
+        box-shadow: 0 0 5px;
+
+        &:hover {
+            padding-right: 0;
+        }
+
+        .aside-title,
+        .aside-head__input {
+            display: block;
+        }
     }
 }
 </style>
