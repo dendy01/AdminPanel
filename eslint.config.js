@@ -50,6 +50,7 @@ export default [
             'object-curly-spacing': ['error', 'always'],
             'array-bracket-spacing': ['error', 'never'],
             'no-unused-vars': 'off',
+            '@typescript-eslint/no-explicit-any': 'off',
             'object-curly-newline': ['error', {
                 'ImportDeclaration': 'never',
                 'ExportDeclaration': 'never',

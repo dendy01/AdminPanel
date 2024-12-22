@@ -8,7 +8,7 @@
             v-if="link.title"
             class="aside-menu__title"
         >
-            <span :class="{ open: isCheck || isOpenSidebar }">{{ link.title }}</span>
+            <span :class="{ open: isCheck.checking || isOpenSidebar || isCheck.openMenu }">{{ link.title }}</span>
         </span>
 
         <VSidebarLi
@@ -16,7 +16,6 @@
             :group-item="groupItem"
             :key="groupItem.id"
             :id="groupItem.id"
-            :is-check="isCheck"
             :is-open-sidebar="isOpenSidebar"
             :is-open="isOpen(groupItem.id)"
             @click="isId(groupItem.id)"
@@ -27,16 +26,18 @@
 <script setup lang="ts">
 import VSidebarLi from '@/components/Sidebar/VSidebarLi.vue';
 import { ISidebarGroup } from '@/model/layout/Sidebar';
+import { isChecking } from '@/store';
 import { ref } from 'vue';
 
 interface IPropsType {
     li?: ISidebarGroup[];
-    isCheck: boolean;
     isOpenSidebar: boolean;
 }
 
 defineProps<IPropsType>();
 const currentId = ref<string | null>(null);
+const isCheck = isChecking();
+
 
 const isId = (id: string) => {
     currentId.value = currentId.value === id ? null : id;

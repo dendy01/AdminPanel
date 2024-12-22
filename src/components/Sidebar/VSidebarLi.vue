@@ -4,7 +4,7 @@
             active: isOpen,
             'aside-menu__item': groupItem.select
         }"
-        :style="{ 'margin-bottom': (isOpen && (isCheck || isOpenSidebar) ? height : 0) + 'px' }"
+        :style="{ 'margin-bottom': (isOpen && (isCheck.checking || isOpenSidebar || isCheck.openMenu) ? height : 0) + 'px' }"
     >
         <span v-if="groupItem.select">
             <span>
@@ -15,7 +15,7 @@
             </span>
             <span
                 class="aside-menu__item--icon"
-                :class="{ open: isCheck || isOpenSidebar }"
+                :class="{ open: isCheck.checking || isOpenSidebar || isCheck.openMenu }"
             >
                 {{ groupItem.content }}
                 <ArrowIcon
@@ -39,7 +39,7 @@
                 </span>
                 <span
                     class="aside-menu__item--link_icon"
-                    :class="{ open: isCheck || isOpenSidebar }"
+                    :class="{ open: isCheck.checking || isOpenSidebar || isCheck.openMenu }"
                 >
                     {{ groupItem.content }}
                     <ArrowIcon
@@ -52,7 +52,7 @@
 
         <Transition>
             <VSidebarSelectUl
-                v-if="isOpen && (isCheck || isOpenSidebar)"
+                v-if="isOpen && (isCheck.checking || isOpenSidebar || isCheck.openMenu)"
                 :select="groupItem.select"
                 @calc-height="changeHeight"
                 @click.stop
@@ -65,18 +65,19 @@
 import ArrowIcon from '@/assets/icons/arrow.svg';
 import VSidebarSelectUl from '@/components/Sidebar/VSidebarSelectUl.vue';
 import { ISidebarLink } from '@/model/layout/Sidebar';
+import { isChecking } from '@/store';
 import { ref } from 'vue';
 
 interface IPropsType {
     groupItem: ISidebarLink;
     isOpen: boolean;
     id: string;
-    isCheck: boolean;
     isOpenSidebar: boolean;
 }
 
 defineProps<IPropsType>();
 const height = ref<number>(0);
+const isCheck = isChecking();
 
 const changeHeight = (newHeight: number) => {
     height.value = newHeight + 4;
@@ -90,6 +91,9 @@ const changeHeight = (newHeight: number) => {
     margin-right: 20px;
     padding: var(--padding-menu-item);
     border-radius: 0 50px 50px 0;
+
+    display: flex;
+    align-items: center;
 
     &:hover {
         background: var(--color-gray-light);

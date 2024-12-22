@@ -1,7 +1,7 @@
 <template>
     <aside
         class="aside"
-        :class="{ 'aside-active': isCheck }"
+        :class="{ 'aside-active': isCheck.checking, 'open-menu': isCheck.openMenu }"
         @mouseenter="isOpenSidebar = true"
         @mouseleave="isOpenSidebar = false"
     >
@@ -14,15 +14,22 @@
             </RouterLink>
 
             <input
+                v-if="!isCheck.openMenu"
                 type="checkbox"
                 class="aside-head__input"
-                @change="isCheck = !isCheck"
+                @change="isCheck.checking = !isCheck.checking"
             >
+            <span
+                v-else
+                class="aside-head__close"
+                @click="isCheck.openMenu = !isCheck.openMenu"
+            >
+                <Close />
+            </span>
         </div>
 
         <div class="aside-body">
             <VSidebarUl
-                :is-check="isCheck"
                 :is-open-sidebar="isOpenSidebar"
                 :li="li"
             />
@@ -31,9 +38,11 @@
 </template>
 
 <script setup lang="ts">
+import Close from '@/assets/icons/icons-header/close.svg';
 import LogoIcon from '@/assets/icons/logo.svg';
 import VSidebarUl from '@/components/Sidebar/VSidebarUl.vue';
 import { ISidebarGroup } from '@/model/layout/Sidebar';
+import { isChecking } from '@/store';
 import { ref } from 'vue';
 
 interface IPropsType {
@@ -43,7 +52,7 @@ interface IPropsType {
 
 defineProps<IPropsType>();
 
-const isCheck = ref<boolean>(false);
+const isCheck = isChecking();
 const isOpenSidebar = ref<boolean>(false);
 </script>
 
@@ -75,6 +84,10 @@ const isOpenSidebar = ref<boolean>(false);
         }
     }
 
+    .aside-head__close {
+        cursor: pointer;
+    }
+
     .aside-title,
     .aside-head__input {
         display: none;
@@ -87,6 +100,21 @@ const isOpenSidebar = ref<boolean>(false);
     &:hover {
         padding-right: 0;
         box-shadow: none;
+    }
+
+    .aside-title,
+    .aside-head__input {
+        display: block;
+    }
+}
+
+.open-menu {
+    width: 260px;
+    transform: translateX(0px);
+    box-shadow: 0 0 5px;
+
+    &:hover {
+        padding-right: 0;
     }
 
     .aside-title,
@@ -134,6 +162,4 @@ const isOpenSidebar = ref<boolean>(false);
         transition: all .3s ease;
     }
 }
-
-@media (max-width: 920px) {}
 </style>

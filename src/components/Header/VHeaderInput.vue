@@ -1,10 +1,12 @@
 <template>
     <label
+        ref="refLabel"
         class="header-search__wrap"
         :style="{ display: isActive ? 'block' : 'none' }"
     >
         <input
             type="text"
+            :class="{ 'header-observer': isScrolling }"
             class="header-search__input"
             placeholder="Search..."
             ref="inputSearch"
@@ -18,10 +20,11 @@
 
 <script setup lang="ts">
 import Close from '@/assets/icons/icons-header/close.svg';
-import { onMounted, useTemplateRef } from 'vue';
+import { onMounted, onUnmounted, ref, useTemplateRef } from 'vue';
 
 interface IPropsType {
     isActive: boolean;
+    isScrolling: boolean;
 }
 
 interface IEmitsType {
@@ -31,15 +34,31 @@ interface IEmitsType {
 defineProps<IPropsType>();
 const emit = defineEmits<IEmitsType>();
 const inputSearch = useTemplateRef('inputSearch');
+const refLabel = ref<HTMLElement | null>(null);
+const labelIs = ref<boolean>(false);
 
 const setActive = () => {
     emit('changeActive', false);
+};
+
+const isLabel = (event: any) => {
+    if (labelIs.value && !refLabel.value?.contains(event.target)) {
+        emit('changeActive', false);
+    } else {
+        labelIs.value = true;
+    }
 };
 
 onMounted(() => {
     if (inputSearch.value) {
         inputSearch.value.focus();
     }
+
+    document.addEventListener('click', isLabel);
+});
+
+onUnmounted(() => {
+    document.removeEventListener('click', isLabel);
 });
 </script>
 
@@ -74,6 +93,19 @@ onMounted(() => {
         top: 50%;
         right: 0;
         transform: translateY(-50%);
+
+        cursor: pointer;
+    }
+}
+
+.header-observer {
+    opacity: .9;
+    padding: 0 16px;
+    border-radius: 0 0 8px 8px;
+    background: var(--color-white) !important;
+
+    .header-search__close {
+        right: 16px;
     }
 }
 </style>
