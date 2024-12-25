@@ -13,9 +13,9 @@ const routes = [
                 component: () => import('@/components/VLayout.vue')
             },
             {
-                name: 'Accordion',
-                path: `${BASE_URL}/accordion`,
-                component: () => import('@/components/UI/UserInterface/Accordion/VAccordion.vue')
+                name: 'Button',
+                path: `${BASE_URL}/button`,
+                component: () => import('@/components/Main/Buttons/VButtons.vue')
             }
         ]
     },

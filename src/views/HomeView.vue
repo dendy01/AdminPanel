@@ -44,7 +44,7 @@ import Notification from '@/assets/icons/icons-header/notification.svg';
 import Star from '@/assets/icons/icons-header/star.svg';
 import Sun from '@/assets/icons/icons-header/sun.svg';
 import Translate from '@/assets/icons/icons-header/translate.svg';
-import VMain from '@/components/VMain.vue';
+import VMain from '@/components/Main/VMain.vue';
 import { IHeaderGroup } from '@/model/layout/Header';
 
 const header = shallowRef<IHeaderGroup[]>([
@@ -514,8 +514,7 @@ const sidebar = shallowRef<ISidebarGroup[]>([
                 select: [
                     {
                         id: useId(),
-                        content: 'Accordion',
-                        link: 'accordion'
+                        content: 'Accordion'
                     },
                     {
                         id: useId(),
@@ -527,7 +526,8 @@ const sidebar = shallowRef<ISidebarGroup[]>([
                     },
                     {
                         id: useId(),
-                        content: 'Buttons'
+                        content: 'Buttons',
+                        link: 'button'
                     },
                     {
                         id: useId(),

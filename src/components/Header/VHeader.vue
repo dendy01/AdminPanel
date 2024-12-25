@@ -149,10 +149,11 @@ onUnmounted(() => {
 }
 
 .header-observer {
-    opacity: .9;
+    opacity: .96;
     padding: 0 16px;
     background: var(--color-white);
     border-radius: 0 0 8px 8px;
+    box-shadow: 0 2px 4px var(--color-gray);
 }
 
 @media (max-width: $response-sw) {
