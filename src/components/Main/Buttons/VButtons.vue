@@ -3,21 +3,23 @@
         <VBasicDefaultButtons :text="'Basic Buttons'" />
         <VBasicDefaultButtons
             :text="'Label(Tonal) Buttons'"
-            :label="'label'"
+            label
         />
         <VBasicDefaultButtons
             :text="'Outline Buttons'"
-            :outline="'outline'"
+            outline
         />
         <VBasicDefaultButtons
             :text="'Text Buttons'"
-            :btn-text="'btn-text'"
+            btn-text
         />
         <VButtonsIcons :text="'Buttons with Icons'" />
+        <VButtonsAction :text="'Floating Action Buttons'" />
     </div>
 </template>
 
 <script setup lang="ts">
 import VBasicDefaultButtons from './VBasicDefaultButtons.vue';
+import VButtonsAction from './VButtonsAction.vue';
 import VButtonsIcons from './VButtonsIcons.vue';
 </script>

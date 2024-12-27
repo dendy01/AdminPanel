@@ -5,26 +5,21 @@
         </h5>
         <div class="basic-buttons__wrap--buttons">
             <div class="basic-buttons__wrap--col">
-                <VButtonsSubIcons :text="'Basic'" />
-                <VButtonsSubIcons
-                    :text="'Label(Tonal)'"
-                    label
-                />
-                <VButtonsSubIcons
-                    :text="'Outline'"
-                    outline
-                />
-            </div>
-            <hr class="line">
-            <div class="basic-buttons__wrap--col">
                 <VButtonsOnliIcons :text="'Basic'" />
                 <VButtonsOnliIcons
                     :text="'Label(Tonal)'"
                     label
                 />
-                <VButtonsOnliIcons
-                    :text="'Outline'"
-                    outline
+            </div>
+            <hr class="line">
+            <div class="basic-buttons__wrap--col">
+                <VButtonsSubIcons
+                    icon
+                    :text="'Extended Basic'"
+                />
+                <VButtonsSubIcons
+                    :text="'Extended Label'"
+                    label
                 />
             </div>
         </div>
@@ -58,6 +53,12 @@ defineProps<IPropsType>();
         color: var(--color-text-dark);
     }
 
+    .slogan {
+        font-weight: 500;
+        text-transform: capitalize;
+        color: var(--color-gray);
+    }
+
     .line {
         width: 100%;
         height: 1px;
@@ -66,6 +67,16 @@ defineProps<IPropsType>();
 
     .basic-buttons__wrap--col {
         display: flex;
+
+        .basic-buttons__wrap--row {
+            width: 50%;
+            padding: 20px;
+            border-right: 1px solid var(--color-gray-light);
+
+            &:last-of-type {
+                border-right: none;
+            }
+        }
     }
 }
 </style>

@@ -3,7 +3,7 @@
         title="Materio"
         :li="sidebar"
     />
-    <v-main />
+    <VMain />
 </template>
 
 <script setup lang="ts">
@@ -44,8 +44,9 @@ import Notification from '@/assets/icons/icons-header/notification.svg';
 import Star from '@/assets/icons/icons-header/star.svg';
 import Sun from '@/assets/icons/icons-header/sun.svg';
 import Translate from '@/assets/icons/icons-header/translate.svg';
-import VMain from '@/components/Main/VMain.vue';
+import VMain from '@/views/VMain.vue';
 import { IHeaderGroup } from '@/model/layout/Header';
+import { Routes } from '@/routes/modelRoutes.ts';
 
 const header = shallowRef<IHeaderGroup[]>([
     {
@@ -527,7 +528,7 @@ const sidebar = shallowRef<ISidebarGroup[]>([
                     {
                         id: useId(),
                         content: 'Buttons',
-                        link: 'button'
+                        link: Routes.Buttons
                     },
                     {
                         id: useId(),

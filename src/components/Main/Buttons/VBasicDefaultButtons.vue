@@ -7,18 +7,22 @@
             <small
                 v-if="!btnText"
                 class="slogan"
-            >Default</small>
+            >
+                Default
+            </small>
             <div>
                 <Button
-                    v-for="btn in btnPrimary"
-                    :key="btn.id"
-                    :btn-type="btn.btnType"
-                    :btn-size="btn.btnSize"
-                    :label="label"
-                    :outline="outline"
+                    v-for="variant in Object.values(GlobalColors)"
+                    :key="`${variant}_${Math.random}`"
+                    :btn-type="variant"
+                    :btn-size="ButtonSizes.MEDIUM"
                     :btn-text="btnText"
+                    :outline="outline"
+                    :label="label"
                 >
-                    {{ btn.content }}
+                    <span class="btn-text-capit">
+                        {{ variant }}
+                    </span>
                 </Button>
             </div>
         </div>
@@ -30,15 +34,17 @@
             <small class="slogan">Rounded</small>
             <div>
                 <Button
-                    v-for="btn in btnPrimary"
-                    :key="btn.id"
-                    :btn-type="btn.btnType"
-                    :btn-size="btn.btnSize"
-                    :round="'round'"
-                    :label="label"
+                    v-for="variant in Object.values(GlobalColors)"
+                    :key="`${variant}_${Math.random}`"
+                    :btn-type="variant"
+                    :btn-size="ButtonSizes.MEDIUM"
+                    round
                     :outline="outline"
+                    :label="label"
                 >
-                    {{ btn.content }}
+                    <span class="btn-text-capit">
+                        {{ variant }}
+                    </span>
                 </Button>
             </div>
         </div>
@@ -46,68 +52,16 @@
 </template>
 
 <script setup lang="ts">
-import Button from '@/components/UI/UserInterface/VButton.vue';
-import { ref, useId } from 'vue';
-
-interface BtnPrimary {
-    id: string;
-    btnType: string;
-    btnSize: string;
-    content: string;
-    round?: string;
-}
+import Button from '@/components/UI/basic/VButton.vue';
+import { ButtonSizes } from '@/model/UI/basic/Button';
+import { GlobalColors } from '@/store/useColors.ts';
 
 interface IPropsType {
     text: string;
-    label?: string;
-    outline?: string;
-    btnText?: string;
+    label?: boolean;
+    outline?: boolean;
+    btnText?: boolean;
 }
-
-const btnPrimary = ref<BtnPrimary[]>([
-    {
-        id: useId(),
-        btnType: 'btn-primary',
-        btnSize: 'medium',
-        content: 'Primary'
-    },
-    {
-        id: useId(),
-        btnType: 'btn-secondary',
-        btnSize: 'medium',
-        content: 'Secondary'
-    },
-    {
-        id: useId(),
-        btnType: 'btn-success',
-        btnSize: 'medium',
-        content: 'Success'
-    },
-    {
-        id: useId(),
-        btnType: 'btn-danger',
-        btnSize: 'medium',
-        content: 'Danger'
-    },
-    {
-        id: useId(),
-        btnType: 'btn-warning',
-        btnSize: 'medium',
-        content: 'Warning'
-    },
-    {
-        id: useId(),
-        btnType: 'btn-info',
-        btnSize: 'medium',
-        content: 'Info'
-    },
-    {
-        id: useId(),
-        btnType: 'btn-dark',
-        btnSize: 'medium',
-        content: 'Dark'
-    }
-]);
 
 defineProps<IPropsType>();
 </script>
@@ -118,6 +72,10 @@ defineProps<IPropsType>();
     border-radius: 6px;
     box-shadow: 0 2px 8px var(--color-gray);
     background: var(--color-white);
+
+    .btn-text-capit {
+        text-transform: capitalize;
+    }
 
     .title {
         font-size: 18px;

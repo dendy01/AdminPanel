@@ -141,7 +141,7 @@ onUnmounted(() => {
 
     .aside-head__logo {
         display: flex;
-        color: var(--color-primary);
+        color: var(--color-primary-700);
 
         .aside-title {
             font-size: 20px;

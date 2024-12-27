@@ -17,14 +17,6 @@ export interface ISidebarGroup {
     group: ISidebarLink[];
 }
 
-// export interface ISidebarSubject {
-//     links: ISidebarGroup[],
-// }
-
-
-
-// export type ISidebarTree = any;
-
 
 // SOLID & MVVM
 

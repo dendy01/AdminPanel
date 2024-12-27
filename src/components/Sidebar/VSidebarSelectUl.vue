@@ -87,10 +87,10 @@ onMounted(() => {
 
     .active {
         color: var(--color-white);
-        background: var(--color-primary);
+        background: var(--color-primary-700);
 
         &:hover {
-            background: var(--color-primary);
+            background: var(--color-primary-600);
         }
     }
 }
