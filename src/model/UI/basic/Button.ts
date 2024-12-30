@@ -1,7 +1,15 @@
 export enum ButtonSizes {
-    SMALL = 'small',
+    XL = 'xl',
+    LG = 'lg',
     MEDIUM = 'medium',
-    LARGE = 'large',
+    SM = 'sm',
+    XS = 'xs'
+}
+
+export enum ButtonState {
+    NORMAL = 'normal',
+    ACTIVE = 'active',
+    DISABLED = 'disabled'
 }
 
 export enum ButtonTypesIcons {

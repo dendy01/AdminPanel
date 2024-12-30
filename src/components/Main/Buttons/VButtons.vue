@@ -15,6 +15,7 @@
         />
         <VButtonsIcons :text="'Buttons with Icons'" />
         <VButtonsAction :text="'Floating Action Buttons'" />
+        <VButtonsOptions :text="'Button Options'" />
     </div>
 </template>
 
@@ -22,4 +23,11 @@
 import VBasicDefaultButtons from './VBasicDefaultButtons.vue';
 import VButtonsAction from './VButtonsAction.vue';
 import VButtonsIcons from './VButtonsIcons.vue';
+import VButtonsOptions from '@/components/Main/Buttons/VButtonsOptions.vue';
 </script>
+
+<style scoped>
+.buttons__wrap:last-child {
+    margin-bottom: 20px;
+}
+</style>

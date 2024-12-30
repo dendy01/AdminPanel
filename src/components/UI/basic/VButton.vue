@@ -4,6 +4,7 @@
             'btn',
             `btn-${ btnType }`,
             btnSize,
+            btnState,
             round && 'round',
             label && 'label',
             outline && 'outline',
@@ -20,13 +21,14 @@
 </template>
 
 <script setup lang="ts">
-import { ButtonSizes, ButtonTypesIcons } from '@/model/UI/basic/Button';
+import { ButtonSizes, ButtonState, ButtonTypesIcons } from '@/model/UI/basic/Button';
 import { GlobalColors, useColors } from '@/store/useColors';
 import { computed } from 'vue';
 
 interface IPropsType {
     btnType: GlobalColors | ButtonTypesIcons;
-    btnSize: ButtonSizes;
+    btnSize?: ButtonSizes;
+    btnState?: ButtonState;
     round?: boolean;
     label?: boolean;
     outline?: boolean;
@@ -57,6 +59,8 @@ const buttonOutherColor = computed(() => colors.color[props.btnType]['300']);
 
 
     margin: 16px 6px 0 0;
+    padding: 8px 18px;
+    font-size: 16px;
     border-radius: 6px;
     cursor: pointer;
 
@@ -81,9 +85,40 @@ const buttonOutherColor = computed(() => colors.color[props.btnType]['300']);
         margin-right: 0;
     }
 
-    &.medium {
-        padding: 8px 18px;
-        font-size: 16px;
+    &.xl {
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-size: 20px;
+    }
+
+    &.lg {
+        padding: 10px 20px;
+        border-radius: 6px;
+        font-size: 18px;
+    }
+
+    &.sm {
+        padding: 8px 12px;
+        border-radius: 4px;
+        font-size: 14px;
+    }
+
+    &.xs {
+        padding: 6px 10px;
+        border-radius: 2px;
+        font-size: 12px;
+    }
+
+    &.active {
+        background-color: var(--btn-hover-color);
+    }
+
+    &.disabled {
+        opacity: .6;
+
+        &:hover {
+            background-color: var(--btn-color);
+        }
     }
 
     &.round {
