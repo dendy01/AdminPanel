@@ -5,26 +5,31 @@ const BASE_URL = '/AdminPanel';
 
 const routes = [
     {
-        name: 'Home',
+        name: Routes.HOME,
         path: `${BASE_URL}/`,
-        component: () => import('@/views/VHome.vue'),
+        component: () => import('@/views/HomePage.vue'),
         children: [
             {
-                name: 'Layout',
-                path: `${BASE_URL}/${Routes.Layout}`,
+                name: Routes.LAYOUT,
+                path: `${BASE_URL}/${Routes.LAYOUT}`,
                 component: () => import('@/components/VLayout.vue')
             },
             {
-                name: 'Button',
-                path: `${BASE_URL}/${Routes.Buttons}`,
+                name: Routes.BUTTONS,
+                path: `${BASE_URL}/${Routes.BUTTONS}`,
                 component: () => import('@/components/Main/Buttons/VButtons.vue')
+            },
+            {
+                name: Routes.ALERTS,
+                path: `${BASE_URL}/${Routes.ALERTS}`,
+                component: () => import('@/components/Main/Alerts/VAlerts.vue')
             }
         ]
     },
     {
         name: 'Login',
         path: `${BASE_URL}/login`,
-        component: () => import('@/views/VLogin.vue')
+        component: () => import('@/views/LoginPage.vue')
     }
 ];
 

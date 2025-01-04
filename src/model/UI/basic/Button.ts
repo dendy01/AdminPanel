@@ -11,8 +11,3 @@ export enum ButtonState {
     ACTIVE = 'active',
     DISABLED = 'disabled'
 }
-
-export enum ButtonTypesIcons {
-    PRIMARY = 'primary',
-    SECONDARY = 'secondary'
-}

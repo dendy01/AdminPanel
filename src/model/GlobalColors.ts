@@ -1,4 +1,3 @@
-import { defineStore } from 'pinia';
 import { ref } from 'vue';
 
 export enum GlobalColors {
@@ -13,7 +12,7 @@ export enum GlobalColors {
 
 const tonality: string[] = ['700', '600', '500', '400', '300'];
 
-export const useColors = defineStore('colors', () => {
+export const getColors = () => {
     const color = ref<any>({});
     const root: any = document.querySelector(':root');
     const style: any = getComputedStyle(root);
@@ -25,7 +24,5 @@ export const useColors = defineStore('colors', () => {
         }, {});
     });
 
-    return {
-        color
-    };
-});
+    return color.value;
+};

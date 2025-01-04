@@ -3,9 +3,13 @@
         <small class="slogan">{{ text }}</small>
         <div class="row">
             <Button
-                v-for="variant in Object.values(ButtonTypesIcons)"
-                :key="`${variant}_${Math.random}`"
-                :btn-type="variant"
+                :btn-type="GlobalColors.PRIMARY"
+                :btn-size="ButtonSizes.LG"
+            >
+                <span>Button</span>
+            </Button>
+            <Button
+                :btn-type="GlobalColors.SECONDARY"
                 :btn-size="ButtonSizes.LG"
             >
                 <span>Button</span>
@@ -16,7 +20,8 @@
 
 <script setup lang="ts">
 import Button from '@/components/UI/basic/VButton.vue';
-import { ButtonSizes, ButtonTypesIcons } from '@/model/UI/basic/Button';
+import { ButtonSizes } from '@/model/UI/basic/Button';
+import { GlobalColors } from '@/model/GlobalColors.ts';
 
 interface IPropsType {
     text: string;

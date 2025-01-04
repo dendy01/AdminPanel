@@ -94,6 +94,7 @@ onUnmounted(() => {
     color: var(--color-text-dark);
     background: var(--bg-primery);
     position: sticky;
+    z-index: 1000;
     top: 0;
     left: 0;
 

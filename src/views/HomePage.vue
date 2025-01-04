@@ -44,7 +44,7 @@ import Notification from '@/assets/icons/icons-header/notification.svg';
 import Star from '@/assets/icons/icons-header/star.svg';
 import Sun from '@/assets/icons/icons-header/sun.svg';
 import Translate from '@/assets/icons/icons-header/translate.svg';
-import VMain from '@/views/VMain.vue';
+import VMain from '@/views/MainPage.vue';
 import { IHeaderGroup } from '@/model/layout/Header';
 import { Routes } from '@/routes/modelRoutes.ts';
 
@@ -519,7 +519,8 @@ const sidebar = shallowRef<ISidebarGroup[]>([
                     },
                     {
                         id: useId(),
-                        content: 'Alerts'
+                        content: 'Alerts',
+                        link: Routes.ALERTS
                     },
                     {
                         id: useId(),
@@ -528,7 +529,7 @@ const sidebar = shallowRef<ISidebarGroup[]>([
                     {
                         id: useId(),
                         content: 'Buttons',
-                        link: Routes.Buttons
+                        link: Routes.BUTTONS
                     },
                     {
                         id: useId(),

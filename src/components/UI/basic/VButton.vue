@@ -11,22 +11,29 @@
             btnText && 'btn-text',
             isIcon && 'is-btn__icon'
         ]"
+        @click="handleActive"
+        ref="buttons"
     >
         <component
             class="btn-icon"
             :is="icon"
         />
         <slot />
+        <span
+            class="wave"
+            v-if="showWave"
+            :style="waveStyle"
+        />
     </button>
 </template>
 
 <script setup lang="ts">
-import { ButtonSizes, ButtonState, ButtonTypesIcons } from '@/model/UI/basic/Button';
-import { GlobalColors, useColors } from '@/store/useColors';
-import { computed } from 'vue';
+import { ButtonSizes, ButtonState } from '@/model/UI/basic/Button';
+import { GlobalColors, getColors } from '@/model/GlobalColors.ts';
+import { ref, computed, useTemplateRef } from 'vue';
 
 interface IPropsType {
-    btnType: GlobalColors | ButtonTypesIcons;
+    btnType: GlobalColors;
     btnSize?: ButtonSizes;
     btnState?: ButtonState;
     round?: boolean;
@@ -38,15 +45,40 @@ interface IPropsType {
 }
 
 const props = defineProps<IPropsType>();
-const colors = useColors();
+const colors = getColors();
+const btn = useTemplateRef('buttons');
+const showWave = ref(false);
+const waveStyle = ref({});
 
-const buttonColor = computed(() => colors.color[props.btnType]['700']);
-const buttonHoverColor = computed(() => colors.color[props.btnType]['600']);
+const buttonColor = computed(() => colors[props.btnType]['700']);
+const buttonHoverColor = computed(() => colors[props.btnType]['600']);
 
-const buttonLabelColor = computed(() => colors.color[props.btnType]['400']);
-const buttonLabelHoverColor = computed(() => colors.color[props.btnType]['500']);
+const buttonLabelColor = computed(() => colors[props.btnType]['400']);
+const buttonLabelHoverColor = computed(() => colors[props.btnType]['500']);
 
-const buttonOutherColor = computed(() => colors.color[props.btnType]['300']);
+const buttonOutherColor = computed(() => colors[props.btnType]['300']);
+
+const handleActive = (event: MouseEvent) => {
+    if (btn.value) {
+        const rect = btn.value.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = event.clientX - rect.left - size / 2;
+        const y = event.clientY - rect.top - size / 2;
+
+        waveStyle.value = {
+            top: `${y}px`,
+            left: `${x}px`,
+            width: `${size}px`,
+            height: `${size}px`
+        };
+
+        showWave.value = true;
+
+        setTimeout(() => {
+            showWave.value = false;
+        }, 200);
+    }
+};
 </script>
 
 <style scoped lang="scss">
@@ -67,9 +99,12 @@ const buttonOutherColor = computed(() => colors.color[props.btnType]['300']);
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    overflow: hidden;
+    user-select: none;
 
     transition: background-color .2s ease,
-        color 0.2s ease;
+    color 0.2s ease;
     background-color: var(--btn-color);
     color: var(--color-white);
 
@@ -168,6 +203,25 @@ const buttonOutherColor = computed(() => colors.color[props.btnType]['300']);
         &:hover {
             background: var(--btn-outline-hover-color);
         }
+    }
+}
+
+.wave {
+    position: absolute;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255);
+    animation: wave-animation 0.3s linear;
+    pointer-events: none;
+}
+
+@keyframes wave-animation {
+    0% {
+        transform: scale(.5);
+        opacity: .8;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
     }
 }
 </style>

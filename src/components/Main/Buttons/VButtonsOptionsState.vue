@@ -18,7 +18,7 @@
 <script setup lang="ts">
 import Button from '@/components/UI/basic/VButton.vue';
 import { ButtonSizes, ButtonState } from '@/model/UI/basic/Button';
-import { GlobalColors } from '@/store/useColors.ts';
+import { GlobalColors } from '@/model/GlobalColors.ts';
 
 interface IPropsType {
     text: string;
