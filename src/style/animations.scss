@@ -1,0 +1,18 @@
+.wave {
+      position: absolute;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255);
+      animation: wave-animation 0.3s linear;
+      pointer-events: none;
+}
+
+@keyframes wave-animation {
+      0% {
+            transform: scale(.5);
+            opacity: .8;
+      }
+      100% {
+            transform: scale(2);
+            opacity: 0;
+      }
+}
