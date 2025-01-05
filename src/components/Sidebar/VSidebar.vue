@@ -89,7 +89,7 @@ onUnmounted(() => {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1000;
+    z-index: 1001;
     transition: all .3s ease;
 
     color: var(--color-text-dark);
