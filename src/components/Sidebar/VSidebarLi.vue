@@ -17,7 +17,7 @@
                 class="aside-menu__item--icon"
                 :class="{ open: isValid }"
             >
-                {{ groupItem.content }}
+                {{ groupItem.content  }}
                 <ArrowIcon
                     class="icon"
                     v-if="groupItem.select"

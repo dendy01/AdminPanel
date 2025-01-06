@@ -13,7 +13,7 @@
                 :class="{ active: isActive(selectItem.id) }"
                 @click="handleLink(selectItem.id)"
             >
-                <Circle /><span>{{ selectItem.content }}</span>
+                <Circle /><span>{{ contentLength(selectItem.content) }}</span>
             </RouterLink>
         </li>
     </ul>
@@ -44,6 +44,10 @@ const handleLink = (id: string) => {
 
 const isActive = (id: string) => {
     return currentId.value === id;
+};
+
+const contentLength = (content: string) => {
+    return content.length > 20 ? content.slice(0, 20) + '...' : content;
 };
 
 onMounted(() => {
