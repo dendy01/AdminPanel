@@ -80,6 +80,8 @@ onUnmounted(() => {
 
 
 <style scoped lang="scss">
+@import '@/style/variables.scss';
+
 .aside {
     width: 80px;
     height: 100%;
@@ -92,7 +94,7 @@ onUnmounted(() => {
     z-index: 1001;
     transition: all .3s ease;
 
-    color: var(--color-text-dark);
+    color: var(--color-text);
     background: var(--bg-primary);
 
     &:hover {
@@ -150,7 +152,7 @@ onUnmounted(() => {
 
             margin-left: 12px;
 
-            color: var(--color-text-dark);
+            color: var(--color-text);
         }
     }
 }

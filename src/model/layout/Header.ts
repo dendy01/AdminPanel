@@ -6,5 +6,6 @@ export interface IHeaderGroup {
 
 export interface IHeaderLink {
     id: string;
+    icon?: string;
     content: string;
 }

@@ -6,8 +6,8 @@
         <VAlert
             v-for="variant in GlobalColors"
             :key="`${variant}-${Math.random}`"
-            :alert-type="variant"
-            basik
+            :color="variant"
+            basic
             close
         >
             <span>This is a {{ variant }} outline alert — check it out!</span>
@@ -17,7 +17,7 @@
 
 <script setup lang="ts">
 import VAlert from '@/components/UI/basic/VAlert.vue';
-import { GlobalColors } from '@/model/GlobalColors.ts';
+import { GlobalColors } from '@/GlobalColors.ts';
 
 interface IPropsType {
     text: string;
@@ -32,13 +32,13 @@ defineProps<IPropsType>();
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    background-color: var(--color-white);
+    background-color: var(--bg-card);
 
     .title {
         margin-bottom: 20px;
         font-size: 18px;
         font-weight: 500;
-        color: var(--color-text-dark);
+        color: var(--color-text);
     }
 }
 </style>

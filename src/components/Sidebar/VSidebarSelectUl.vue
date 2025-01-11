@@ -78,7 +78,7 @@ onMounted(() => {
         align-items: center;
         flex-wrap: nowrap;
 
-        color: var(--color-text-dark);
+        color: var(--color-text);
 
         &:hover {
             background: var(--color-gray-light);

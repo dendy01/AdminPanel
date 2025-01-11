@@ -5,7 +5,7 @@
             <Button
                 v-for="variant in Object.values(ButtonState)"
                 :key="`${variant}_${Math.random}`"
-                :btn-type="GlobalColors.PRIMARY"
+                :color="GlobalColors.PRIMARY"
                 :btn-size="ButtonSizes.MEDIUM"
                 :btn-state="variant"
             >
@@ -18,7 +18,7 @@
 <script setup lang="ts">
 import Button from '@/components/UI/basic/VButton.vue';
 import { ButtonSizes, ButtonState } from '@/model/UI/basic/Button';
-import { GlobalColors } from '@/model/GlobalColors.ts';
+import { GlobalColors } from '@/GlobalColors.ts';
 
 interface IPropsType {
     text: string;

@@ -2,7 +2,7 @@
     <button
         :class="[
             'btn',
-            `btn-${ btnType }`,
+            `btn-${ color }`,
             btnSize,
             btnState,
             round && 'round',
@@ -24,12 +24,12 @@
 
 <script setup lang="ts">
 import { ButtonSizes, ButtonState } from '@/model/UI/basic/Button';
-import { GlobalColors, getColors } from '@/model/GlobalColors.ts';
+import { GlobalColors, colors } from '@/GlobalColors.ts';
 import { computed, useTemplateRef } from 'vue';
 import { handleActive } from '@/plugins/Animation.ts';
 
 interface IPropsType {
-    btnType: GlobalColors;
+    color: GlobalColors;
     btnSize?: ButtonSizes;
     btnState?: ButtonState;
     round?: boolean;
@@ -41,16 +41,15 @@ interface IPropsType {
 }
 
 const props = defineProps<IPropsType>();
-const colors = getColors();
 const btn = useTemplateRef('buttons');
 
-const buttonColor = computed(() => colors[props.btnType]['700']);
-const buttonHoverColor = computed(() => colors[props.btnType]['600']);
+const buttonColor = computed(() => colors[props.color]['700']);
+const buttonHoverColor = computed(() => colors[props.color]['600']);
 
-const buttonLabelColor = computed(() => colors[props.btnType]['400']);
-const buttonLabelHoverColor = computed(() => colors[props.btnType]['500']);
+const buttonLabelColor = computed(() => colors[props.color]['400']);
+const buttonLabelHoverColor = computed(() => colors[props.color]['500']);
 
-const buttonOutherColor = computed(() => colors[props.btnType]['300']);
+const buttonOutherColor = computed(() => colors[props.color]['300']);
 
 const handleActiveClick = (event: MouseEvent) => {
     if (btn.value) {

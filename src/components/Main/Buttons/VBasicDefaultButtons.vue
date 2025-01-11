@@ -14,7 +14,7 @@
                 <Button
                     v-for="variant in Object.values(GlobalColors)"
                     :key="`${variant}_${Math.random}`"
-                    :btn-type="variant"
+                    :color="variant"
                     :btn-size="ButtonSizes.MEDIUM"
                     :btn-text="btnText"
                     :outline="outline"
@@ -36,7 +36,7 @@
                 <Button
                     v-for="variant in Object.values(GlobalColors)"
                     :key="`${variant}_${Math.random}`"
-                    :btn-type="variant"
+                    :color="variant"
                     :btn-size="ButtonSizes.MEDIUM"
                     round
                     :outline="outline"
@@ -54,7 +54,7 @@
 <script setup lang="ts">
 import Button from '@/components/UI/basic/VButton.vue';
 import { ButtonSizes } from '@/model/UI/basic/Button';
-import { GlobalColors } from '@/model/GlobalColors.ts';
+import { GlobalColors } from '@/GlobalColors.ts';
 
 interface IPropsType {
     text: string;
@@ -70,8 +70,8 @@ defineProps<IPropsType>();
 .basic-buttons__wrap {
     margin-top: 24px;
     border-radius: 6px;
-    box-shadow: 0 2px 8px var(--color-gray);
-    background: var(--color-white);
+    box-shadow: 0 2px 8px var(--color-bs);
+    background: var(--bg-card);
 
     .btn-text-capit {
         text-transform: capitalize;
@@ -80,7 +80,7 @@ defineProps<IPropsType>();
     .title {
         font-size: 18px;
         font-weight: 500;
-        color: var(--color-text-dark);
+        color: var(--color-text);
     }
 
     .slogan {

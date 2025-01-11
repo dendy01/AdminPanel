@@ -12,7 +12,7 @@ export enum GlobalColors {
 
 const tonality: string[] = ['700', '600', '500', '400', '300'];
 
-export const getColors = () => {
+const getColors = () => {
     const color = ref<Record<string, string>>({});
     const root: HTMLElement | null = document.querySelector(':root');
     const style: CSSStyleDeclaration | null = root ? getComputedStyle(root) : null;
@@ -26,3 +26,5 @@ export const getColors = () => {
 
     return color.value;
 };
+
+export const colors = getColors();

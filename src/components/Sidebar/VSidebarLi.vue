@@ -111,7 +111,7 @@ const isValid = computed<boolean>(() => {
         display: flex;
         align-items: center;
 
-        color: var(--color-text-dark);
+        color: var(--color-text);
     }
 }
 
@@ -149,7 +149,7 @@ const isValid = computed<boolean>(() => {
 
 .aside-menu__item--link {
     display: block;
-    color: var(--color-text-dark);
+    color: var(--color-text);
 
     .aside-menu__item--link_icon {
         text-wrap: nowrap;

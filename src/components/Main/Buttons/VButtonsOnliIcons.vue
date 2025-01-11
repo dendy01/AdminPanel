@@ -5,7 +5,7 @@
             <Button
                 v-for="variant in Object.values(GlobalColors)"
                 :key="`${variant}_${Math.random}`"
-                :btn-type="variant"
+                :color="variant"
                 :btn-size="ButtonSizes.MEDIUM"
                 :icon="icons[variant]"
                 is-icon
@@ -15,7 +15,7 @@
             <Button
                 v-for="variant in Object.values(GlobalColors)"
                 :key="`${variant}_${Math.random}`"
-                :btn-type="variant"
+                :color="variant"
                 :btn-size="ButtonSizes.MEDIUM"
                 :icon="icons[variant]"
                 round
@@ -33,7 +33,7 @@ import Notification from '@/assets/icons/icons-buttons/notification.svg';
 import Button from '@/components/UI/basic/VButton.vue';
 import { ButtonSizes } from '@/model/UI/basic/Button';
 import { shallowRef } from 'vue';
-import { GlobalColors } from '@/model/GlobalColors.ts';
+import { GlobalColors } from '@/GlobalColors.ts';
 
 interface IPropsType {
     text: string;

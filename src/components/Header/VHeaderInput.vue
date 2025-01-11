@@ -75,7 +75,7 @@ onUnmounted(() => {
         height: 100%;
         width: 100%;
         font-size: 16px;
-        color: var(--color-text-dark);
+        color: var(--color-text);
 
         position: absolute;
         top: 0;
@@ -102,7 +102,7 @@ onUnmounted(() => {
     opacity: .9;
     padding: 0 16px;
     border-radius: 0 0 8px 8px;
-    background: var(--color-white) !important;
+    background: var(--bg-primary) !important;
 
     .header-search__close {
         right: 16px;

@@ -18,6 +18,8 @@ const isCheck = useChecking();
 </script>
 
 <style scoped lang="scss">
+@import '@/style/variables.scss';
+
 .main {
     width: calc(100% - $sidebar-width);
     margin-left: $sidebar-width;

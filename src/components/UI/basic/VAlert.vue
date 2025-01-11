@@ -3,8 +3,8 @@
         v-if="isVisible"
         :class="[
             'alert',
-            `alert-${ alertType }`,
-            basik && 'basik',
+            `alert-${ color }`,
+            basic && 'basic',
             outline && 'outline',
             close && 'close'
         ]"
@@ -25,25 +25,24 @@
 </template>
 
 <script setup lang="ts">
-import { getColors, GlobalColors } from '@/model/GlobalColors.ts';
+import { colors, GlobalColors } from '@/GlobalColors.ts';
 import Close from '@/assets/icons/icons-header/close.svg';
 import { computed, ref } from 'vue';
 
-interface AlertPropsType {
-    alertType: GlobalColors;
-    basik?: boolean;
+interface IPropsType {
+    color: GlobalColors;
+    basic?: boolean;
     outline?: boolean;
     close?: boolean;
     icon?: any;
 }
 
-const props = defineProps<AlertPropsType>();
-const colors = getColors();
+const props = defineProps<IPropsType>();
 const isVisible = ref(true);
 
-const alertColor = computed(() => colors[props.alertType]['700']);
-const alertBasikBgColor = computed(() => colors[props.alertType]['500']);
-const alertIconHover = computed(() => colors[props.alertType]['600']);
+const alertColor = computed(() => colors[props.color]['700']);
+const alertBasicBgColor = computed(() => colors[props.color]['500']);
+const alertIconHover = computed(() => colors[props.color]['600']);
 
 const removeAlert = () => {
     isVisible.value = false;
@@ -53,7 +52,7 @@ const removeAlert = () => {
 <style scoped>
 .alert {
     --alert-color: v-bind(alertColor);
-    --alert-basik-bg: v-bind(alertBasikBgColor);
+    --alert-basic-bg: v-bind(alertBasicBgColor);
     --alert-icon-hover: v-bind(alertIconHover);
 
     padding: 16px;
@@ -70,8 +69,8 @@ const removeAlert = () => {
         margin-bottom: 0;
     }
 
-    &.basik {
-        background-color: var(--alert-basik-bg);
+    &.basic {
+        background-color: var(--alert-basic-bg);
         color: var(--alert-color);
     }
 

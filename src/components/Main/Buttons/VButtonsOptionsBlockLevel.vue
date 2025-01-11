@@ -3,13 +3,13 @@
         <small class="slogan">{{ text }}</small>
         <div class="row">
             <Button
-                :btn-type="GlobalColors.PRIMARY"
+                :color="GlobalColors.PRIMARY"
                 :btn-size="ButtonSizes.LG"
             >
                 <span>Button</span>
             </Button>
             <Button
-                :btn-type="GlobalColors.SECONDARY"
+                :color="GlobalColors.SECONDARY"
                 :btn-size="ButtonSizes.LG"
             >
                 <span>Button</span>
@@ -21,7 +21,7 @@
 <script setup lang="ts">
 import Button from '@/components/UI/basic/VButton.vue';
 import { ButtonSizes } from '@/model/UI/basic/Button';
-import { GlobalColors } from '@/model/GlobalColors.ts';
+import { GlobalColors } from '@/GlobalColors.ts';
 
 interface IPropsType {
     text: string;

@@ -38,7 +38,6 @@ defineProps<IPropsType>();
 const currentId = ref<string | null>(null);
 const isCheck = useChecking();
 
-
 const isId = (id: string) => {
     currentId.value = currentId.value === id ? null : id;
 };

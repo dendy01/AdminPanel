@@ -6,7 +6,7 @@
         <VAlert
             v-for="variant in GlobalColors"
             :key="`${variant}-${Math.random}`"
-            :alert-type="variant"
+            :color="variant"
             :icon="icons[variant]"
         >
             This is a {{ variant }} outline alert — check it out!
@@ -16,7 +16,7 @@
 
 <script setup lang="ts">
 import VAlert from '@/components/UI/basic/VAlert.vue';
-import { GlobalColors } from '@/model/GlobalColors.ts';
+import { GlobalColors } from '@/GlobalColors.ts';
 import UserFollow from '@/assets/icons/icons-alerts/user-follow.svg';
 import LineChart from '@/assets/icons/icons-alerts/line-chart.svg';
 import CheckboxCircle from '@/assets/icons/icons-alerts/checkbox-circle.svg';
@@ -48,13 +48,13 @@ const icons = {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    background-color: var(--color-white);
+    background-color: var(--bg-card);
 
     .title {
         margin-bottom: 20px;
         font-size: 18px;
         font-weight: 500;
-        color: var(--color-text-dark);
+        color: var(--color-text);
     }
 }
 </style>

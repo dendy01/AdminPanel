@@ -47,6 +47,7 @@ import Translate from '@/assets/icons/icons-header/translate.svg';
 import VMain from '@/views/MainPage.vue';
 import { IHeaderGroup } from '@/model/layout/Header';
 import { Routes } from '@/routes/modelRoutes.ts';
+import Moon from '@/assets/icons/icons-header/moon.svg';
 
 const header = shallowRef<IHeaderGroup[]>([
     {
@@ -77,19 +78,13 @@ const header = shallowRef<IHeaderGroup[]>([
         group: [
             {
                 id: useId(),
-                content: 'English'
+                icon: Sun,
+                content: 'Light'
             },
             {
                 id: useId(),
-                content: 'French'
-            },
-            {
-                id: useId(),
-                content: 'Arabic'
-            },
-            {
-                id: useId(),
-                content: 'Russian'
+                icon: Moon,
+                content: 'Dark'
             }
         ]
     },
@@ -97,44 +92,12 @@ const header = shallowRef<IHeaderGroup[]>([
         id: useId(),
         icon: Star,
         group: [
-            {
-                id: useId(),
-                content: 'English'
-            },
-            {
-                id: useId(),
-                content: 'French'
-            },
-            {
-                id: useId(),
-                content: 'Arabic'
-            },
-            {
-                id: useId(),
-                content: 'Russian'
-            }
         ]
     },
     {
         id: useId(),
         icon: Notification,
         group: [
-            {
-                id: useId(),
-                content: 'English'
-            },
-            {
-                id: useId(),
-                content: 'French'
-            },
-            {
-                id: useId(),
-                content: 'Arabic'
-            },
-            {
-                id: useId(),
-                content: 'Russian'
-            }
         ]
     }
 ]);

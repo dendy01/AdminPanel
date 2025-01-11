@@ -41,8 +41,8 @@ defineProps<IPropsType>();
 .basic-buttons__wrap {
     margin-top: 24px;
     border-radius: 6px;
-    box-shadow: 0 2px 8px var(--color-gray);
-    background: var(--color-white);
+    box-shadow: 0 2px 8px var(--color-bs);
+    background: var(--bg-card);
 
 
 
@@ -50,7 +50,7 @@ defineProps<IPropsType>();
         padding: 20px;
         font-size: 18px;
         font-weight: 500;
-        color: var(--color-text-dark);
+        color: var(--color-text);
     }
 
     .slogan {

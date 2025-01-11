@@ -40,8 +40,20 @@
                         v-for="item in props"
                         :key="item.id"
                         class="header-icon"
+                        :class="{ active: changeActiveModal(item.id) }"
+                        @click="isId(item.id)"
                     >
                         <component :is="item.icon" />
+
+                        <ul class="header-icon__sub">
+                            <li
+                                v-for="elem in item.group"
+                                :key="elem.id"
+                                @click="theme.setTheme(elem.content.toLowerCase())"
+                            >
+                                <component :is="elem.icon" /> {{ elem.content }}
+                            </li>
+                        </ul>
                     </li>
                     <img
                         src="@/assets/icons/icons-header/profile.png"
@@ -61,11 +73,14 @@ import VHeaderInput from '@/components/Header/VHeaderInput.vue';
 import { IHeaderGroup } from '@/model/layout/Header';
 import { useChecking } from '@/store/useCheck.ts';
 import { inject, onMounted, onUnmounted, ref } from 'vue';
+import { useTheme } from '@/store/useTheme.ts';
 
+const theme = useTheme();
 const props = inject<IHeaderGroup[]>('header');
 const isActive = ref<boolean>(false);
 const isScrolling = ref<boolean>(false);
 const isOpen = useChecking();
+const currentId = ref<string | null>(null);
 
 const changeActive = (active: boolean) => {
     isActive.value = active;
@@ -79,6 +94,14 @@ const changeInput = () => {
     isActive.value = !isActive.value;
 };
 
+const isId = (id: string) => {
+    currentId.value = currentId.value === id ? null : id;
+};
+
+const changeActiveModal = (id: string) => {
+    return currentId.value === id;
+};
+
 onMounted(() => {
     window.addEventListener('scroll', changeScroll);
 });
@@ -89,10 +112,12 @@ onUnmounted(() => {
 </script>
 
 <style scoped lang="scss">
+@import '@/style/variables.scss';
+
 .header {
     width: 100%;
-    color: var(--color-text-dark);
-    background: var(--bg-primery);
+    color: var(--color-text);
+    background: var(--bg-primary);
     position: sticky;
     z-index: 1000;
     top: 0;
@@ -131,6 +156,40 @@ onUnmounted(() => {
             .header-icon {
                 padding: 8px;
                 cursor: pointer;
+                position: relative;
+
+                .header-icon__sub {
+                    display: none;
+                }
+            }
+
+            .active .header-icon__sub {
+                padding: 8px 0;
+                border-radius: 8px;
+
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+
+                position: absolute;
+                right: 0;
+
+                background: var(--bg-primary);
+                box-shadow: 0 2px 4px var(--color-bs);
+
+                li {
+                    padding: 8px 20px;
+
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+
+                    white-space: nowrap;
+
+                    &:hover {
+                        background-color: var(--color-gray);
+                    }
+                }
             }
 
             .header-icons__list--profile {
@@ -152,9 +211,9 @@ onUnmounted(() => {
 .header-observer {
     opacity: .96;
     padding: 0 16px;
-    background: var(--color-white);
+    background: var(--bg-card);
     border-radius: 0 0 8px 8px;
-    box-shadow: 0 2px 4px var(--color-gray);
+    box-shadow: 0 2px 4px var(--color-bs);
 }
 
 @media (max-width: $response-sw) {
