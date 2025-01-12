@@ -12,24 +12,10 @@
                 @change-active="changeActive"
             />
 
-            <div
+            <VHeaderSearch
                 v-if="!isActive"
-                class="header-search__wrapper"
-            >
-                <span
-                    class="header-search__menu"
-                    @click="isOpen.openMenu = !isOpen.openMenu"
-                >
-                    <Menu />
-                </span>
-                <span
-                    @click="changeInput"
-                    class="header-search"
-                >
-                    <Search />
-                    <span class="header-search__text">Search (Ctrl+/)</span>
-                </span>
-            </div>
+                @toggle-search="changeInput"
+            />
 
             <div
                 class="header-icons"
@@ -42,6 +28,7 @@
                         class="header-icon"
                         :class="{ active: changeActiveModal(item.id) }"
                         @click="isId(item.id)"
+                        ref="activeUl"
                     >
                         <component :is="item.icon" />
 
@@ -67,20 +54,18 @@
 </template>
 
 <script setup lang="ts">
-import Menu from '@/assets/icons/icons-header/menu.svg';
-import Search from '@/assets/icons/icons-header/search.svg';
 import VHeaderInput from '@/components/Header/VHeaderInput.vue';
 import { IHeaderGroup } from '@/model/layout/Header';
-import { useChecking } from '@/store/useCheck.ts';
 import { inject, onMounted, onUnmounted, ref } from 'vue';
 import { useTheme } from '@/store/useTheme.ts';
+import VHeaderSearch from '@/components/Header/VHeaderSearch.vue';
 
 const theme = useTheme();
 const props = inject<IHeaderGroup[]>('header');
 const isActive = ref<boolean>(false);
 const isScrolling = ref<boolean>(false);
-const isOpen = useChecking();
 const currentId = ref<string | null>(null);
+const activeUl = ref<HTMLElement[] | null>(null);
 
 const changeActive = (active: boolean) => {
     isActive.value = active;
@@ -102,11 +87,23 @@ const changeActiveModal = (id: string) => {
     return currentId.value === id;
 };
 
+const eventActive = (event: any) => {
+    if (activeUl.value) {
+        activeUl.value.forEach((item: any) => {
+            if(!item.contains(event.target)) {
+                item.classList.remove('active');
+            }
+        });
+    }
+};
+
 onMounted(() => {
+    document.body.addEventListener('click', eventActive);
     window.addEventListener('scroll', changeScroll);
 });
 
 onUnmounted(() => {
+    document.body.removeEventListener('click', eventActive);
     window.removeEventListener('scroll', changeScroll);
 });
 </script>
@@ -122,6 +119,7 @@ onUnmounted(() => {
     z-index: 1000;
     top: 0;
     left: 0;
+    transition: padding .3s ease;
 
     .header-search__wrapper {
         display: flex;
@@ -214,6 +212,7 @@ onUnmounted(() => {
     background: var(--bg-card);
     border-radius: 0 0 8px 8px;
     box-shadow: 0 2px 4px var(--color-bs);
+    transition: padding .3s ease;
 }
 
 @media (max-width: $response-sw) {
