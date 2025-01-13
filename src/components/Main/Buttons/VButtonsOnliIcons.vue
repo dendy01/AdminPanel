@@ -1,28 +1,32 @@
 <template>
     <div class="basic-buttons__wrap--row">
         <small class="slogan">{{ text }}</small>
-        <div>
-            <Button
-                v-for="variant in Object.values(GlobalColors)"
-                :key="`${variant}_${Math.random}`"
-                :color="variant"
-                :btn-size="ButtonSizes.MEDIUM"
-                :icon="icons[variant]"
-                is-icon
-                :label="label"
-                :outline="outline"
-            />
-            <Button
-                v-for="variant in Object.values(GlobalColors)"
-                :key="`${variant}_${Math.random}`"
-                :color="variant"
-                :btn-size="ButtonSizes.MEDIUM"
-                :icon="icons[variant]"
-                round
-                is-icon
-                :label="label"
-                :outline="outline"
-            />
+        <div class="btn-content">
+            <div class="btn-content">
+                <Button
+                    v-for="variant in Object.values(GlobalColors)"
+                    :key="`${variant}_${Math.random}`"
+                    :color="variant"
+                    :btn-size="ButtonSizes.MEDIUM"
+                    :icon-left="icons[variant]"
+                    is-icon
+                    :label="label"
+                    :outline="outline"
+                />
+            </div>
+            <div class="btn-content">
+                <Button
+                    v-for="variant in Object.values(GlobalColors)"
+                    :key="`${variant}_${Math.random}`"
+                    :color="variant"
+                    :btn-size="ButtonSizes.MEDIUM"
+                    :icon-left="icons[variant]"
+                    round
+                    is-icon
+                    :label="label"
+                    :outline="outline"
+                />
+            </div>
         </div>
     </div>
 </template>
@@ -62,12 +66,6 @@ const icons = shallowRef({
 
     &:last-of-type {
         border-right: none;
-    }
-
-    .slogan {
-        font-weight: 500;
-        text-transform: capitalize;
-        color: var(--color-gray);
     }
 }
 </style>

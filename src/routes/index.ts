@@ -23,6 +23,11 @@ const routes = [
                 name: Routes.ALERTS,
                 path: `${BASE_URL}/${Routes.ALERTS}`,
                 component: () => import('@/components/Main/Alerts/VAlerts.vue')
+            },
+            {
+                name: Routes.DROPDOWN,
+                path: `${BASE_URL}/${Routes.DROPDOWN}`,
+                component: () => import('@/components/Main/Dropdown/VDropdowns.vue')
             }
         ]
     },

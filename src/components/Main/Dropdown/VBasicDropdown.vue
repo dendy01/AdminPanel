@@ -1,0 +1,39 @@
+<template>
+    <div class="dropdown">
+        <small class="slogan">{{ text }}</small>
+        <div class="dropdown-content btn-content">
+            <VDropdown
+                v-for="variant in GlobalColors"
+                :key="`${variant}_${Math.random}`"
+                :color="variant"
+                :text="variant"
+                :icon-right="Arrow"
+                dropdown-bottom
+            />
+        </div>
+    </div>
+</template>
+<script setup lang="ts">
+import { GlobalColors } from '@/GlobalColors.ts';
+import VDropdown from '@/components/UI/basic/VDropdown.vue';
+import Arrow from '@/assets/icons/icons-dropdown/arrow-down.svg';
+
+interface IPropsType {
+    text: string;
+}
+
+defineProps<IPropsType>();
+</script>
+
+<style scoped>
+.dropdown {
+    padding: 20px;
+}
+
+.dropdown-content {
+    padding-top: 16px;
+
+    display: flex;
+    gap: 8px;
+}
+</style>

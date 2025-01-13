@@ -44,5 +44,9 @@ defineProps<IPropsType>();
     span {
         text-transform: capitalize;
     }
+
+    button {
+        margin: 16px 8px 0 0;
+    }
 }
 </style>

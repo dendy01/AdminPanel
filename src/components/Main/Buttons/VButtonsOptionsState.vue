@@ -1,7 +1,7 @@
 <template>
     <div class="basic-buttons__wrap--row">
         <small class="slogan">{{ text }}</small>
-        <div>
+        <div class="btn-content">
             <Button
                 v-for="variant in Object.values(ButtonState)"
                 :key="`${variant}_${Math.random}`"

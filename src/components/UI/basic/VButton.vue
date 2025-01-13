@@ -9,16 +9,22 @@
             label && 'label',
             outline && 'outline',
             btnText && 'btn-text',
-            isIcon && 'is-btn__icon'
+            isIcon && 'is-btn__icon',
+            splitLeft && 'split-left',
+            splitRight && 'split-right'
         ]"
         @click="handleActiveClick"
         ref="buttons"
     >
         <component
-            class="btn-icon"
-            :is="icon"
+            class="btn-icon--left"
+            :is="iconLeft"
         />
         <slot />
+        <component
+            class="btn-icon--right"
+            :is="iconRight"
+        />
     </button>
 </template>
 
@@ -36,8 +42,11 @@ interface IPropsType {
     label?: boolean;
     outline?: boolean;
     btnText?: boolean;
-    icon?: any;
+    iconLeft?: any;
+    iconRight?: any;
     isIcon?: boolean;
+    splitLeft?: boolean;
+    splitRight?: boolean;
 }
 
 const props = defineProps<IPropsType>();
@@ -66,8 +75,6 @@ const handleActiveClick = (event: MouseEvent) => {
     --btn-label-hover-color: v-bind(buttonLabelHoverColor);
     --btn-outline-hover-color: v-bind(buttonOutherColor);
 
-
-    margin: 16px 6px 0 0;
     padding: 8px 18px;
     font-size: 16px;
     border-radius: 6px;
@@ -79,18 +86,27 @@ const handleActiveClick = (event: MouseEvent) => {
     position: relative;
     overflow: hidden;
     user-select: none;
+    text-transform: capitalize;
 
     transition: background-color .2s ease,
     color 0.2s ease;
     background-color: var(--btn-color);
     color: var(--color-white);
 
-    .btn-icon {
+    .btn-icon--left {
         display: inline-flex;
         align-items: center;
         justify-content: center;
 
         margin-right: 4px;
+    }
+
+    .btn-icon--right {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        margin-left: 4px;
     }
 
     &:last-child {
@@ -145,7 +161,8 @@ const handleActiveClick = (event: MouseEvent) => {
             height: 22px;
         }
 
-        .btn-icon {
+        .btn-icon--left,
+        .btn-icon--right {
             margin: 0;
         }
     }
@@ -171,6 +188,15 @@ const handleActiveClick = (event: MouseEvent) => {
         &:hover {
             background: var(--btn-outline-hover-color);
         }
+    }
+
+    &.split-left {
+        border-radius: 0 6px 6px 0;
+        border-left: 1px solid rgba(0, 0, 0, .1);
+    }
+
+    &.split-right {
+        border-radius: 6px 0 0 6px;
     }
 
     &.btn-text {

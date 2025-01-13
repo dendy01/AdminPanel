@@ -2,5 +2,6 @@ export const Routes = {
     HOME: 'home',
     BUTTONS: 'buttons',
     LAYOUT: 'layout',
-    ALERTS: 'alerts'
+    ALERTS: 'alerts',
+    DROPDOWN: 'dropdowns'
 };

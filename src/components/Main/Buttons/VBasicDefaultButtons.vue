@@ -10,7 +10,7 @@
             >
                 Default
             </small>
-            <div>
+            <div class="btn-content">
                 <Button
                     v-for="variant in Object.values(GlobalColors)"
                     :key="`${variant}_${Math.random}`"
@@ -32,7 +32,7 @@
             class="basic-buttons__wrap--buttons"
         >
             <small class="slogan">Rounded</small>
-            <div>
+            <div class="btn-content">
                 <Button
                     v-for="variant in Object.values(GlobalColors)"
                     :key="`${variant}_${Math.random}`"
@@ -42,9 +42,7 @@
                     :outline="outline"
                     :label="label"
                 >
-                    <span class="btn-text-capit">
-                        {{ variant }}
-                    </span>
+                    {{ variant }}
                 </Button>
             </div>
         </div>
@@ -73,22 +71,11 @@ defineProps<IPropsType>();
     box-shadow: 0 2px 8px var(--color-bs);
     background: var(--bg-card);
 
-    .btn-text-capit {
-        text-transform: capitalize;
-    }
-
-    .title {
-        font-size: 18px;
-        font-weight: 500;
-        color: var(--color-text);
-    }
-
     .slogan {
         font-weight: 500;
         color: var(--color-gray);
     }
 
-    .title,
     .basic-buttons__wrap--buttons {
         padding: 20px;
     }
@@ -101,6 +88,12 @@ defineProps<IPropsType>();
         width: 100%;
         height: 1px;
         background: var(--color-gray-light);
+    }
+}
+
+.basic-buttons__wrap {
+    button {
+        margin: 16px 6px 0 0;
     }
 }
 </style>

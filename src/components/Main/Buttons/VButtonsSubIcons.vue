@@ -1,35 +1,31 @@
 <template>
     <div class="basic-buttons__wrap--row">
         <small class="slogan">{{ text }}</small>
-        <div>
+        <div class="btn-content">
             <Button
                 v-for="variant in Object.values(GlobalColors)"
                 :key="`${variant}_${Math.random}`"
                 :color="variant"
                 :btn-size="ButtonSizes.MEDIUM"
-                :icon="icons[variant]"
+                :icon-left="icons[variant]"
                 :label="label"
                 :outline="outline"
             >
-                <span class="btn-text-capit">
-                    {{ variant }}
-                </span>
+                {{ variant }}
             </Button>
         </div>
-        <div>
+        <div class="btn-content">
             <Button
                 v-for="variant in Object.values(GlobalColors)"
                 :key="`${variant}_${Math.random}`"
                 :color="variant"
                 :btn-size="ButtonSizes.MEDIUM"
-                :icon="icons[variant]"
+                :icon-left="icons[variant]"
                 round
                 :label="label"
                 :outline="outline"
             >
-                <span class="btn-text-capit">
-                    {{ variant }}
-                </span>
+                {{ variant }}
             </Button>
         </div>
     </div>
@@ -78,10 +74,6 @@ const icons = shallowRef({
         font-weight: 500;
         text-transform: capitalize;
         color: var(--color-gray);
-    }
-
-    .btn-text-capit {
-        text-transform: capitalize;
     }
 }
 </style>
