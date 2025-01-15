@@ -68,6 +68,8 @@ const handleActiveClick = (event: MouseEvent) => {
 </script>
 
 <style scoped lang="scss">
+@import '@/style/variables.scss';
+
 .btn {
     --btn-color: v-bind(buttonColor);
     --btn-hover-color: v-bind(buttonHoverColor);
@@ -88,7 +90,7 @@ const handleActiveClick = (event: MouseEvent) => {
     user-select: none;
     text-transform: capitalize;
 
-    transition: background-color .2s ease,
+    transition: background-color $transition-time $transition-duration,
     color 0.2s ease;
     background-color: var(--btn-color);
     color: var(--color-white);
@@ -154,7 +156,7 @@ const handleActiveClick = (event: MouseEvent) => {
     }
 
     &.is-btn__icon {
-        padding: 7px;
+        padding: 8px;
 
         svg {
             width: 22px;
@@ -168,15 +170,15 @@ const handleActiveClick = (event: MouseEvent) => {
     }
 
     &:hover {
-        background: var(--btn-hover-color);
+        background-color: var(--btn-hover-color);
     }
 
     &.label {
         color: var(--btn-color);
-        background: var(--btn-label-color);
+        background-color: var(--btn-label-color);
 
         &:hover {
-            background: var(--btn-label-hover-color);
+            background-color: var(--btn-label-hover-color);
         }
     }
 
@@ -186,7 +188,7 @@ const handleActiveClick = (event: MouseEvent) => {
         background: none;
 
         &:hover {
-            background: var(--btn-outline-hover-color);
+            background-color: var(--btn-outline-hover-color);
         }
     }
 
@@ -204,7 +206,7 @@ const handleActiveClick = (event: MouseEvent) => {
         background: none;
 
         &:hover {
-            background: var(--btn-outline-hover-color);
+            background-color: var(--btn-outline-hover-color);
         }
     }
 }

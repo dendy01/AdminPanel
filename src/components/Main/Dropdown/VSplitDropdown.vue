@@ -9,8 +9,14 @@
                 :text="variant"
                 :icon-right="Arrow"
                 split
-                dropdown-bottom
-            />
+            >
+                <VButton
+                    :color="variant"
+                    :icon-right="Arrow"
+                >
+                    {{ variant }}
+                </VButton>
+            </VDropdown>
         </div>
     </div>
 </template>
@@ -19,6 +25,7 @@
 import { GlobalColors } from '@/GlobalColors.ts';
 import VDropdown from '@/components/UI/basic/VDropdown.vue';
 import Arrow from '@/assets/icons/icons-dropdown/arrow-down.svg';
+import VButton from '@/components/UI/basic/VButton.vue';
 
 interface IPropsType {
     text: string;

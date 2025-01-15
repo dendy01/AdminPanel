@@ -27,6 +27,6 @@ import VElemsDropdown from '@/components/Main/Dropdown/VElemsDropdown.vue';
     margin-top: 24px;
     border-radius: 6px;
     box-shadow: 0 2px 8px var(--color-bs);
-    background: var(--bg-card);
+    background-color: var(--bg-card);
 }
 </style>

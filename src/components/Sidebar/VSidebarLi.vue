@@ -4,7 +4,7 @@
             active: isOpen,
             'aside-menu__item': groupItem.select
         }"
-        :style="{ 'margin-bottom': (isOpen && isValid ? height : 0) + 'px' }"
+        :style="{ 'margin-bottom': ( isOpen && isValid ? height : 0 ) + 'px' }"
     >
         <span v-if="groupItem.select">
             <span>
@@ -28,6 +28,7 @@
         <RouterLink
             v-else
             to="layout"
+            active-class="active-link"
             :class="{ 'aside-menu__item--link': !groupItem.select }"
         >
             <span>
@@ -50,14 +51,13 @@
             </span>
         </RouterLink>
 
-        <Transition>
-            <VSidebarSelectUl
-                v-if="isOpen && isValid"
-                :select="groupItem.select"
-                @calc-height="changeHeight"
-                @click.stop
-            />
-        </Transition>
+        <VSidebarSelectUl
+            :select="groupItem.select"
+            :is-open="isOpen"
+            :is-valid="isValid"
+            @calc-height="changeHeight"
+            @click.stop
+        />
     </li>
 </template>
 
@@ -89,6 +89,8 @@ const isValid = computed<boolean>(() => {
 </script>
 
 <style scoped lang="scss">
+@import '@/style/variables.scss';
+
 .aside-menu__item,
 .aside-menu__item--link {
     margin-top: 4px;
@@ -100,7 +102,7 @@ const isValid = computed<boolean>(() => {
     align-items: center;
 
     &:hover {
-        background: var(--color-gray-light);
+        background-color: var(--color-gray-light);
     }
 
     .icon-class {
@@ -119,10 +121,11 @@ const isValid = computed<boolean>(() => {
 .aside-menu__item {
     cursor: pointer;
     position: relative;
-    transition: all .3s ease;
+    z-index: 100;
+    transition: margin-bottom $transition-time $transition-duration;
 
     .icon {
-        transition: all .3s ease;
+        transition: transform $transition-time $transition-duration;
         position: absolute;
         right: 20px;
     }
@@ -130,19 +133,18 @@ const isValid = computed<boolean>(() => {
     .aside-menu__item--icon {
         text-wrap: nowrap;
         display: none;
-        transition: all .3s ease;
     }
 
     .open {
         display: block;
-        transition: all .3s ease;
     }
 }
 
 .active {
-    background: var(--color-gray-light);
+    background-color: var(--color-gray-light);
 
     .icon {
+        transition: transform $transition-time $transition-duration;
         transform: rotate(90deg);
     }
 }
@@ -154,22 +156,21 @@ const isValid = computed<boolean>(() => {
     .aside-menu__item--link_icon {
         text-wrap: nowrap;
         display: none;
-        transition: all .3s ease;
+        transition: opacity $transition-time $transition-duration;
     }
 
     .open {
         display: block;
-        transition: all .3s ease;
+        transition: opacity $transition-time $transition-duration;
     }
 }
 
-.v-enter-active,
-.v-leave-active {
-    transition: opacity .3s ease;
-}
+.active-link {
+    color: var(--color-white);
+    background-color: var(--color-primary-700);
 
-.v-enter-from,
-.v-leave-to {
-    opacity: 0;
+    &:hover {
+        background-color: var(--color-primary-600);
+    }
 }
 </style>

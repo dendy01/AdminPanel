@@ -69,7 +69,7 @@ defineProps<IPropsType>();
     margin-top: 24px;
     border-radius: 6px;
     box-shadow: 0 2px 8px var(--color-bs);
-    background: var(--bg-card);
+    background-color: var(--bg-card);
 
     .slogan {
         font-weight: 500;
@@ -87,7 +87,7 @@ defineProps<IPropsType>();
     .line {
         width: 100%;
         height: 1px;
-        background: var(--color-gray-light);
+        background-color: var(--color-gray-light);
     }
 }
 

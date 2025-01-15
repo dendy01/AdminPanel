@@ -81,7 +81,7 @@ onUnmounted(() => {
         top: 0;
         left: 0;
 
-        background: var(--bg-primary);
+        background-color: var(--bg-primary);
     }
 
     .header-search__input::placeholder {
@@ -102,7 +102,7 @@ onUnmounted(() => {
     opacity: .9;
     padding: 0 16px;
     border-radius: 0 0 8px 8px;
-    background: var(--bg-primary) !important;
+    background-color: var(--bg-card) !important;
 
     .header-search__close {
         right: 16px;

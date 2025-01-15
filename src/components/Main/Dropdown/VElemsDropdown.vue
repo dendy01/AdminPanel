@@ -6,7 +6,25 @@
                 <VDropdown
                     :color="GlobalColors.PRIMARY"
                     :text="'Hidden arrow'"
-                />
+                >
+                    <template #dropdown="{ toggle }">
+                        <VButton
+                            :color="GlobalColors.PRIMARY"
+                            :icon-right="Arrow"
+                            @click="toggle"
+                        >
+                            Hidden arrow
+                        </VButton>
+                    </template>
+                    <template #menu>
+                        <ul>
+                            <li>Hello world</li>
+                            <li>Hello world</li>
+                            <li>Hello world</li>
+                            <li>Hello world</li>
+                        </ul>
+                    </template>
+                </VDropdown>
             </div>
         </div>
         <div class="dropdown-container">
@@ -17,8 +35,25 @@
                     :text="'Hover'"
                     :icon-right="Arrow"
                     hover
-                    dropdown-bottom
-                />
+                >
+                    <template #dropdown="{ toggle }">
+                        <VButton
+                            :color="GlobalColors.PRIMARY"
+                            :icon-right="Arrow"
+                            @click="toggle"
+                        >
+                            Hover
+                        </VButton>
+                    </template>
+                    <template #menu>
+                        <ul>
+                            <li>Hello world</li>
+                            <li>Hello world</li>
+                            <li>Hello world</li>
+                            <li>Hello world</li>
+                        </ul>
+                    </template>
+                </VDropdown>
             </div>
         </div>
         <div class="dropdown-container">
@@ -29,8 +64,25 @@
                     :text="'With Icon'"
                     :icon-left="Menu"
                     :icon-right="Arrow"
-                    dropdown-bottom
-                />
+                >
+                    <template #dropdown="{ toggle }">
+                        <VButton
+                            :color="GlobalColors.PRIMARY"
+                            :icon-right="Arrow"
+                            @click="toggle"
+                        >
+                            With icon
+                        </VButton>
+                    </template>
+                    <template #menu>
+                        <ul>
+                            <li>Hello world</li>
+                            <li>Hello world</li>
+                            <li>Hello world</li>
+                            <li>Hello world</li>
+                        </ul>
+                    </template>
+                </VDropdown>
             </div>
         </div>
         <div class="dropdown-container">
@@ -39,11 +91,25 @@
                 <VDropdown
                     :color="GlobalColors.PRIMARY"
                     :icon-right="More"
-                    round
-                    is-icon
-                    dropdown-right
-                    dropdown-bottom
-                />
+                >
+                    <template #dropdown="{ toggle }">
+                        <VButton
+                            round
+                            is-icon
+                            :color="GlobalColors.PRIMARY"
+                            :icon-right="Arrow"
+                            @click="toggle"
+                        />
+                    </template>
+                    <template #menu>
+                        <ul>
+                            <li>Hello world</li>
+                            <li>Hello world</li>
+                            <li>Hello world</li>
+                            <li>Hello world</li>
+                        </ul>
+                    </template>
+                </VDropdown>
             </div>
         </div>
     </div>
@@ -54,6 +120,7 @@ import VDropdown from '@/components/UI/basic/VDropdown.vue';
 import Arrow from '@/assets/icons/icons-dropdown/arrow-down.svg';
 import Menu from '@/assets/icons/icons-dropdown/menu.svg';
 import More from '@/assets/icons/icons-dropdown/more.svg';
+import VButton from '@/components/UI/basic/VButton.vue';
 </script>
 
 <style scoped>
@@ -67,6 +134,7 @@ import More from '@/assets/icons/icons-dropdown/more.svg';
     padding-top: 16px;
 
     display: flex;
+    flex-wrap: wrap;
     gap: 8px;
 }
 

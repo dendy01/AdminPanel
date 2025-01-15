@@ -1,6 +1,7 @@
 <template>
     <ul
         class="aside-menu__item-grop"
+        :class="{ activeUl: isOpen && isValid }"
         ref="ulRef"
     >
         <li
@@ -8,9 +9,9 @@
             :key="selectItem.id"
         >
             <RouterLink
+                active-class="active-link"
                 :to="selectItem.link ? selectItem.link : 'layout'"
                 class="aside-menu__item"
-                :class="{ active: isActive(selectItem.id) }"
                 @click="handleLink(selectItem.id)"
             >
                 <Circle /><span>{{ contentLength(selectItem.content) }}</span>
@@ -27,6 +28,8 @@ import { onMounted, ref, useTemplateRef } from 'vue';
 interface IPropsType {
     hasActive?: boolean;
     select?: ISelect[];
+    isOpen: boolean;
+    isValid: boolean;
 }
 
 interface IEmitsType {
@@ -37,13 +40,10 @@ defineProps<IPropsType>();
 const emit = defineEmits<IEmitsType>();
 const ulRef = useTemplateRef('ulRef');
 const currentId = ref<string | null>(null);
+const height = ref<number>(0);
 
 const handleLink = (id: string) => {
     currentId.value = currentId.value === id ? null : id;
-};
-
-const isActive = (id: string) => {
-    return currentId.value === id;
 };
 
 const contentLength = (content: string) => {
@@ -52,18 +52,28 @@ const contentLength = (content: string) => {
 
 onMounted(() => {
     if (ulRef.value) {
+        height.value = ulRef.value.scrollHeight;
+
         emit('calcHeight', ulRef.value.scrollHeight);
     }
 });
 </script>
 
 <style scoped lang="scss">
+@import '@/style/variables.scss';
+
 .aside-menu__item-grop {
+    --height: v-bind(height);
+
+    height: var(--height);
     width: 100%;
 
     position: absolute;
     top: 40px;
     left: 0;
+    opacity: 0;
+
+    transition: opacity $transition-time $transition-duration;
 
     svg {
         margin-left: 4px;
@@ -81,7 +91,7 @@ onMounted(() => {
         color: var(--color-text);
 
         &:hover {
-            background: var(--color-gray-light);
+            background-color: var(--color-gray-light);
         }
 
         span {
@@ -89,12 +99,16 @@ onMounted(() => {
         }
     }
 
-    .active {
+    &.activeUl {
+        opacity: 1;
+    }
+
+    .active-link {
         color: var(--color-white);
-        background: var(--color-primary-700);
+        background-color: var(--color-primary-700);
 
         &:hover {
-            background: var(--color-primary-600);
+            background-color: var(--color-primary-600);
         }
     }
 }

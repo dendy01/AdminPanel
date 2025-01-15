@@ -92,15 +92,16 @@ onUnmounted(() => {
     top: 0;
     left: 0;
     z-index: 1001;
-    transition: all .3s ease;
+    transition: width $transition-time $transition-duration;
 
     color: var(--color-text);
-    background: var(--bg-primary);
+    background-color: var(--bg-primary);
 
     &:hover {
         width: $sidebar-width;
         padding-right: 4px;
         box-shadow: 0 0 5px;
+        transition: width $transition-time $transition-duration;
 
         .aside-title,
         .aside-head__input {
@@ -158,8 +159,8 @@ onUnmounted(() => {
 }
 
 .aside-body {
-    max-height: calc(100% - 64px);
-    overflow-y: scroll;
+    max-height: calc(100%);
+    //overflow-y: scroll;
 
     &::-webkit-scrollbar {
         width: 2px;
@@ -167,17 +168,19 @@ onUnmounted(() => {
     }
 
     &:hover::-webkit-scrollbar-thumb {
-        background: var(--color-gray);
-        transition: all .3s ease;
+        background-color: var(--color-gray);
+        transition: background-color $transition-time $transition-duration;
     }
 }
 
 @media (max-width: $response-sw) {
     .aside {
+        transition: transform $transition-time $transition-duration;
         transform: translateX(-$sidebar-width);
     }
 
     .aside-active {
+        transition: transform $transition-time $transition-duration;
         transform: translateX(-$sidebar-width);
     }
 
@@ -185,6 +188,7 @@ onUnmounted(() => {
         width: $sidebar-width;
         transform: translateX(0px);
         box-shadow: 0 0 5px;
+        transition: transform $transition-time $transition-duration;
 
         &:hover {
             padding-right: 0;

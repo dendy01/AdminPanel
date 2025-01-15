@@ -114,12 +114,12 @@ onUnmounted(() => {
 .header {
     width: 100%;
     color: var(--color-text);
-    background: var(--bg-primary);
+    background-color: var(--bg-primary);
     position: sticky;
     z-index: 1000;
     top: 0;
     left: 0;
-    transition: padding .3s ease;
+    transition: padding $transition-time $transition-duration;
 
     .header-search__wrapper {
         display: flex;
@@ -172,7 +172,7 @@ onUnmounted(() => {
                 position: absolute;
                 right: 0;
 
-                background: var(--bg-primary);
+                background-color: var(--bg-primary);
                 box-shadow: 0 2px 4px var(--color-bs);
 
                 li {
@@ -209,10 +209,10 @@ onUnmounted(() => {
 .header-observer {
     opacity: .96;
     padding: 0 16px;
-    background: var(--bg-card);
+    background-color: var(--bg-card);
     border-radius: 0 0 8px 8px;
     box-shadow: 0 2px 4px var(--color-bs);
-    transition: padding .3s ease;
+    transition: padding $transition-time $transition-duration;
 }
 
 @media (max-width: $response-sw) {

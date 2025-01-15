@@ -48,6 +48,14 @@ const isOpen = (id: string) => {
 </script>
 
 <style scoped lang="scss">
+@import '@/style/variables.scss';
+
+.aside-menu {
+    position: relative;
+    z-index: 200;
+    background-color: var(--bg-primary);
+}
+
 .aside-menu:last-child {
     margin: 4px 0;
 }
@@ -68,7 +76,7 @@ const isOpen = (id: string) => {
         content: "";
         display: block;
         height: 1px;
-        background: var(--color-gray);
+        background-color: var(--color-gray);
         width: 90%;
 
         position: absolute;
@@ -82,8 +90,8 @@ const isOpen = (id: string) => {
         opacity: 0;
         position: relative;
         z-index: 20;
-        background: var(--bg-primary);
-        transition: all .3s ease;
+        background-color: var(--bg-primary);
+        transition: opacity $transition-time $transition-duration;
     }
 
     .open {
