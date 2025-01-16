@@ -67,6 +67,7 @@
 
 body {
     @include light;
+    background-color: var(--bg-primary);
 
     &.dark {
         @include dark;
