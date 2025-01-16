@@ -5,9 +5,7 @@
             <VDropdown
                 v-for="variant in Object.values(GlobalColors)"
                 :key="`${variant}_${Math.random}`"
-                :color="variant"
-                :text="variant"
-                :icon-right="Arrow"
+                :position="Positions.TOP_LEFT"
             >
                 <template #dropdown="{ toggle }">
                     <VButton
@@ -19,11 +17,16 @@
                     </VButton>
                 </template>
                 <template #menu>
-                    <ul>
+                    <ul class="dropdown-menu__wrap">
                         <li>Hello world</li>
                         <li>Hello world</li>
                         <li>Hello world</li>
                         <li>Hello world</li>
+                        <li class="line-wrap">
+                            <hr class="line">
+                        </li>
+                        <li>Hello dropdown</li>
+                        <li>Hello dropdown</li>
                     </ul>
                 </template>
             </VDropdown>
@@ -35,23 +38,46 @@ import { GlobalColors } from '@/GlobalColors.ts';
 import VDropdown from '@/components/UI/basic/VDropdown.vue';
 import Arrow from '@/assets/icons/icons-dropdown/arrow-down.svg';
 import VButton from '@/components/UI/basic/VButton.vue';
+import { Positions } from '@/model/UI/basic/Dropdown.ts';
 
-    interface IPropsType {
-        text: string;
-    }
+interface IPropsType {
+    text: string;
+}
 
 defineProps<IPropsType>();
 </script>
 
-    <style scoped>
-    .dropdown {
-        padding: 20px;
-    }
+<style scoped>
+.dropdown {
+    padding: 20px;
+}
 
-    .dropdown-content {
-        padding-top: 16px;
+.dropdown-content {
+    color: var(--color-text);
+    padding-top: 16px;
 
-        display: flex;
-        gap: 8px;
+    display: flex;
+    gap: 8px;
+
+    .dropdown-menu__wrap {
+
+        .line-wrap {
+            padding: 8px 0;
+
+            &:hover {
+                background: none;
+            }
+        }
+
+        li {
+            padding: 8px 16px;
+            white-space: nowrap;
+            cursor: pointer;
+
+            &:hover {
+                background-color: var(--color-gray);
+            }
+        }
     }
-    </style>
+}
+</style>

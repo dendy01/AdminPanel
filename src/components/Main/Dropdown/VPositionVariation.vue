@@ -5,8 +5,7 @@
             <div class="dropdown-content btn-content">
                 <VDropdown
                     :color="GlobalColors.PRIMARY"
-                    :text="'Hidden arrow'"
-                    :position="Positions.TOP_LEFT"
+                    :position="Positions.BOTTOM_LEFT"
                 >
                     <template #dropdown="{ toggle }">
                         <VButton
@@ -14,7 +13,7 @@
                             :icon-right="Arrow"
                             @click="toggle"
                         >
-                            Hidden arrow
+                            Dropdown
                         </VButton>
                     </template>
                     <template #menu>
@@ -37,18 +36,15 @@
             <div class="dropdown-content btn-content">
                 <VDropdown
                     :color="GlobalColors.PRIMARY"
-                    :text="'Hover'"
-                    :icon-right="Arrow"
-                    hover
-                    :position="Positions.TOP_LEFT"
+                    :right="'right'"
                 >
                     <template #dropdown="{ toggle }">
                         <VButton
                             :color="GlobalColors.PRIMARY"
-                            :icon-right="Arrow"
+                            :icon-right="ArrowRight"
                             @click="toggle"
                         >
-                            Hover
+                            Dropend
                         </VButton>
                     </template>
                     <template #menu>
@@ -71,19 +67,15 @@
             <div class="dropdown-content btn-content">
                 <VDropdown
                     :color="GlobalColors.PRIMARY"
-                    :text="'With Icon'"
-                    :icon-left="Menu"
-                    :icon-right="Arrow"
-                    :position="Positions.TOP_LEFT"
+                    :position="Positions.TOP_RIGHT"
                 >
                     <template #dropdown="{ toggle }">
                         <VButton
                             :color="GlobalColors.PRIMARY"
-                            :icon-left="Menu"
-                            :icon-right="Arrow"
+                            :icon-right="ArrowUp"
                             @click="toggle"
                         >
-                            With icon
+                            Dropup
                         </VButton>
                     </template>
                     <template #menu>
@@ -107,16 +99,16 @@
                 <VDropdown
                     :color="GlobalColors.PRIMARY"
                     :icon-right="More"
-                    :position="Positions.TOP_LEFT"
+                    :left="'left'"
                 >
                     <template #dropdown="{ toggle }">
                         <VButton
-                            round
-                            is-icon
                             :color="GlobalColors.PRIMARY"
-                            :icon-right="More"
+                            :icon-left="ArrowLeft"
                             @click="toggle"
-                        />
+                        >
+                            Dropstart
+                        </VButton>
                     </template>
                     <template #menu>
                         <ul class="dropdown-menu__wrap">
@@ -141,10 +133,12 @@
 import { GlobalColors } from '@/GlobalColors.ts';
 import VDropdown from '@/components/UI/basic/VDropdown.vue';
 import Arrow from '@/assets/icons/icons-dropdown/arrow-down.svg';
-import Menu from '@/assets/icons/icons-dropdown/menu.svg';
 import More from '@/assets/icons/icons-dropdown/more.svg';
 import VButton from '@/components/UI/basic/VButton.vue';
 import { Positions } from '@/model/UI/basic/Dropdown.ts';
+import ArrowUp from '@/assets/icons/icons-dropdown/arrow-up.svg';
+import ArrowRight from '@/assets/icons/icons-dropdown/arrow-right.svg';
+import ArrowLeft from '@/assets/icons/icons-dropdown/arrow-left.svg';
 </script>
 
 <style scoped>
