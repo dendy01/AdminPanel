@@ -66,5 +66,9 @@
 }
 
 body {
-    background-color: var(--bg-primary);
+    @include light;
+
+    &.dark {
+        @include dark;
+    }
 }

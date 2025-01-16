@@ -1,12 +1,18 @@
 import { defineStore } from 'pinia';
 import { onMounted, ref } from 'vue';
+import { Theme } from '@/model/helpers.ts';
 
 export const useTheme = defineStore('theme', () => {
-    const theme = ref<string>(localStorage.getItem('theme') || 'light');
+    const theme = ref<string>(localStorage.getItem('theme') || '');
 
     const setTheme = (newTheme: string) => {
         theme.value = newTheme;
-        document.body.className = newTheme;
+
+        if (newTheme === Theme.LIGHT) {
+            document.body.classList.remove(Theme.DARK);
+        } else {
+            document.body.classList.add(Theme.DARK);
+        }
         localStorage.setItem('theme', newTheme);
     };
 
@@ -16,7 +22,7 @@ export const useTheme = defineStore('theme', () => {
         if (savedTheme) {
             setTheme(savedTheme);
         } else {
-            setTheme('light');
+            setTheme(Theme.DARK);
         }
     });
 

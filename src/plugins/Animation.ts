@@ -6,7 +6,7 @@ export const handleActive = (event: MouseEvent, btn: HTMLElement) => {
         const y: number = event.clientY - rect.top - size / 2;
         const span = document.createElement('span');
         span.className = 'wave';
-        span.style.cssText = `width:${size}px;height:${size}px;top:${y}px;left:${x}px`;
+        span.style.cssText = `width:${ size }px;height:${ size }px;top:${ y }px;left:${ x }px`;
 
         btn.append(span);
 

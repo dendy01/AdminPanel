@@ -36,7 +36,8 @@
             <div class="dropdown-content btn-content">
                 <VDropdown
                     :color="GlobalColors.PRIMARY"
-                    :right="'right'"
+                    :position="Positions.TOP_LEFT"
+                    right
                 >
                     <template #dropdown="{ toggle }">
                         <VButton
@@ -99,7 +100,8 @@
                 <VDropdown
                     :color="GlobalColors.PRIMARY"
                     :icon-right="More"
-                    :left="'left'"
+                    :position="Positions.TOP_LEFT"
+                    left
                 >
                     <template #dropdown="{ toggle }">
                         <VButton

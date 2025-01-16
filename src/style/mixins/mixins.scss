@@ -1,21 +1,19 @@
-@mixin theme {
-    .light {
-        --color-text: #433c50;
+@mixin light {
+    --color-text: #433c50;
 
-        --bg-primary: #f4f5fa;
-        --bg-card: #ffffff;
+    --bg-primary: #f4f5fa;
+    --bg-card: #ffffff;
 
-        --color-bs: #aba8b1;
-        --color-gray-light: #2e263d0f;
-    }
+    --color-bs: #aba8b1;
+    --color-gray-light: #2e263d0f;
+}
 
-    .dark {
-        --color-text: #d5d1ea;
+@mixin dark {
+    --color-text: #d5d1ea;
 
-        --bg-primary: #28243d;
-        --bg-card: #312d4b;
+    --bg-primary: #28243d;
+    --bg-card: #312d4b;
 
-        --color-bs: rgba(19, 17, 32, .24);
-        --color-gray-light: rgba(255, 255, 255, .09);
-    }
+    --color-bs: rgba(19, 17, 32, .24);
+    --color-gray-light: rgba(255, 255, 255, .09);
 }
