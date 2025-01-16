@@ -128,9 +128,9 @@ onUnmounted(() => {
         border-radius: 8px;
 
         position: absolute;
-        z-index: 1010;
+        z-index: 999;
 
-        background-color: var(--bg-primary);
+        background-color: var(--bg-card);
         box-shadow: 0 2px 4px var(--color-bs);
 
         &.top-left {
@@ -154,6 +154,12 @@ onUnmounted(() => {
         }
 
         &.left {
+
+            &.top-left {
+                top: auto;
+                bottom: 0;
+            }
+
             top: 0;
             left: calc(-100% - 22px);
         }
@@ -161,6 +167,16 @@ onUnmounted(() => {
         &.right {
             top: 0;
             right: calc(-100% - 28px);
+
+            &.top-left {
+                left: auto;
+                bottom: 0;
+                top: auto;
+            }
+
+            &.bottom-left {
+                left: auto;
+            }
         }
     }
 }

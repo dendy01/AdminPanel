@@ -23,24 +23,10 @@
             >
                 <ul class="header-icons__list">
                     <li
-                        v-for="item in props"
-                        :key="item.id"
                         class="header-icon"
-                        :class="{ active: changeActiveModal(item.id) }"
-                        @click="isId(item.id)"
                         ref="activeUl"
                     >
-                        <component :is="item.icon" />
-
-                        <ul class="header-icon__sub">
-                            <li
-                                v-for="elem in item.group"
-                                :key="elem.id"
-                                @click="theme.setTheme(elem.content.toLowerCase())"
-                            >
-                                <component :is="elem.icon" /> {{ elem.content }}
-                            </li>
-                        </ul>
+                        <VHeaderTheme />
                     </li>
                     <img
                         src="@/assets/icons/icons-header/profile.png"
@@ -57,14 +43,12 @@
 import VHeaderInput from '@/components/Header/VHeaderInput.vue';
 import { IHeaderGroup } from '@/model/layout/Header';
 import { inject, onMounted, onUnmounted, ref } from 'vue';
-import { useTheme } from '@/store/useTheme.ts';
 import VHeaderSearch from '@/components/Header/VHeaderSearch.vue';
+import VHeaderTheme from '@/components/Header/VHeaderTheme.vue';
 
-const theme = useTheme();
-const props = inject<IHeaderGroup[]>('header');
+inject<IHeaderGroup[]>('header');
 const isActive = ref<boolean>(false);
 const isScrolling = ref<boolean>(false);
-const currentId = ref<string | null>(null);
 const activeUl = ref<HTMLElement[] | null>(null);
 
 const changeActive = (active: boolean) => {
@@ -79,31 +63,11 @@ const changeInput = () => {
     isActive.value = !isActive.value;
 };
 
-const isId = (id: string) => {
-    currentId.value = currentId.value === id ? null : id;
-};
-
-const changeActiveModal = (id: string) => {
-    return currentId.value === id;
-};
-
-const eventActive = (event: any) => {
-    if (activeUl.value) {
-        activeUl.value.forEach((item: any) => {
-            if(!item.contains(event.target)) {
-                item.classList.remove('active');
-            }
-        });
-    }
-};
-
 onMounted(() => {
-    document.body.addEventListener('click', eventActive);
     window.addEventListener('scroll', changeScroll);
 });
 
 onUnmounted(() => {
-    document.body.removeEventListener('click', eventActive);
     window.removeEventListener('scroll', changeScroll);
 });
 </script>
@@ -155,39 +119,6 @@ onUnmounted(() => {
                 padding: 8px;
                 cursor: pointer;
                 position: relative;
-
-                .header-icon__sub {
-                    display: none;
-                }
-            }
-
-            .active .header-icon__sub {
-                padding: 8px 0;
-                border-radius: 8px;
-
-                display: flex;
-                flex-direction: column;
-                gap: 12px;
-
-                position: absolute;
-                right: 0;
-
-                background-color: var(--bg-primary);
-                box-shadow: 0 2px 4px var(--color-bs);
-
-                li {
-                    padding: 8px 20px;
-
-                    display: flex;
-                    align-items: center;
-                    gap: 12px;
-
-                    white-space: nowrap;
-
-                    &:hover {
-                        background-color: var(--color-gray);
-                    }
-                }
             }
 
             .header-icons__list--profile {

@@ -1,1 +1,0 @@
-import{_ as e,c as o,o as c}from"./index-zWIiItVL.js";const t={};function r(a,n){return c(),o("div",null," Hello world! ")}const s=e(t,[["render",r],["__scopeId","data-v-48167302"]]);export{s as default};

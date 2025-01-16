@@ -1,0 +1,1 @@
+const a=(n,c)=>{if(c){const t=c.getBoundingClientRect(),e=Math.max(t.width,t.height),o=n.clientX-t.left-e/2,i=n.clientY-t.top-e/2,s=document.createElement("span");s.className="wave",s.style.cssText=`width:${e}px;height:${e}px;top:${i}px;left:${o}px`,c.append(s),setTimeout(()=>{s.remove()},200)}};export{a as h};
