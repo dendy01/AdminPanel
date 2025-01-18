@@ -17,7 +17,7 @@
                 class="aside-menu__item--icon"
                 :class="{ open: isValid }"
             >
-                {{ t(groupItem.content) }}
+                {{ t(`i18nGlobal.${groupItem.content}`) }}
                 <ArrowIcon
                     class="icon"
                     v-if="groupItem.select"
@@ -42,7 +42,7 @@
                     class="aside-menu__item--link_icon"
                     :class="{ open: isValid }"
                 >
-                    {{ t(groupItem.content) }}
+                    {{ t(`i18nGlobal.${groupItem.content}`) }}
                     <ArrowIcon
                         class="icon"
                         v-if="groupItem.select"

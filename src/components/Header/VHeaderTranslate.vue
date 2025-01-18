@@ -14,14 +14,14 @@
             <template #menu>
                 <ul class="header-icon__sub">
                     <li
-                        @click="lang.setLang(Translate.en)"
+                        @click="lang.setLang(TranslateAbbr.EN)"
                     >
-                        {{ Translate.EN }}
+                        {{ TranslateFull.EN }}
                     </li>
                     <li
-                        @click="lang.setLang(Translate.ru)"
+                        @click="lang.setLang(TranslateAbbr.RU)"
                     >
-                        {{ Translate.RU }}
+                        {{ TranslateFull.RU }}
                     </li>
                 </ul>
             </template>
@@ -35,7 +35,7 @@ import VDropdown from '@/components/UI/basic/VDropdown.vue';
 import { ref } from 'vue';
 import { handleActive } from '@/plugins/Animation.ts';
 import TranslateIcon from '@/assets/icons/icons-header/translate.svg';
-import { Translate } from '@/model/helpers.ts';
+import { TranslateFull, TranslateAbbr } from '@/model/helpers.ts';
 import { useTranslate } from '@/store/useTranslate.ts';
 
 const icon = ref<HTMLElement | null>(null);

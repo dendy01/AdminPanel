@@ -18,10 +18,8 @@ export const useTheme = defineStore('theme', () => {
     };
 
     onMounted(() => {
-        const savedTheme = getLocalStorage('theme');
-
-        if (savedTheme) {
-            setTheme(savedTheme);
+        if (theme.value) {
+            setTheme(theme.value);
         } else {
             setTheme(Theme.DARK);
         }

@@ -2,12 +2,16 @@ import { createI18n } from 'vue-i18n';
 
 const messages  = {
     en: {
-        UserInterface: 'User Interface',
-        Dashboards: 'Dashboards'
+        i18nGlobal: {
+            UserInterface: 'User Interface',
+            Dashboards: 'Dashboards'
+        }
     },
     ru: {
-        UserInterface: 'Интерфейс',
-        Dashboards: 'Панель управления'
+        i18nGlobal: {
+            UserInterface: 'Интерфейс',
+            Dashboards: 'Панель управления'
+        }
     }
 };
 

@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 import { onMounted, ref } from 'vue';
-import { Translate } from '@/model/helpers.ts';
+import { TranslateAbbr } from '@/model/helpers.ts';
 import { useI18n } from 'vue-i18n';
 import { getLocalStorage, setLocalStorage } from '@/plugins/LocalStorage.ts';
 
@@ -18,12 +18,10 @@ export const useTranslate = defineStore('lang', () => {
     };
 
     onMounted(() => {
-        const savedLang = getLocalStorage('lang');
-
-        if (savedLang) {
-            setLang(savedLang);
+        if (lang.value) {
+            setLang(lang.value);
         } else {
-            setLang(Translate.en);
+            setLang(TranslateAbbr.EN);
         }
     });
 
