@@ -26,6 +26,12 @@
                         class="header-icon"
                         ref="activeUl"
                     >
+                        <VHeaderTranslate />
+                    </li>
+                    <li
+                        class="header-icon"
+                        ref="activeUl"
+                    >
                         <VHeaderTheme />
                     </li>
                     <img
@@ -45,6 +51,7 @@ import { IHeaderGroup } from '@/model/layout/Header';
 import { inject, onMounted, onUnmounted, ref } from 'vue';
 import VHeaderSearch from '@/components/Header/VHeaderSearch.vue';
 import VHeaderTheme from '@/components/Header/VHeaderTheme.vue';
+import VHeaderTranslate from '@/components/Header/VHeaderTranslate.vue';
 
 inject<IHeaderGroup[]>('header');
 const isActive = ref<boolean>(false);

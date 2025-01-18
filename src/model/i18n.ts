@@ -1,18 +1,24 @@
 import { createI18n } from 'vue-i18n';
 
-const messages = {
+const messages  = {
     en: {
-        welcome: 'Welcome to our application!'
+        i18nGlobal: {
+            UserInterface: 'User Interface',
+            Dashboards: 'Dashboards'
+        }
     },
     ru: {
-        welcome: 'Добро пожаловать в наше приложение!'
+        i18nGlobal: {
+            UserInterface: 'Интерфейс',
+            Dashboards: 'Панель управления'
+        }
     }
 };
 
 const i18n = createI18n({
     locale: 'en',
-    legacy: false,
-    messages
+    messages,
+    legacy: false
 });
 
 export default i18n;

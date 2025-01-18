@@ -1,9 +1,10 @@
 import { defineStore } from 'pinia';
 import { onMounted, ref } from 'vue';
 import { Theme } from '@/model/helpers.ts';
+import { getLocalStorage, setLocalStorage } from '@/plugins/LocalStorage.ts';
 
 export const useTheme = defineStore('theme', () => {
-    const theme = ref<string>(localStorage.getItem('theme') || '');
+    const theme = ref<string>(getLocalStorage('theme') || '');
 
     const setTheme = (newTheme: string) => {
         theme.value = newTheme;
@@ -13,14 +14,12 @@ export const useTheme = defineStore('theme', () => {
         } else {
             document.body.classList.add(Theme.DARK);
         }
-        localStorage.setItem('theme', newTheme);
+        setLocalStorage('theme', newTheme);
     };
 
     onMounted(() => {
-        const savedTheme = localStorage.getItem('theme');
-
-        if (savedTheme) {
-            setTheme(savedTheme);
+        if (theme.value) {
+            setTheme(theme.value);
         } else {
             setTheme(Theme.DARK);
         }
