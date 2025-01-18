@@ -17,7 +17,7 @@
                 class="aside-menu__item--icon"
                 :class="{ open: isValid }"
             >
-                {{ groupItem.content }}
+                {{ t(groupItem.content) }}
                 <ArrowIcon
                     class="icon"
                     v-if="groupItem.select"
@@ -42,7 +42,7 @@
                     class="aside-menu__item--link_icon"
                     :class="{ open: isValid }"
                 >
-                    {{ groupItem.content }}
+                    {{ t(groupItem.content) }}
                     <ArrowIcon
                         class="icon"
                         v-if="groupItem.select"
@@ -67,6 +67,7 @@ import VSidebarSelectUl from '@/components/Sidebar/VSidebarSelectUl.vue';
 import { ISidebarLink } from '@/model/layout/Sidebar';
 import { useChecking } from '@/store/useCheck.ts';
 import { computed, ref } from 'vue';
+import { useI18n } from 'vue-i18n';
 
 interface IPropsType {
     groupItem: ISidebarLink;
@@ -78,6 +79,10 @@ interface IPropsType {
 const props = defineProps<IPropsType>();
 const height = ref<number>(0);
 const isCheck = useChecking();
+
+const {
+    t
+} = useI18n();
 
 const changeHeight = (newHeight: number) => {
     height.value = newHeight + 4;

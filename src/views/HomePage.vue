@@ -21,6 +21,7 @@ import VMain from '@/views/MainPage.vue';
 import { IHeaderGroup } from '@/model/layout/Header';
 import { Routes } from '@/routes/modelRoutes.ts';
 import Moon from '@/assets/icons/icons-header/moon.svg';
+import { TranslateContent } from '@/model/helpers.ts';
 
 const header = shallowRef<IHeaderGroup[]>([
     {
@@ -83,7 +84,7 @@ const sidebar = shallowRef<ISidebarGroup[]>([
         group: [
             {
                 id: useId(),
-                content: 'Dashboards',
+                content: TranslateContent.DASHBOARDS,
                 icon: HomeSmile,
                 select: [
                     {
@@ -100,7 +101,7 @@ const sidebar = shallowRef<ISidebarGroup[]>([
         group: [
             {
                 id: useId(),
-                content: 'User interface',
+                content: TranslateContent.USERINTERFACE,
                 icon: Toggle,
                 select: [
                     {
