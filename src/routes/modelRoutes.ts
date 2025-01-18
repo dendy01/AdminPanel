@@ -3,5 +3,6 @@ export const Routes = {
     BUTTONS: 'buttons',
     LAYOUT: 'layout',
     ALERTS: 'alerts',
-    DROPDOWN: 'dropdowns'
+    DROPDOWN: 'dropdowns',
+    ACCORDION: 'accordion'
 };

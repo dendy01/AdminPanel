@@ -28,6 +28,11 @@ const routes = [
                 name: Routes.DROPDOWN,
                 path: `${BASE_URL}/${Routes.DROPDOWN}`,
                 component: () => import('@/components/Main/Dropdown/VDropdowns.vue')
+            },
+            {
+                name: Routes.ACCORDION,
+                path: `${BASE_URL}/${Routes.ACCORDION}`,
+                component: () => import('@/components/Main/Accordion/VAccordions.vue')
             }
         ]
     },

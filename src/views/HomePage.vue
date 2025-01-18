@@ -118,6 +118,11 @@ const sidebar = shallowRef<ISidebarGroup[]>([
                         id: useId(),
                         content: 'Dropdowns',
                         link: Routes.DROPDOWN
+                    },
+                    {
+                        id: useId(),
+                        content: 'Accordion',
+                        link: Routes.ACCORDION
                     }
                 ]
             }
