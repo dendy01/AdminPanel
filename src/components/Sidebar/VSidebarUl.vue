@@ -91,7 +91,7 @@ const isOpen = (id: string) => {
         position: relative;
         z-index: 20;
         background-color: var(--bg-primary);
-        transition: opacity $transition-time $transition-duration;
+        transition: opacity var(--duration) var(--timing-function);
     }
 
     .open {

@@ -23,7 +23,7 @@ const isCheck = useChecking();
 .main {
     width: calc(100% - $sidebar-width);
     margin-left: $sidebar-width;
-    transition: width $transition-time $transition-duration;
+    transition: width var(--duration) var(--timing-function);
     background-color: var(--bg-primary);
 
     .container {

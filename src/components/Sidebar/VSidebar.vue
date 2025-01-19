@@ -92,7 +92,7 @@ onUnmounted(() => {
     top: 0;
     left: 0;
     z-index: 1001;
-    transition: width $transition-time $transition-duration;
+    transition: width var(--duration) var(--timing-function);
 
     color: var(--color-text);
     background-color: var(--bg-primary);
@@ -101,7 +101,7 @@ onUnmounted(() => {
         width: $sidebar-width;
         padding-right: 4px;
         box-shadow: 0 0 5px;
-        transition: width $transition-time $transition-duration;
+        transition: width var(--duration) var(--timing-function);
 
         .aside-title,
         .aside-head__input {
@@ -169,18 +169,18 @@ onUnmounted(() => {
 
     &:hover::-webkit-scrollbar-thumb {
         background-color: var(--color-gray);
-        transition: background-color $transition-time $transition-duration;
+        transition: background-color var(--duration) var(--timing-function);
     }
 }
 
 @media (max-width: $response-sw) {
     .aside {
-        transition: transform $transition-time $transition-duration;
+        transition: transform var(--duration) var(--timing-function);
         transform: translateX(-$sidebar-width);
     }
 
     .aside-active {
-        transition: transform $transition-time $transition-duration;
+        transition: transform var(--duration) var(--timing-function);
         transform: translateX(-$sidebar-width);
     }
 
@@ -188,7 +188,7 @@ onUnmounted(() => {
         width: $sidebar-width;
         transform: translateX(0px);
         box-shadow: 0 0 5px;
-        transition: transform $transition-time $transition-duration;
+        transition: transform var(--duration) var(--timing-function);
 
         &:hover {
             padding-right: 0;

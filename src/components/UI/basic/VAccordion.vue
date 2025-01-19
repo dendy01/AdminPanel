@@ -2,11 +2,9 @@
     <div
         class="accordion"
         :class="[
-            isOpen && 'active',
+            isOpen && 'active-accordion',
             round && 'round',
-            roundTop && 'round-top',
-            roundBottom && 'round-bottom',
-            accordionCenter && 'accordion-center',
+            roundType
         ]"
         ref="accordionRef"
     >
@@ -28,12 +26,11 @@
 
 <script setup lang="ts">
 import { computed, onMounted, onUnmounted, ref } from 'vue';
+import { AccordionTypes } from '@/model/UI/basic/Accordion.ts';
 
 interface IPropsType {
+    roundType?: AccordionTypes;
     round?: boolean;
-    roundTop?: boolean;
-    roundBottom?: boolean;
-    accordionCenter?: boolean;
 }
 
 defineProps<IPropsType>();
@@ -73,12 +70,12 @@ onUnmounted(() => {
 });
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 @import '@/style/variables.scss';
 
 .accordion {
     background-color: var(--bg-card);
-    transition: margin $transition-time $transition-duration;
+    transition: margin var(--duration) var(--timing-function);
 
     &.round {
         border-radius: 6px;
@@ -93,27 +90,8 @@ onUnmounted(() => {
     }
 
     &.accordion-center {
-        margin: 1px 0;
-    }
-
-    .cross-icon {
-        width: 20px;
-        height: 20px;
-
-        transition: transform $transition-time $transition-duration;
-        transform: rotate(90deg);
-    }
-
-    &.active {
-        margin: 8px 0;
-        border-radius: 6px;
-        box-shadow: var(--shadow);
-        transition: transform $transition-time $transition-duration;
-
-        .cross-icon {
-            transition: transform $transition-time $transition-duration;
-            transform: rotate(-90deg);
-        }
+        border-top: 1px solid var(--bg-primary);
+        border-bottom: 1px solid var(--bg-primary);
     }
 
     .accordion-content {
@@ -123,7 +101,7 @@ onUnmounted(() => {
         font-size: 15px;
         font-weight: 400;
 
-        transition: max-height $transition-time $transition-duration;
+        transition: max-height var(--duration) var(--timing-function);
         color: var(--color-gray);
 
         .accordion-content__body {

@@ -90,7 +90,7 @@ onUnmounted(() => {
     z-index: 1000;
     top: 0;
     left: 0;
-    transition: padding $transition-time $transition-duration;
+    transition: padding var(--duration) var(--timing-function);
 
     .header-search__wrapper {
         display: flex;
@@ -150,7 +150,7 @@ onUnmounted(() => {
     background-color: var(--bg-card);
     border-radius: 0 0 8px 8px;
     box-shadow: 0 2px 4px var(--color-bs);
-    transition: padding $transition-time $transition-duration;
+    transition: padding var(--duration) var(--timing-function);
 }
 
 @media (max-width: $response-sw) {

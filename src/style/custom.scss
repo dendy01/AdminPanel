@@ -1,3 +1,5 @@
+@import '@/style/variables.scss';
+
 .title {
     padding: 20px;
     font-size: 18px;
@@ -57,4 +59,24 @@ text {
 
 .dropdown {
     padding: 20px;
+}
+
+.cross-icon {
+    width: 20px;
+    height: 20px;
+
+    transition: transform var(--duration) var(--timing-function);
+    transform: rotate(90deg);
+}
+
+.active-accordion {
+    margin: 8px 0;
+    border-radius: 6px;
+    box-shadow: var(--shadow);
+    transition: transform var(--duration) var(--timing-function);
+
+    .cross-icon {
+        transition: transform var(--duration) var(--timing-function);
+        transform: rotate(-90deg);
+    }
 }

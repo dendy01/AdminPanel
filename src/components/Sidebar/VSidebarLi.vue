@@ -127,10 +127,10 @@ const isValid = computed<boolean>(() => {
     cursor: pointer;
     position: relative;
     z-index: 100;
-    transition: margin-bottom $transition-time $transition-duration;
+    transition: margin-bottom var(--duration) var(--timing-function);
 
     .icon {
-        transition: transform $transition-time $transition-duration;
+        transition: transform var(--duration) var(--timing-function);
         position: absolute;
         right: 20px;
     }
@@ -149,7 +149,7 @@ const isValid = computed<boolean>(() => {
     background-color: var(--color-gray-light);
 
     .icon {
-        transition: transform $transition-time $transition-duration;
+        transition: transform var(--duration) var(--timing-function);
         transform: rotate(90deg);
     }
 }
@@ -161,12 +161,12 @@ const isValid = computed<boolean>(() => {
     .aside-menu__item--link_icon {
         text-wrap: nowrap;
         display: none;
-        transition: opacity $transition-time $transition-duration;
+        transition: opacity var(--duration) var(--timing-function);
     }
 
     .open {
         display: block;
-        transition: opacity $transition-time $transition-duration;
+        transition: opacity var(--duration) var(--timing-function);
     }
 }
 

@@ -90,8 +90,7 @@ const handleActiveClick = (event: MouseEvent) => {
     user-select: none;
     text-transform: capitalize;
 
-    transition: background-color $transition-time $transition-duration,
-    color 0.2s ease;
+    transition: background-color var(--duration) var(--timing-function);
     background-color: var(--btn-color);
     color: var(--color-white);
 
