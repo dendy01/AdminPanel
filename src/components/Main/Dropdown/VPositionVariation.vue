@@ -147,7 +147,7 @@ import ArrowLeft from '@/assets/icons/icons-dropdown/arrow-left.svg';
 .dropdown {
     display: flex;
 
-    padding: 20px;
+    padding: 0 20px 20px 20px;
 }
 
 .dropdown-content {

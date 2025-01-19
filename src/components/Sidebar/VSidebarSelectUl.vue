@@ -10,7 +10,7 @@
         >
             <RouterLink
                 active-class="active-link"
-                :to="selectItem.link ? selectItem.link : 'layout'"
+                :to="selectItem.link as 'string'"
                 class="aside-menu__item"
                 @click="handleLink(selectItem.id)"
             >

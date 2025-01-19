@@ -46,6 +46,7 @@
     --color-dark-300: #f1f1f1;
 
     --padding-menu-item: 8px 20px;
+    --shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 * {
@@ -62,7 +63,6 @@
 @font-face {
     font-family: "Apple-system";
     src: url("../assets/fonts/Inter-VariableFont_opsz.ttf");
-    font-size: 16px;
 }
 
 body {

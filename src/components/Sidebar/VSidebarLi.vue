@@ -27,7 +27,7 @@
 
         <RouterLink
             v-else
-            to="layout"
+            :to="groupItem.link as 'string'"
             active-class="active-link"
             :class="{ 'aside-menu__item--link': !groupItem.select }"
         >

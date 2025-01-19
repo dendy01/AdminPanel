@@ -20,9 +20,9 @@
 </template>
 
 <script setup lang="ts">
-import VBasicDefaultButtons from './VBasicDefaultButtons.vue';
-import VButtonsAction from './VButtonsAction.vue';
-import VButtonsIcons from './VButtonsIcons.vue';
+import VBasicDefaultButtons from '@/components/Main/Buttons/VBasicDefaultButtons.vue';
+import VButtonsAction from '@/components/Main/Buttons/VButtonsAction.vue';
+import VButtonsIcons from '@/components/Main/Buttons/VButtonsIcons.vue';
 import VButtonsOptions from '@/components/Main/Buttons/VButtonsOptions.vue';
 </script>
 

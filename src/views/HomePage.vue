@@ -19,7 +19,7 @@ import Sun from '@/assets/icons/icons-header/sun.svg';
 import Translate from '@/assets/icons/icons-header/translate.svg';
 import VMain from '@/views/MainPage.vue';
 import { IHeaderGroup } from '@/model/layout/Header';
-import { Routes } from '@/routes/modelRoutes.ts';
+import { Routes } from '@/routes/index.ts';
 import Moon from '@/assets/icons/icons-header/moon.svg';
 import { TranslateContent } from '@/model/helpers.ts';
 
@@ -89,7 +89,8 @@ const sidebar = shallowRef<ISidebarGroup[]>([
                 select: [
                     {
                         id: useId(),
-                        content: 'CRM'
+                        content: 'CRM',
+                        link: Routes.CRM
                     }
                 ]
             }

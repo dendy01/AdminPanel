@@ -3,15 +3,17 @@
         <h2 class="title">
             {{ text }}
         </h2>
-        <VAlert
-            v-for="variant in GlobalColors"
-            :key="`${variant}-${Math.random}`"
-            :color="variant"
-            basic
-            close
-        >
-            <span>This is a {{ variant }} outline alert — check it out!</span>
-        </VAlert>
+        <div class="alerts">
+            <VAlert
+                v-for="variant in GlobalColors"
+                :key="`${variant}-${Math.random}`"
+                :color="variant"
+                basic
+                close
+            >
+                This is a {{ variant }} alert — check it out!
+            </VAlert>
+        </div>
     </div>
 </template>
 
@@ -29,16 +31,12 @@ defineProps<IPropsType>();
 <style scoped>
 .alert-wrapper__col {
     width: 50%;
-    padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     background-color: var(--bg-card);
 
-    .title {
-        margin-bottom: 20px;
-        font-size: 18px;
-        font-weight: 500;
-        color: var(--color-text);
+    .alerts {
+        padding: 0 20px 20px 20px;
     }
 }
 </style>

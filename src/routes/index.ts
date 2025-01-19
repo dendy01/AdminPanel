@@ -1,7 +1,16 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import { Routes } from '@/routes/modelRoutes.ts';
 
 const BASE_URL = '/AdminPanel';
+
+export const Routes = {
+    HOME: 'home',
+    BUTTONS: 'buttons',
+    LAYOUT: 'layout',
+    ALERTS: 'alerts',
+    DROPDOWN: 'dropdowns',
+    ACCORDION: 'accordion',
+    CRM: 'crm'
+};
 
 const routes = [
     {
@@ -10,29 +19,29 @@ const routes = [
         component: () => import('@/views/HomePage.vue'),
         children: [
             {
-                name: Routes.LAYOUT,
-                path: `${BASE_URL}/${Routes.LAYOUT}`,
-                component: () => import('@/components/VLayout.vue')
+                name: Routes.CRM,
+                path: `${BASE_URL}/${Routes.CRM}`,
+                component: () => import('@/views/PreviewCRMPage.vue')
             },
             {
                 name: Routes.BUTTONS,
                 path: `${BASE_URL}/${Routes.BUTTONS}`,
-                component: () => import('@/components/Main/Buttons/VButtons.vue')
+                component: () => import('@/views/PreviewButtonsPage.vue')
             },
             {
                 name: Routes.ALERTS,
                 path: `${BASE_URL}/${Routes.ALERTS}`,
-                component: () => import('@/components/Main/Alerts/VAlerts.vue')
+                component: () => import('@/views/PreviewAlertsPage.vue')
             },
             {
                 name: Routes.DROPDOWN,
                 path: `${BASE_URL}/${Routes.DROPDOWN}`,
-                component: () => import('@/components/Main/Dropdown/VDropdowns.vue')
+                component: () => import('@/views/PreviewDropdownsPage.vue')
             },
             {
                 name: Routes.ACCORDION,
                 path: `${BASE_URL}/${Routes.ACCORDION}`,
-                component: () => import('@/components/Main/Accordion/VAccordions.vue')
+                component: () => import('@/views/PreviewAccordionsPage.vue')
             }
         ]
     },
