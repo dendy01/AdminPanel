@@ -74,7 +74,7 @@ onUnmounted(() => {
     .header-search__input {
         height: 100%;
         width: 100%;
-        font-size: 16px;
+        font-size: var(--font-size-16);
         color: var(--color-text);
 
         position: absolute;
@@ -85,7 +85,7 @@ onUnmounted(() => {
     }
 
     .header-search__input::placeholder {
-        font-size: 16px;
+        font-size: var(--font-size-16);
     }
 
     .header-search__close {
@@ -100,8 +100,8 @@ onUnmounted(() => {
 
 .header-observer {
     opacity: .9;
-    padding: 0 16px;
-    border-radius: 0 0 8px 8px;
+    padding: 0 var(--padding-16);
+    border-radius: 0 0 var(--border-radius-8) var(--border-radius-8);
     background-color: var(--bg-card) !important;
 
     .header-search__close {

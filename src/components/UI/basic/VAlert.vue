@@ -55,10 +55,10 @@ const removeAlert = () => {
     --alert-basic-bg: v-bind(alertBasicBgColor);
     --alert-icon-hover: v-bind(alertIconHover);
 
-    padding: 16px;
-    margin-bottom: 16px;
-    border-radius: 8px;
-    font-size: 16px;
+    padding: var(--padding-16);
+    margin-bottom: var(--margin-16);
+    border-radius: var(--border-radius-8);
+    font-size: var(--font-size-16);
     background-color: var(--alert-color);
     color: var(--color-white);
 
@@ -85,9 +85,9 @@ const removeAlert = () => {
     }
 
     .alert-icon {
-        padding: 4px;
-        margin-right: 16px;
-        border-radius: 8px;
+        padding: var(--padding-4);
+        margin-right: var(--margin-16);
+        border-radius: var(--border-radius-8);
 
         display: flex;
 

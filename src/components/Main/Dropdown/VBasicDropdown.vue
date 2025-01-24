@@ -49,7 +49,7 @@ defineProps<IPropsType>();
 
 <style scoped>
 .dropdown {
-    padding: 0 20px 20px 20px;
+    padding: 0 var(--padding-20) var(--padding-20) var(--padding-20);
 }
 
 .dropdown-content {

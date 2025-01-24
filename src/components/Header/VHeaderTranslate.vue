@@ -59,7 +59,7 @@ const handleActiveClick = (event: MouseEvent) => {
     gap: 12px;
 
     li {
-        padding: 8px 20px;
+        padding: 8px var(--padding-20);
         text-transform: capitalize;
 
         display: flex;

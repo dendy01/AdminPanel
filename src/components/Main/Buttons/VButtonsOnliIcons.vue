@@ -61,7 +61,7 @@ const icons = shallowRef({
 <style scoped lang="scss">
 .basic-buttons__wrap--row {
     width: 33.33%;
-    padding: 20px;
+    padding: var(--padding-20);
     border-right: 1px solid var(--color-gray-light);
 
     &:last-of-type {

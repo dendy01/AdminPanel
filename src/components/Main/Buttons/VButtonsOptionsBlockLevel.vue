@@ -32,11 +32,11 @@ defineProps<IPropsType>();
 
 <style scoped lang="scss">
 .basic-buttons__wrap--row {
-    padding: 20px;
+    padding: var(--padding-20);
 
     .row {
         width: 50%;
-        margin: 12px auto 0 auto;
+        margin: var(--margin-12) auto 0 auto;
 
         display: flex;
         flex-direction: column;

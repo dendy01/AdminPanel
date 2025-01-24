@@ -1,22 +1,29 @@
 @import '@/style/variables.scss';
 
 .title {
-    padding: 20px;
-    font-size: 18px;
+    padding: var(--padding-20);
+    font-size: var(--font-size-18);
+    font-weight: 500;
+    color: var(--color-text);
+}
+
+.title-sm {
+    padding: var(--padding-20);
+    font-size: var(--font-size-16);
     font-weight: 500;
     color: var(--color-text);
 }
 
 .link-title {
-    font-size: 18px;
+    font-size: var(--font-size-18);
     font-weight: 500;
     color: var(--color-text);
 }
 
 .accordion-title {
-    font-size: 15px;
+    font-size: var(--font-size-15);
     font-weight: 500;
-    padding: 12px 20px;
+    padding: var(--padding-12) var(--padding-20);
     cursor: pointer;
 
     display: flex;
@@ -33,14 +40,14 @@
 }
 
 .slogan {
-    font-size: 13px;
+    font-size: var(--font-size-13);
     font-weight: 500;
     text-transform: capitalize;
     color: var(--color-gray);
 }
 
 text {
-    font-size: 16px;
+    font-size: var(--font-size-16);
 }
 
 .line {
@@ -50,7 +57,7 @@ text {
 }
 
 .btn-content {
-    padding-top: 16px;
+    padding-top: var(--padding-16);
 
     display: flex;
     flex-wrap: wrap;
@@ -58,7 +65,7 @@ text {
 }
 
 .dropdown {
-    padding: 20px;
+    padding: var(--padding-20);
 }
 
 .cross-icon {
@@ -71,7 +78,7 @@ text {
 
 .active-accordion {
     margin: 8px 0;
-    border-radius: 6px;
+    border-radius: var(--border-radius-6);
     box-shadow: var(--shadow);
     transition: transform var(--duration) var(--timing-function);
 
@@ -79,4 +86,9 @@ text {
         transition: transform var(--duration) var(--timing-function);
         transform: rotate(-90deg);
     }
+}
+
+.badge-icon {
+    width: 14px;
+    height: 14px;
 }

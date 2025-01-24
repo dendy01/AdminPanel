@@ -124,6 +124,11 @@ const sidebar = shallowRef<ISidebarGroup[]>([
                         id: useId(),
                         content: 'Accordion',
                         link: Routes.ACCORDION
+                    },
+                    {
+                        id: useId(),
+                        content: 'Badges',
+                        link: Routes.BADGES
                     }
                 ]
             }

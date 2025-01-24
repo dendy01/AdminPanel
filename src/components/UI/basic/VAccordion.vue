@@ -78,15 +78,15 @@ onUnmounted(() => {
     transition: margin var(--duration) var(--timing-function);
 
     &.round {
-        border-radius: 6px;
+        border-radius: var(--border-radius-6);
     }
 
     &.round-top {
-        border-radius: 6px 6px 0 0;
+        border-radius: var(--border-radius-6) var(--border-radius-6) 0 0;
     }
 
     &.round-bottom {
-        border-radius: 0 0 6px 6px;
+        border-radius: 0 0 var(--border-radius-6) var(--border-radius-6);
     }
 
     &.accordion-center {
@@ -98,14 +98,14 @@ onUnmounted(() => {
         overflow: hidden;
         max-height: 0;
 
-        font-size: 15px;
+        font-size: var(--font-size-15);
         font-weight: 400;
 
         transition: max-height var(--duration) var(--timing-function);
         color: var(--color-gray);
 
         .accordion-content__body {
-            padding: 0 20px 20px;
+            padding: 0 var(--padding-20) var(--padding-20);
         }
     }
 }

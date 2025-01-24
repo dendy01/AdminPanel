@@ -151,7 +151,7 @@ import { Positions } from '@/model/UI/basic/Dropdown.ts';
 .dropdown {
     display: flex;
 
-    padding: 20px;
+    padding: var(--padding-20);
 }
 
 .dropdown-content {

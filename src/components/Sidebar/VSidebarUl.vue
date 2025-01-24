@@ -64,7 +64,7 @@ const isOpen = (id: string) => {
     padding: var(--padding-menu-item);
     padding-top: 30px;
     text-transform: uppercase;
-    font-size: 12px;
+    font-size: var(--font-size-12);
     font-weight: 400;
     color: var(--color-gray);
 

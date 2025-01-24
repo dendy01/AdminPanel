@@ -49,12 +49,12 @@ defineProps<IPropsType>();
 
 <style scoped>
 .dropdown {
-    padding: 20px;
+    padding: var(--padding-20);
 }
 
 .dropdown-content {
     color: var(--color-text);
-    padding-top: 16px;
+    padding-top: var(--padding-16);
 
     display: flex;
     gap: 8px;
@@ -70,7 +70,7 @@ defineProps<IPropsType>();
         }
 
         li {
-            padding: 8px 16px;
+            padding: 8px var(--padding-16);
             white-space: nowrap;
             cursor: pointer;
 

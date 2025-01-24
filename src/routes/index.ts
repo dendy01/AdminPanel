@@ -9,6 +9,7 @@ export const Routes = {
     ALERTS: 'alerts',
     DROPDOWN: 'dropdowns',
     ACCORDION: 'accordion',
+    BADGES: 'badges',
     CRM: 'crm'
 };
 
@@ -37,6 +38,11 @@ const routes = [
                 name: Routes.DROPDOWN,
                 path: `${BASE_URL}/${Routes.DROPDOWN}`,
                 component: () => import('@/views/PreviewDropdownsPage.vue')
+            },
+            {
+                name: Routes.BADGES,
+                path: `${BASE_URL}/${Routes.BADGES}`,
+                component: () => import('@/views/PreviewBadgesPage.vue')
             },
             {
                 name: Routes.ACCORDION,

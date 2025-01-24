@@ -29,7 +29,7 @@ const isCheck = useChecking();
     .container {
         width: $fullscrin-width;
         max-width: $container-width;
-        padding: 0 20px;
+        padding: 0 var(--padding-20);
         margin: 0 auto;
         position: $position-rel;
     }
@@ -44,7 +44,7 @@ const isCheck = useChecking();
     .container {
         width: $fullscrin-width;
         max-width: $container-width;
-        padding: 0 20px;
+        padding: 0 var(--padding-20);
         margin: 0 auto;
         position: $position-rel;
     }

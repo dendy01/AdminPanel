@@ -16,15 +16,18 @@
         @click="handleActiveClick"
         ref="buttons"
     >
-        <component
-            class="btn-icon--left"
-            :is="iconLeft"
-        />
-        <slot />
-        <component
-            class="btn-icon--right"
-            :is="iconRight"
-        />
+        <div class="wave-container" />
+        <span class="btn-content__wrap">
+            <component
+                class="btn-icon--left"
+                :is="iconLeft"
+            />
+            <slot />
+            <component
+                class="btn-icon--right"
+                :is="iconRight"
+            />
+        </span>
     </button>
 </template>
 
@@ -77,16 +80,16 @@ const handleActiveClick = (event: MouseEvent) => {
     --btn-label-hover-color: v-bind(buttonLabelHoverColor);
     --btn-outline-hover-color: v-bind(buttonOutherColor);
 
-    padding: 8px 18px;
-    font-size: 16px;
-    border-radius: 6px;
+    padding: var(--padding-8) 18px;
+    font-size: var(--font-size-16);
+    border-radius: var(--border-radius-6);
     cursor: pointer;
 
     display: inline-flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     user-select: none;
     text-transform: capitalize;
 
@@ -115,27 +118,27 @@ const handleActiveClick = (event: MouseEvent) => {
     }
 
     &.xl {
-        padding: 12px 24px;
-        border-radius: 8px;
-        font-size: 20px;
+        padding: var(--padding-12) var(--padding-24);
+        border-radius: var(--border-radius-8);
+        font-size: var(--font-size-20);
     }
 
     &.lg {
-        padding: 10px 20px;
-        border-radius: 6px;
-        font-size: 18px;
+        padding: 10px var(--padding-20);
+        border-radius: var(--border-radius-6);
+        font-size: var(--font-size-18);
     }
 
     &.sm {
-        padding: 8px 12px;
-        border-radius: 4px;
-        font-size: 14px;
+        padding: var(--padding-8) var(--padding-12);
+        border-radius: var(--border-radius-4);
+        font-size: var(--font-size-14);
     }
 
     &.xs {
         padding: 6px 10px;
-        border-radius: 2px;
-        font-size: 12px;
+        border-radius: var(--border-radius-2);
+        font-size: var(--font-size-12);
     }
 
     &.active {
@@ -155,7 +158,7 @@ const handleActiveClick = (event: MouseEvent) => {
     }
 
     &.is-btn__icon {
-        padding: 8px;
+        padding: var(--padding-8);
 
         svg {
             width: 22px;
@@ -192,12 +195,12 @@ const handleActiveClick = (event: MouseEvent) => {
     }
 
     &.split-left {
-        border-radius: 0 6px 6px 0;
+        border-radius: 0 var(--border-radius-6) var(--border-radius-6) 0;
         border-left: 1px solid rgba(0, 0, 0, .1);
     }
 
     &.split-right {
-        border-radius: 6px 0 0 6px;
+        border-radius: var(--border-radius-6) 0 0 var(--border-radius-6);
     }
 
     &.btn-text {
@@ -207,6 +210,23 @@ const handleActiveClick = (event: MouseEvent) => {
         &:hover {
             background-color: var(--btn-outline-hover-color);
         }
+    }
+
+    .wave-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        border-radius: inherit;
+    }
+
+    .btn-content__wrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
     }
 }
 </style>

@@ -48,7 +48,7 @@ const toggleInput = () => {
         cursor: pointer;
 
         .header-search__text {
-            font-size: 16px;
+            font-size: var(--font-size-16);
             font-weight: 400;
             color: var(--color-gray);
         }
@@ -56,7 +56,7 @@ const toggleInput = () => {
 }
 
 .header-search__menu {
-    margin-right: 12px;
+    margin-right: var(--margin-12);
     display: none;
     cursor: pointer;
 }

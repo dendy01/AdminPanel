@@ -29,7 +29,7 @@ defineProps<IPropsType>();
 
 <style scoped lang="scss">
 .basic-buttons__wrap--row {
-    padding: 20px;
+    padding: var(--padding-20);
 
     &:last-of-type {
         border-right: none;

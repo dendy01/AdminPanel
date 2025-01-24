@@ -44,16 +44,16 @@ defineProps<IPropsType>();
 
 <style scoped lang="scss">
 .basic-buttons__wrap {
-    margin-top: 24px;
-    border-radius: 6px;
+    margin-top: var(--margin-24);
+    border-radius: var(--border-radius-6);
     box-shadow: 0 2px 8px var(--color-bs);
     background-color: var(--bg-card);
 
 
 
     .title {
-        padding: 20px;
-        font-size: 18px;
+        padding: var(--padding-20);
+        font-size: var(--font-size-18);
         font-weight: 500;
         color: var(--color-text);
     }

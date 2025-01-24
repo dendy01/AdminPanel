@@ -85,7 +85,7 @@ onUnmounted(() => {
 .aside {
     width: 80px;
     height: 100%;
-    font-size: 15px;
+    font-size: var(--font-size-15);
     font-weight: 400;
 
     position: fixed;
@@ -99,7 +99,7 @@ onUnmounted(() => {
 
     &:hover {
         width: $sidebar-width;
-        padding-right: 4px;
+        padding-right: var(--padding-4);
         box-shadow: 0 0 5px;
         transition: width var(--duration) var(--timing-function);
 
@@ -147,11 +147,11 @@ onUnmounted(() => {
         color: var(--color-primary-700);
 
         .aside-title {
-            font-size: 20px;
+            font-size: var(--font-size-20);
             font-weight: 600;
             text-transform: uppercase;
 
-            margin-left: 12px;
+            margin-left: var(--margin-12);
 
             color: var(--color-text);
         }

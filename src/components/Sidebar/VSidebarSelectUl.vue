@@ -80,7 +80,7 @@ onMounted(() => {
     }
 
     span {
-        margin-left: 12px;
+        margin-left: var(--margin-12);
     }
 
     a {

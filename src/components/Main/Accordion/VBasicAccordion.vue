@@ -18,7 +18,7 @@ import VBasicItemsWithoutArrowAccordion from '@/components/Main/Accordion/VBasic
 .accordion-wrap {
     display: flex;
     gap: 20px;
-    padding: 0 20px 20px;
+    padding: 0 var(--padding-20) var(--padding-20);
 
     .accordion-wrap__body {
         width: 50%;

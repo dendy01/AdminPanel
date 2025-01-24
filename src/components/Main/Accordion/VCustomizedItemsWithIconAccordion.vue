@@ -48,7 +48,7 @@ const types = {
 
 <style scoped lang="scss">
 .accordion-wrap__content {
-    margin-top: 16px;
+    margin-top: var(--margin-16);
 
     .icon {
         width: 20px;
