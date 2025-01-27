@@ -27,7 +27,7 @@
 
         <RouterLink
             v-else
-            to="layout"
+            :to="groupItem.link as 'string'"
             active-class="active-link"
             :class="{ 'aside-menu__item--link': !groupItem.select }"
         >
@@ -98,8 +98,8 @@ const isValid = computed<boolean>(() => {
 
 .aside-menu__item,
 .aside-menu__item--link {
-    margin-top: 4px;
-    margin-right: 20px;
+    margin-top: var(--margin-sm);
+    margin-right: var(--margin-xxl);
     padding: var(--padding-menu-item);
     border-radius: 0 50px 50px 0;
 
@@ -111,7 +111,7 @@ const isValid = computed<boolean>(() => {
     }
 
     .icon-class {
-        margin-right: 8px;
+        margin-right: var(--margin-md);
     }
 
     span {
@@ -127,10 +127,10 @@ const isValid = computed<boolean>(() => {
     cursor: pointer;
     position: relative;
     z-index: 100;
-    transition: margin-bottom $transition-time $transition-duration;
+    transition: margin-bottom var(--duration) var(--timing-function);
 
     .icon {
-        transition: transform $transition-time $transition-duration;
+        transition: transform var(--duration) var(--timing-function);
         position: absolute;
         right: 20px;
     }
@@ -149,7 +149,7 @@ const isValid = computed<boolean>(() => {
     background-color: var(--color-gray-light);
 
     .icon {
-        transition: transform $transition-time $transition-duration;
+        transition: transform var(--duration) var(--timing-function);
         transform: rotate(90deg);
     }
 }
@@ -161,12 +161,12 @@ const isValid = computed<boolean>(() => {
     .aside-menu__item--link_icon {
         text-wrap: nowrap;
         display: none;
-        transition: opacity $transition-time $transition-duration;
+        transition: opacity var(--duration) var(--timing-function);
     }
 
     .open {
         display: block;
-        transition: opacity $transition-time $transition-duration;
+        transition: opacity var(--duration) var(--timing-function);
     }
 }
 

@@ -57,14 +57,14 @@ const isOpen = (id: string) => {
 }
 
 .aside-menu:last-child {
-    margin: 4px 0;
+    margin: var(--margin-sm) 0;
 }
 
 .aside-menu__title {
     padding: var(--padding-menu-item);
     padding-top: 30px;
     text-transform: uppercase;
-    font-size: 12px;
+    font-size: var(--font-size-xs);
     font-weight: 400;
     color: var(--color-gray);
 
@@ -91,7 +91,7 @@ const isOpen = (id: string) => {
         position: relative;
         z-index: 20;
         background-color: var(--bg-primary);
-        transition: opacity $transition-time $transition-duration;
+        transition: opacity var(--duration) var(--timing-function);
     }
 
     .open {

@@ -46,6 +46,37 @@
     --color-dark-300: #f1f1f1;
 
     --padding-menu-item: 8px 20px;
+    --shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
+    --duration: .3s;
+    --timing-function: ease;
+
+    --border-radius-xl: 8px;
+    --border-radius-lg: 6px;
+    --border-radius-sm: 4px;
+    --border-radius-xs: 2px;
+
+    --padding-xxxl: 24px;
+    --padding-xxl: 20px;
+    --padding-xl: 16px;
+    --padding-lg: 12px;
+    --padding-md: 8px;
+    --padding-sm: 4px;
+
+    --margin-xxxl: 24px;
+    --margin-xxl: 20px;
+    --margin-xl: 16px;
+    --margin-lg: 12px;
+    --margin-md: 8px;
+    --margin-sm: 4px;
+
+    --font-size-xxxl: 20px;
+    --font-size-xxl: 18px;
+    --font-size-xl: 16px;
+    --font-size-lg: 15px;
+    --font-size-md: 14px;
+    --font-size-sm: 13px;
+    --font-size-xs: 12px;
 }
 
 * {
@@ -62,7 +93,6 @@
 @font-face {
     font-family: "Apple-system";
     src: url("../assets/fonts/Inter-VariableFont_opsz.ttf");
-    font-size: 16px;
 }
 
 body {
@@ -72,4 +102,9 @@ body {
     &.dark {
         @include dark;
     }
+}
+
+img, input {
+    width: 100%;
+    height: 100%;
 }
