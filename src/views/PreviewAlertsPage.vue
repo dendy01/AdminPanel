@@ -25,6 +25,6 @@ import VIconsAlerts from '@/components/Main/Alerts/VIconsAlerts.vue';
 .alert-wrapper__row {
     display: flex;
     gap: 24px;
-    margin-bottom: var(--margin-24);
+    margin-bottom: var(--margin-xxxl);
 }
 </style>

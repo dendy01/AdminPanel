@@ -9,7 +9,7 @@
                     ref="icon"
                 >
                     <component
-                        :is="theme.theme === 'dark' ? Moon : Sun"
+                        :is="theme.theme === 'dark' ? MoonIcon : SunIcon"
                         @click="handleActiveClick"
                     />
                 </span>
@@ -17,10 +17,10 @@
             <template #menu>
                 <ul class="header-icon__sub">
                     <li @click="theme.setTheme(Theme.LIGHT)">
-                        <Sun /> Light
+                        <SunIcon /> Light
                     </li>
                     <li @click="theme.setTheme(Theme.DARK)">
-                        <Moon /> Dark
+                        <MoonIcon /> Dark
                     </li>
                 </ul>
             </template>
@@ -31,8 +31,8 @@
 <script setup lang="ts">
 import { Positions } from '@/model/UI/basic/Dropdown.ts';
 import VDropdown from '@/components/UI/basic/VDropdown.vue';
-import Sun from '@/assets/icons/icons-header/sun.svg';
-import Moon from '@/assets/icons/icons-header/moon.svg';
+import SunIcon from '@/assets/icons/icons-header/sun.svg';
+import MoonIcon from '@/assets/icons/icons-header/moon.svg';
 import { useTheme } from '@/store/useTheme.ts';
 import { Theme } from '@/model/helpers.ts';
 import { ref } from 'vue';
@@ -58,7 +58,7 @@ const handleActiveClick = (event: MouseEvent) => {
     gap: 12px;
 
     li {
-        padding: 8px var(--padding-20);
+        padding: var(--padding-md) var(--padding-xxl);
 
         display: flex;
         align-items: center;

@@ -20,7 +20,7 @@
                             square
                             :size="BadgeSizes.MEDIUM"
                         >
-                            <Star class="badge-icon" />
+                            <StarIcon class="badge-icon" />
                         </Badge>
                     </div>
                     <div class="badges-wrap__items">
@@ -32,7 +32,7 @@
                             circle
                             :size="BadgeSizes.MEDIUM"
                         >
-                            <Notification class="badge-icon" />
+                            <NotificationIcon class="badge-icon" />
                         </Badge>
                     </div>
                 </div>
@@ -54,7 +54,7 @@
                             label
                             :size="BadgeSizes.MEDIUM"
                         >
-                            <Star class="badge-icon" />
+                            <StarIcon class="badge-icon" />
                         </Badge>
                     </div>
                     <div class="badges-wrap__items">
@@ -67,7 +67,7 @@
                             label
                             :size="BadgeSizes.MEDIUM"
                         >
-                            <Notification class="badge-icon" />
+                            <NotificationIcon class="badge-icon" />
                         </Badge>
                     </div>
                 </div>
@@ -79,17 +79,17 @@
 <script setup lang="ts">
 import Badge from '@/components/UI/basic/VBadge.vue';
 import { GlobalColors } from '@/GlobalColors.ts';
-import Star from '@/assets/icons/icons-header/star.svg';
-import Notification from '@/assets/icons/icons-buttons/notification.svg';
+import StarIcon from '@/assets/icons/icons-header/star.svg';
+import NotificationIcon from '@/assets/icons/icons-buttons/notification.svg';
 import { BadgeSizes } from '@/model/UI/basic/Badge.ts';
 </script>
 
 <style scoped>
 .badges {
-    margin-top: var(--margin-24);
+    margin-top: var(--margin-xxxl);
 
     background-color: var(--bg-card);
-    border-radius: var(--border-radius-6);
+    border-radius: var(--border-radius-lg);
     box-shadow: var(--shadow);
 
     .wrapper {
@@ -106,7 +106,7 @@ import { BadgeSizes } from '@/model/UI/basic/Badge.ts';
         padding: 0 20px 20px 20px;
 
         .badges-wrap__items {
-            margin-top: var(--margin-16);
+            margin-top: var(--margin-xl);
 
             display: flex;
             flex-wrap: wrap;

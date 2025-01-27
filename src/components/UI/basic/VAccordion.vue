@@ -78,15 +78,15 @@ onUnmounted(() => {
     transition: margin var(--duration) var(--timing-function);
 
     &.round {
-        border-radius: var(--border-radius-6);
+        border-radius: var(--border-radius-lg);
     }
 
     &.round-top {
-        border-radius: var(--border-radius-6) var(--border-radius-6) 0 0;
+        border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
     }
 
     &.round-bottom {
-        border-radius: 0 0 var(--border-radius-6) var(--border-radius-6);
+        border-radius: 0 0 var(--border-radius-lg) var(--border-radius-lg);
     }
 
     &.accordion-center {
@@ -98,14 +98,14 @@ onUnmounted(() => {
         overflow: hidden;
         max-height: 0;
 
-        font-size: var(--font-size-15);
+        font-size: var(--font-size-lg);
         font-weight: 400;
 
         transition: max-height var(--duration) var(--timing-function);
         color: var(--color-gray);
 
         .accordion-content__body {
-            padding: 0 var(--padding-20) var(--padding-20);
+            padding: 0 var(--padding-xxl) var(--padding-xxl);
         }
     }
 }

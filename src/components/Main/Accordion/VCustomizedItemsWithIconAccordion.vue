@@ -20,7 +20,7 @@
                             />
                             Accordion Item 1
                         </span>
-                        <Add class="cross-icon" />
+                        <AddIcon class="cross-icon" />
                     </h4>
                 </template>
                 <template #body>
@@ -33,22 +33,22 @@
 
 <script setup lang="ts">
 import VAccordion from '@/components/UI/basic/VAccordion.vue';
-import BarChart from '@/assets/icons/bar-chart.svg';
-import Add from '@/assets/icons/icons-accordion/add.svg';
-import Heart from '@/assets/icons/icons-accordion/heart.svg';
-import Lock from '@/assets/icons/icons-accordion/lock.svg';
+import BarChartIcon from '@/assets/icons/bar-chart.svg';
+import AddIcon from '@/assets/icons/icons-accordion/add.svg';
+import HeartIcon from '@/assets/icons/icons-accordion/heart.svg';
+import LockIcon from '@/assets/icons/icons-accordion/lock.svg';
 import { AccordionTypes } from '@/model/UI/basic/Accordion.ts';
 
 const types = {
-    'round-top': BarChart,
-    'accordion-center': Heart,
-    'round-bottom': Lock
+    'round-top': BarChartIcon,
+    'accordion-center': HeartIcon,
+    'round-bottom': LockIcon
 };
 </script>
 
 <style scoped lang="scss">
 .accordion-wrap__content {
-    margin-top: var(--margin-16);
+    margin-top: var(--margin-xl);
 
     .icon {
         width: 20px;

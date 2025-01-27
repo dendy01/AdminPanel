@@ -28,6 +28,6 @@ import VButtonsOptions from '@/components/Main/Buttons/VButtonsOptions.vue';
 
 <style scoped>
 .buttons__wrap:last-child {
-    margin-bottom: 20px;
+    margin-bottom: var(--margin-xxl);
 }
 </style>

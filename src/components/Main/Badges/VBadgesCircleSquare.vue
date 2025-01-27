@@ -84,10 +84,10 @@ import { BadgeSizes } from '@/model/UI/basic/Badge.ts';
 
 <style scoped>
 .badges {
-    margin-top: var(--margin-24);
+    margin-top: var(--margin-xxxl);
 
     background-color: var(--bg-card);
-    border-radius: var(--border-radius-6);
+    border-radius: var(--border-radius-lg);
     box-shadow: var(--shadow);
 
     .wrapper {
@@ -104,7 +104,7 @@ import { BadgeSizes } from '@/model/UI/basic/Badge.ts';
         padding: 0 20px 20px 20px;
 
         .badges-wrap__items {
-            margin-top: var(--margin-16);
+            margin-top: var(--margin-xl);
 
             display: flex;
             flex-wrap: wrap;

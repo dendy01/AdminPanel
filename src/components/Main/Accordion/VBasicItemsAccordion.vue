@@ -16,7 +16,7 @@
                         <span>
                             Accordion Item 1
                         </span>
-                        <Arrow class="cross-icon" />
+                        <ArrowIcon class="cross-icon" />
                     </h4>
                 </template>
                 <template #body>
@@ -28,13 +28,13 @@
 </template>
 
 <script setup lang="ts">
-import Arrow from '@/assets/icons/arrow.svg';
+import ArrowIcon from '@/assets/icons/arrow.svg';
 import VAccordion from '@/components/UI/basic/VAccordion.vue';
 import { AccordionTypes } from '@/model/UI/basic/Accordion.ts';
 </script>
 
 <style scoped lang="scss">
 .accordion-wrap__content {
-    margin-top: var(--margin-16);
+    margin-top: var(--margin-xl);
 }
 </style>

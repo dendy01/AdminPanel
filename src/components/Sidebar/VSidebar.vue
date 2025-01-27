@@ -28,7 +28,7 @@
                 class="aside-head__close"
                 @click="isCheck.openMenu = !isCheck.openMenu"
             >
-                <Close />
+                <CloseIcon />
             </span>
         </div>
 
@@ -42,7 +42,7 @@
 </template>
 
 <script setup lang="ts">
-import Close from '@/assets/icons/icons-header/close.svg';
+import CloseIcon from '@/assets/icons/icons-header/close.svg';
 import LogoIcon from '@/assets/icons/logo.svg';
 import VSidebarUl from '@/components/Sidebar/VSidebarUl.vue';
 import { ISidebarGroup } from '@/model/layout/Sidebar';
@@ -85,7 +85,7 @@ onUnmounted(() => {
 .aside {
     width: 80px;
     height: 100%;
-    font-size: var(--font-size-15);
+    font-size: var(--font-size-lg);
     font-weight: 400;
 
     position: fixed;
@@ -99,7 +99,7 @@ onUnmounted(() => {
 
     &:hover {
         width: $sidebar-width;
-        padding-right: var(--padding-4);
+        padding-right: var(--padding-sm);
         box-shadow: 0 0 5px;
         transition: width var(--duration) var(--timing-function);
 
@@ -147,11 +147,11 @@ onUnmounted(() => {
         color: var(--color-primary-700);
 
         .aside-title {
-            font-size: var(--font-size-20);
+            font-size: var(--font-size-xxxl);
             font-weight: 600;
             text-transform: uppercase;
 
-            margin-left: var(--margin-12);
+            margin-left: var(--margin-lg);
 
             color: var(--color-text);
         }

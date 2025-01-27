@@ -14,14 +14,14 @@
                 class="aside-menu__item"
                 @click="handleLink(selectItem.id)"
             >
-                <Circle /><span>{{ contentLength(selectItem.content) }}</span>
+                <CircleIcon /><span>{{ contentLength(selectItem.content) }}</span>
             </RouterLink>
         </li>
     </ul>
 </template>
 
 <script setup lang="ts">
-import Circle from '@/assets/icons/circle.svg';
+import CircleIcon from '@/assets/icons/circle.svg';
 import { ISelect } from '@/model/layout/Sidebar';
 import { onMounted, ref, useTemplateRef } from 'vue';
 
@@ -76,11 +76,11 @@ onMounted(() => {
     transition: opacity var(--duration) var(--timing-function);
 
     svg {
-        margin-left: 4px;
+        margin-left: var(--margin-sm);
     }
 
     span {
-        margin-left: var(--margin-12);
+        margin-left: var(--margin-lg);
     }
 
     a {
@@ -114,7 +114,7 @@ onMounted(() => {
 }
 
 .aside-menu__item {
-    margin-top: 4px;
+    margin-top: var(--margin-sm);
     padding: var(--padding-menu-item);
     border-radius: 0 50px 50px 0;
     cursor: pointer;

@@ -42,13 +42,25 @@ const badgeColor = computed(() => colors[props.color][700]);
 const badgeLabelColor = computed(() => colors[props.color][400]);
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .badge {
     --badge-color: v-bind(badgeColor);
     --badge-label-color: v-bind(badgeLabelColor);
+    $positions: (
+        'top-left': (top, left),
+        'top-right': (top, right),
+        'bottom-left': (bottom, left),
+        'bottom-right': (bottom, right)
+    );
+    $sizes: (
+        'xl': 24px,
+        'lg': 16px,
+        'sm': 12px,
+        'xs': 8px
+    );
 
     padding: 4px 12px;
-    font-size: var(--font-size-14);
+    font-size: var(--font-size-md);
     border-radius: 4px;
     text-transform: capitalize;
 
@@ -71,24 +83,11 @@ const badgeLabelColor = computed(() => colors[props.color][400]);
     &.position-abs {
         position: absolute;
 
-        &.top-left {
-            top: -12px;
-            left: -12px;
-        }
-
-        &.top-right {
-            top: -12px;
-            right: -12px;
-        }
-
-        &.bottom-left {
-            bottom: -12px;
-            left: -12px;
-        }
-
-        &.bottom-right {
-            bottom: -12px;
-            right: -12px;
+        @each $position, $coords in $positions {
+            &.#{ $position } {
+                #{ nth($coords, 1) }: -12px;
+                #{ nth($coords, 2) }: -12px;
+            }
         }
     }
 
@@ -122,110 +121,20 @@ const badgeLabelColor = computed(() => colors[props.color][400]);
         height: 8px;
     }
 
-    &.xl {
-        &.dot {
-            width: 24px;
-            height: 24px;
+    @each $size, $value in $sizes {
+        &.#{ $size } {
+            &.dot {
+                width: $value;
+                height: $value;
 
-            &.top-left {
-                top: -12px;
-                left: -12px;
-            }
+                $offset: $value / 2;
 
-            &.top-right {
-                top: -12px;
-                right: -12px;
-            }
-
-            &.bottom-left {
-                bottom: -12px;
-                left: -12px;
-            }
-
-            &.bottom-right {
-                bottom: 0;
-                right: 0;
-            }
-        }
-    }
-
-    &.lg {
-        &.dot {
-            width: 16px;
-            height: 16px;
-
-            &.top-left {
-                top: -8px;
-                left: -8px;
-            }
-
-            &.top-right {
-                top: -8px;
-                right: -8px;
-            }
-
-            &.bottom-left {
-                bottom: -8px;
-                left: -8px;
-            }
-
-            &.bottom-right {
-                bottom: -8px;
-                right: -8px;
-            }
-        }
-    }
-
-    &.sm {
-        &.dot {
-            width: 12px;
-            height: 12px;
-
-            &.top-left {
-                top: -6px;
-                left: -6px;
-            }
-
-            &.top-right {
-                top: -6px;
-                right: -6px;
-            }
-
-            &.bottom-left {
-                bottom: -6px;
-                left: -6px;
-            }
-
-            &.bottom-right {
-                bottom: -6px;
-                right: -6px;
-            }
-        }
-    }
-
-    &.xs {
-        &.dot {
-            width: 8px;
-            height: 8px;
-
-            &.top-left {
-                top: -4px;
-                left: -4px;
-            }
-
-            &.top-right {
-                top: -4px;
-                right: -4px;
-            }
-
-            &.bottom-left {
-                bottom: -4px;
-                left: -4px;
-            }
-
-            &.bottom-right {
-                bottom: -4px;
-                right: -4px;
+                @each $position, $coords in $positions {
+                    &.#{ $position } {
+                        #{ nth($coords, 1) }: -$offset;
+                        #{ nth($coords, 2) }: -$offset;
+                    }
+                }
             }
         }
     }

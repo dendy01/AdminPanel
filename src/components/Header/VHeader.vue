@@ -103,7 +103,7 @@ onUnmounted(() => {
             cursor: pointer;
 
             .header-search__text {
-                font-size: var(--font-size-16);
+                font-size: var(--font-size-xl);
                 font-weight: 400;
                 color: var(--color-gray);
             }
@@ -123,7 +123,7 @@ onUnmounted(() => {
             align-items: center;
 
             .header-icon {
-                padding: var(--padding-8);
+                padding: var(--padding-md);
                 cursor: pointer;
                 position: relative;
             }
@@ -139,16 +139,16 @@ onUnmounted(() => {
 }
 
 .header-search__menu {
-    margin-right: var(--margin-12);
+    margin-right: var(--margin-lg);
     display: none;
     cursor: pointer;
 }
 
 .header-observer {
     opacity: .96;
-    padding: 0 var(--padding-16);
+    padding: 0 var(--padding-xl);
     background-color: var(--bg-card);
-    border-radius: 0 0 var(--border-radius-8) var(--border-radius-8);
+    border-radius: 0 0 var(--border-radius-xl) var(--border-radius-xl);
     box-shadow: 0 2px 4px var(--color-bs);
     transition: padding var(--duration) var(--timing-function);
 }

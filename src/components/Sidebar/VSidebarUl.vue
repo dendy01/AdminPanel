@@ -57,14 +57,14 @@ const isOpen = (id: string) => {
 }
 
 .aside-menu:last-child {
-    margin: 4px 0;
+    margin: var(--margin-sm) 0;
 }
 
 .aside-menu__title {
     padding: var(--padding-menu-item);
     padding-top: 30px;
     text-transform: uppercase;
-    font-size: var(--font-size-12);
+    font-size: var(--font-size-xs);
     font-weight: 400;
     color: var(--color-gray);
 

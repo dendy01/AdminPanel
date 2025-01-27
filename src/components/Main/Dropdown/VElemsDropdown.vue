@@ -11,7 +11,7 @@
                     <template #dropdown="{ toggle }">
                         <VButton
                             :color="GlobalColors.PRIMARY"
-                            :icon-right="Arrow"
+                            :icon-right="ArrowIcon"
                             @click="toggle"
                         >
                             Hidden arrow
@@ -38,14 +38,14 @@
                 <VDropdown
                     :color="GlobalColors.PRIMARY"
                     :text="'Hover'"
-                    :icon-right="Arrow"
+                    :icon-right="ArrowIcon"
                     hover
                     :position="Positions.TOP_LEFT"
                 >
                     <template #dropdown="{ toggle }">
                         <VButton
                             :color="GlobalColors.PRIMARY"
-                            :icon-right="Arrow"
+                            :icon-right="ArrowIcon"
                             @click="toggle"
                         >
                             Hover
@@ -72,15 +72,15 @@
                 <VDropdown
                     :color="GlobalColors.PRIMARY"
                     :text="'With Icon'"
-                    :icon-left="Menu"
-                    :icon-right="Arrow"
+                    :icon-left="MenuIcon"
+                    :icon-right="ArrowIcon"
                     :position="Positions.TOP_LEFT"
                 >
                     <template #dropdown="{ toggle }">
                         <VButton
                             :color="GlobalColors.PRIMARY"
-                            :icon-left="Menu"
-                            :icon-right="Arrow"
+                            :icon-left="MenuIcon"
+                            :icon-right="ArrowIcon"
                             @click="toggle"
                         >
                             With icon
@@ -106,7 +106,7 @@
             <div class="dropdown-content btn-content">
                 <VDropdown
                     :color="GlobalColors.PRIMARY"
-                    :icon-right="More"
+                    :icon-right="MoreIcon"
                     :position="Positions.TOP_LEFT"
                 >
                     <template #dropdown="{ toggle }">
@@ -114,7 +114,7 @@
                             round
                             is-icon
                             :color="GlobalColors.PRIMARY"
-                            :icon-right="More"
+                            :icon-right="MoreIcon"
                             @click="toggle"
                         />
                     </template>
@@ -140,9 +140,9 @@
 <script setup lang="ts">
 import { GlobalColors } from '@/GlobalColors.ts';
 import VDropdown from '@/components/UI/basic/VDropdown.vue';
-import Arrow from '@/assets/icons/icons-dropdown/arrow-down.svg';
-import Menu from '@/assets/icons/icons-dropdown/menu.svg';
-import More from '@/assets/icons/icons-dropdown/more.svg';
+import ArrowIcon from '@/assets/icons/icons-dropdown/arrow-down.svg';
+import MenuIcon from '@/assets/icons/icons-dropdown/menu.svg';
+import MoreIcon from '@/assets/icons/icons-dropdown/more.svg';
 import VButton from '@/components/UI/basic/VButton.vue';
 import { Positions } from '@/model/UI/basic/Dropdown.ts';
 </script>
@@ -151,7 +151,7 @@ import { Positions } from '@/model/UI/basic/Dropdown.ts';
 .dropdown {
     display: flex;
 
-    padding: var(--padding-20);
+    padding: var(--padding-xxl);
 }
 
 .dropdown-content {

@@ -98,8 +98,8 @@ const isValid = computed<boolean>(() => {
 
 .aside-menu__item,
 .aside-menu__item--link {
-    margin-top: 4px;
-    margin-right: 20px;
+    margin-top: var(--margin-sm);
+    margin-right: var(--margin-xxl);
     padding: var(--padding-menu-item);
     border-radius: 0 50px 50px 0;
 
@@ -111,7 +111,7 @@ const isValid = computed<boolean>(() => {
     }
 
     .icon-class {
-        margin-right: 8px;
+        margin-right: var(--margin-md);
     }
 
     span {

@@ -18,7 +18,7 @@ import VCustomizedItemsWithIconAccordion from '@/components/Main/Accordion/VCust
 .accordion-wrap {
     display: flex;
     gap: 20px;
-    padding: 0 var(--padding-20);
+    padding: 0 var(--padding-xxl);
 
     .accordion-wrap__body {
         width: 50%;

@@ -16,7 +16,7 @@
             <component :is="icon" />
         </span>
         <slot />
-        <Close
+        <CloseIcon
             v-if="close"
             class="alert-close"
             @click="removeAlert"
@@ -26,7 +26,7 @@
 
 <script setup lang="ts">
 import { colors, GlobalColors } from '@/GlobalColors.ts';
-import Close from '@/assets/icons/icons-header/close.svg';
+import CloseIcon from '@/assets/icons/icons-header/close.svg';
 import { computed, ref } from 'vue';
 
 interface IPropsType {
@@ -55,10 +55,10 @@ const removeAlert = () => {
     --alert-basic-bg: v-bind(alertBasicBgColor);
     --alert-icon-hover: v-bind(alertIconHover);
 
-    padding: var(--padding-16);
-    margin-bottom: var(--margin-16);
-    border-radius: var(--border-radius-8);
-    font-size: var(--font-size-16);
+    padding: var(--padding-xl);
+    margin-bottom: var(--margin-xl);
+    border-radius: var(--border-radius-xl);
+    font-size: var(--font-size-xl);
     background-color: var(--alert-color);
     color: var(--color-white);
 
@@ -85,9 +85,9 @@ const removeAlert = () => {
     }
 
     .alert-icon {
-        padding: var(--padding-4);
-        margin-right: var(--margin-16);
-        border-radius: var(--border-radius-8);
+        padding: var(--padding-sm);
+        margin-right: var(--margin-xl);
+        border-radius: var(--border-radius-xl);
 
         display: flex;
 

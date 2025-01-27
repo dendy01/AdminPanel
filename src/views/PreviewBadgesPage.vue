@@ -33,6 +33,6 @@ import VNotificationsWithIcons from '@/components/Main/Badges/VNotificationsWith
 .notification-wrap {
     display: flex;
     gap: 24px;
-    margin: var(--margin-24) 0;
+    margin: var(--margin-xxxl) 0;
 }
 </style>

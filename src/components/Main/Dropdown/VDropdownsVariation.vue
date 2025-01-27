@@ -12,8 +12,8 @@ import VPositionVariation from '@/components/Main/Dropdown/VPositionVariation.vu
 
 <style scoped>
 .dropdown-wrapper {
-    margin: var(--margin-24) 0;
-    border-radius: var(--border-radius-6);
+    margin: var(--margin-xxxl) 0;
+    border-radius: var(--border-radius-lg);
     box-shadow: 0 2px 8px var(--color-bs);
     background-color: var(--bg-card);
 }

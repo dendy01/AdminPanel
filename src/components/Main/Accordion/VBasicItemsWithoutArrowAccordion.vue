@@ -33,6 +33,6 @@ import { AccordionTypes } from '@/model/UI/basic/Accordion.ts';
 
 <style scoped lang="scss">
 .accordion-wrap__content {
-    margin-top: var(--margin-16);
+    margin-top: var(--margin-xl);
 }
 </style>

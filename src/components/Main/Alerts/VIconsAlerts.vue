@@ -19,13 +19,13 @@
 <script setup lang="ts">
 import VAlert from '@/components/UI/basic/VAlert.vue';
 import { GlobalColors } from '@/GlobalColors.ts';
-import UserFollow from '@/assets/icons/icons-alerts/user-follow.svg';
-import LineChart from '@/assets/icons/icons-alerts/line-chart.svg';
-import CheckboxCircle from '@/assets/icons/icons-alerts/checkbox-circle.svg';
-import Error from '@/assets/icons/icons-alerts/error.svg';
-import Warning from '@/assets/icons/icons-alerts/warning.svg';
-import Information from '@/assets/icons/icons-alerts/information.svg';
-import Star from '@/assets/icons/icons-alerts/star.svg';
+import UserFollowIcon from '@/assets/icons/icons-alerts/user-follow.svg';
+import LineChartIcon from '@/assets/icons/icons-alerts/line-chart.svg';
+import CheckboxCircleIcon from '@/assets/icons/icons-alerts/checkbox-circle.svg';
+import ErrorIcon from '@/assets/icons/icons-alerts/error.svg';
+import WarningIcon from '@/assets/icons/icons-alerts/warning.svg';
+import InformationIcon from '@/assets/icons/icons-alerts/information.svg';
+import StarIcon from '@/assets/icons/icons-alerts/star.svg';
 
 interface IPropsType {
     text: string;
@@ -34,25 +34,25 @@ interface IPropsType {
 defineProps<IPropsType>();
 
 const icons = {
-    primary: UserFollow,
-    secondary: LineChart,
-    success: CheckboxCircle,
-    danger: Error,
-    warning: Warning,
-    info: Information,
-    dark: Star
+    primary: UserFollowIcon,
+    secondary: LineChartIcon,
+    success: CheckboxCircleIcon,
+    danger: ErrorIcon,
+    warning: WarningIcon,
+    info: InformationIcon,
+    dark: StarIcon
 };
 </script>
 
 <style scoped>
 .alert-wrapper__col {
     width: 50%;
-    border-radius: var(--border-radius-8);
+    border-radius: var(--border-radius-xl);
     box-shadow: var(--shadow);
     background-color: var(--bg-card);
 
     .alerts {
-        padding: 0 var(--padding-20) var(--padding-20) var(--padding-20);
+        padding: 0 var(--padding-xxl) var(--padding-xxl) var(--padding-xxl);
     }
 }
 </style>

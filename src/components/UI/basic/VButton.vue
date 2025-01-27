@@ -80,9 +80,9 @@ const handleActiveClick = (event: MouseEvent) => {
     --btn-label-hover-color: v-bind(buttonLabelHoverColor);
     --btn-outline-hover-color: v-bind(buttonOutherColor);
 
-    padding: var(--padding-8) 18px;
-    font-size: var(--font-size-16);
-    border-radius: var(--border-radius-6);
+    padding: var(--padding-md) 18px;
+    font-size: var(--font-size-xl);
+    border-radius: var(--border-radius-lg);
     cursor: pointer;
 
     display: inline-flex;
@@ -102,7 +102,7 @@ const handleActiveClick = (event: MouseEvent) => {
         align-items: center;
         justify-content: center;
 
-        margin-right: 4px;
+        margin-right: var(--margin-sm);
     }
 
     .btn-icon--right {
@@ -110,7 +110,7 @@ const handleActiveClick = (event: MouseEvent) => {
         align-items: center;
         justify-content: center;
 
-        margin-left: 4px;
+        margin-left: var(--margin-sm);
     }
 
     &:last-child {
@@ -118,27 +118,27 @@ const handleActiveClick = (event: MouseEvent) => {
     }
 
     &.xl {
-        padding: var(--padding-12) var(--padding-24);
-        border-radius: var(--border-radius-8);
-        font-size: var(--font-size-20);
+        padding: var(--padding-lg) var(--padding-xxxl);
+        border-radius: var(--border-radius-xl);
+        font-size: var(--font-size-xxxl);
     }
 
     &.lg {
-        padding: 10px var(--padding-20);
-        border-radius: var(--border-radius-6);
-        font-size: var(--font-size-18);
+        padding: 10px var(--padding-xxl);
+        border-radius: var(--border-radius-lg);
+        font-size: var(--font-size-xxl);
     }
 
     &.sm {
-        padding: var(--padding-8) var(--padding-12);
-        border-radius: var(--border-radius-4);
-        font-size: var(--font-size-14);
+        padding: var(--padding-md) var(--padding-lg);
+        border-radius: var(--border-radius-sm);
+        font-size: var(--font-size-md);
     }
 
     &.xs {
         padding: 6px 10px;
-        border-radius: var(--border-radius-2);
-        font-size: var(--font-size-12);
+        border-radius: var(--border-radius-xs);
+        font-size: var(--font-size-xs);
     }
 
     &.active {
@@ -158,7 +158,7 @@ const handleActiveClick = (event: MouseEvent) => {
     }
 
     &.is-btn__icon {
-        padding: var(--padding-8);
+        padding: var(--padding-md);
 
         svg {
             width: 22px;
@@ -195,12 +195,12 @@ const handleActiveClick = (event: MouseEvent) => {
     }
 
     &.split-left {
-        border-radius: 0 var(--border-radius-6) var(--border-radius-6) 0;
+        border-radius: 0 var(--border-radius-lg) var(--border-radius-lg) 0;
         border-left: 1px solid rgba(0, 0, 0, .1);
     }
 
     &.split-right {
-        border-radius: var(--border-radius-6) 0 0 var(--border-radius-6);
+        border-radius: var(--border-radius-lg) 0 0 var(--border-radius-lg);
     }
 
     &.btn-text {

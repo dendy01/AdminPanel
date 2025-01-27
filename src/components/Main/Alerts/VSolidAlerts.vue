@@ -29,12 +29,12 @@ defineProps<IPropsType>();
 <style scoped>
 .alert-wrapper__col {
     width: 50%;
-    border-radius: var(--border-radius-8);
+    border-radius: var(--border-radius-xl);
     box-shadow: var(--shadow);
     background-color: var(--bg-card);
 
     .alerts {
-        padding: 0 var(--padding-20) var(--padding-20) var(--padding-20);
+        padding: 0 var(--padding-xxl) var(--padding-xxl) var(--padding-xxl);
     }
 }
 </style>
