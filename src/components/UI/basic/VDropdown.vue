@@ -124,8 +124,8 @@ onUnmounted(() => {
     }
 
     .dropdown-menu {
-        padding: 8px 0;
-        border-radius: 8px;
+        padding: var(--padding-md) 0;
+        border-radius: var(--border-radius-xl);
 
         position: absolute;
         z-index: 999;

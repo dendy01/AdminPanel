@@ -7,21 +7,21 @@
             class="header-search__menu"
             @click="isOpen.openMenu = !isOpen.openMenu"
         >
-            <Menu />
+            <MenuIcon />
         </span>
         <span
             @click="toggleInput"
             class="header-search"
         >
-            <Search />
+            <SearchIcon />
             <span class="header-search__text">Search (Ctrl+/)</span>
         </span>
     </div>
 </template>
 
 <script setup lang="ts">
-import Menu from '@/assets/icons/icons-header/menu.svg';
-import Search from '@/assets/icons/icons-header/search.svg';
+import MenuIcon from '@/assets/icons/icons-header/menu.svg';
+import SearchIcon from '@/assets/icons/icons-header/search.svg';
 import { useChecking } from '@/store/useCheck.ts';
 import { ref } from 'vue';
 
@@ -48,7 +48,7 @@ const toggleInput = () => {
         cursor: pointer;
 
         .header-search__text {
-            font-size: 16px;
+            font-size: var(--font-size-xl);
             font-weight: 400;
             color: var(--color-gray);
         }
@@ -56,7 +56,7 @@ const toggleInput = () => {
 }
 
 .header-search__menu {
-    margin-right: 12px;
+    margin-right: var(--margin-lg);
     display: none;
     cursor: pointer;
 }

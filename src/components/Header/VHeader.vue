@@ -90,7 +90,7 @@ onUnmounted(() => {
     z-index: 1000;
     top: 0;
     left: 0;
-    transition: padding $transition-time $transition-duration;
+    transition: padding var(--duration) var(--timing-function);
 
     .header-search__wrapper {
         display: flex;
@@ -103,7 +103,7 @@ onUnmounted(() => {
             cursor: pointer;
 
             .header-search__text {
-                font-size: 16px;
+                font-size: var(--font-size-xl);
                 font-weight: 400;
                 color: var(--color-gray);
             }
@@ -123,7 +123,7 @@ onUnmounted(() => {
             align-items: center;
 
             .header-icon {
-                padding: 8px;
+                padding: var(--padding-md);
                 cursor: pointer;
                 position: relative;
             }
@@ -139,18 +139,18 @@ onUnmounted(() => {
 }
 
 .header-search__menu {
-    margin-right: 12px;
+    margin-right: var(--margin-lg);
     display: none;
     cursor: pointer;
 }
 
 .header-observer {
     opacity: .96;
-    padding: 0 16px;
+    padding: 0 var(--padding-xl);
     background-color: var(--bg-card);
-    border-radius: 0 0 8px 8px;
+    border-radius: 0 0 var(--border-radius-xl) var(--border-radius-xl);
     box-shadow: 0 2px 4px var(--color-bs);
-    transition: padding $transition-time $transition-duration;
+    transition: padding var(--duration) var(--timing-function);
 }
 
 @media (max-width: $response-sw) {
