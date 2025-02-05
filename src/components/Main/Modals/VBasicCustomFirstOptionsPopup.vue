@@ -1,5 +1,5 @@
 <template>
-    <VModal>
+    <VPopup>
         <template #modal-btn="{ toggle }">
             <VButton
                 :color="GlobalColors.PRIMARY"
@@ -38,13 +38,13 @@
                 </VButton>
             </div>
         </template>
-    </VModal>
+    </VPopup>
 </template>
 
 <script setup lang="ts">
 import { GlobalColors } from '@/GlobalColors.ts';
 import VButton from '@/components/UI/basic/VButton.vue';
-import VModal from '@/components/UI/basic/VModal.vue';
+import VPopup from '@/components/UI/basic/VPopup.vue';
 import CloseIcon from '@/assets/icons/icons-header/close.svg';
 import { MODALTEXT } from '@/model/UI/basic/Modal.ts';
 </script>

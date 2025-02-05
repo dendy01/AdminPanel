@@ -5,13 +5,11 @@
             v-for="variant in Object.values(ModalType)"
             :key="variant"
         >
-            <small
-                class="slogan"
-            >
+            <small class="slogan">
                 {{ text[variant] }}
             </small>
             <div class="modal-content">
-                <VModal :position="variant">
+                <VPopup :position="variant">
                     <template #modal-btn="{ toggle }">
                         <VButton
                             :color="GlobalColors.PRIMARY"
@@ -57,7 +55,7 @@
                             </VButton>
                         </div>
                     </template>
-                </VModal>
+                </VPopup>
             </div>
         </div>
     </div>
@@ -67,7 +65,7 @@
 import { GlobalColors } from '@/GlobalColors.ts';
 import VButton from '@/components/UI/basic/VButton.vue';
 import CloseIcon from '@/assets/icons/icons-header/close.svg';
-import VModal from '@/components/UI/basic/VModal.vue';
+import VPopup from '@/components/UI/basic/VPopup.vue';
 import { ModalType } from '@/model/UI/basic/Modal.ts';
 
 const text = {
@@ -89,54 +87,54 @@ const text = {
 
         .modal-content {
             margin-top: var(--padding-xl);
-
-            .modal-head {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-
-                color: var(--color-text);
-
-                .modal-title {
-                    font-size: var(--font-size-xxl);
-                    font-weight: 500;
-                }
-
-                svg {
-                    width: 20px;
-                    height: 20px;
-                }
-            }
-
-            .modal-body {
-                padding: var(--padding-xl) 0;
-
-                input {
-                    margin: 4px 0;
-                    padding: var(--padding-lg) var(--padding-xl);
-                    border-radius: var(--border-radius-lg);
-                    border: 1px solid #d1cfd4;
-                    background-color: var(--bg-card);
-
-                    font-size: var(--font-size-xl);
-                }
-
-                .content {
-                    display: flex;
-                    gap: 16px;
-                }
-
-                .content:first-of-type {
-                    padding-bottom: var(--padding-xl);
-                }
-            }
-
-            .modal-footer {
-                display: flex;
-                justify-content: flex-end;
-                gap: 10px;
-            }
         }
     }
+}
+
+.modal-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    color: var(--color-text);
+
+    .modal-title {
+        font-size: var(--font-size-xxl);
+        font-weight: 500;
+    }
+
+    svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.modal-body {
+    padding: var(--padding-xl) 0;
+
+    input {
+        margin: 4px 0;
+        padding: var(--padding-lg) var(--padding-xl);
+        border-radius: var(--border-radius-lg);
+        border: 1px solid #d1cfd4;
+        background-color: var(--bg-card);
+
+        font-size: var(--font-size-xl);
+    }
+
+    .content {
+        display: flex;
+        gap: 16px;
+    }
+
+    .content:first-of-type {
+        padding-bottom: var(--padding-xl);
+    }
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
 }
 </style>

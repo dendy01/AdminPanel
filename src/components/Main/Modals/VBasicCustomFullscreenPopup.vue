@@ -4,7 +4,7 @@
             Fullscreen
         </small>
         <div class="modal-content">
-            <VModal fullscreen>
+            <VPopup fullscreen>
                 <template #modal-btn="{ toggle }">
                     <VButton
                         :color="GlobalColors.PRIMARY"
@@ -36,7 +36,7 @@
                         </VButton>
                     </div>
                 </template>
-            </VModal>
+            </VPopup>
         </div>
     </div>
 </template>
@@ -44,7 +44,7 @@
 <script setup lang="ts">
 import { GlobalColors } from '@/GlobalColors.ts';
 import VButton from '@/components/UI/basic/VButton.vue';
-import VModal from '@/components/UI/basic/VModal.vue';
+import VPopup from '@/components/UI/basic/VPopup.vue';
 import CloseIcon from '@/assets/icons/icons-header/close.svg';
 import { MODALTEXT } from '@/model/UI/basic/Modal.ts';
 </script>
@@ -55,47 +55,47 @@ import { MODALTEXT } from '@/model/UI/basic/Modal.ts';
 
     .modal-content {
         margin-top: var(--padding-xl);
-
-        .modal-head {
-            height: 50px;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            color: var(--color-text);
-
-            .modal-title {
-                font-size: var(--font-size-xxl);
-                font-weight: 500;
-            }
-
-            svg {
-                width: 20px;
-                height: 20px;
-            }
-        }
-
-        .modal-body {
-            padding: var(--padding-xl) 0;
-            overflow-y: auto;
-            max-height: calc(100vh - 150px);
-            height: 100%;
-
-            p {
-                font-size: var(--font-size-lg);
-                margin-bottom: var(--margin-lg);
-
-                color: var(--color-gray);
-            }
-        }
-
-        .modal-footer {
-            margin-top: var(--margin-xxl);
-
-            display: flex;
-            justify-content: flex-end;
-        }
     }
+}
+
+.modal-head {
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    color: var(--color-text);
+
+    .modal-title {
+        font-size: var(--font-size-xxl);
+        font-weight: 500;
+    }
+
+    svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.modal-body {
+    padding: var(--padding-xl) 0;
+    overflow-y: auto;
+    max-height: calc(100vh - 150px);
+    height: 100%;
+
+    p {
+        font-size: var(--font-size-lg);
+        margin-bottom: var(--margin-lg);
+
+        color: var(--color-gray);
+    }
+}
+
+.modal-footer {
+    margin-top: var(--margin-xxl);
+
+    display: flex;
+    justify-content: flex-end;
 }
 </style>

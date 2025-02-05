@@ -4,7 +4,7 @@
             YouTube Video
         </small>
         <div class="modal-content">
-            <VModal>
+            <VPopup>
                 <template #modal-btn="{ toggle }">
                     <VButton
                         :color="GlobalColors.PRIMARY"
@@ -25,7 +25,7 @@
                         allowFullScreen
                     />
                 </template>
-            </VModal>
+            </VPopup>
         </div>
     </div>
 </template>
@@ -33,7 +33,7 @@
 <script setup lang="ts">
 import { GlobalColors } from '@/GlobalColors.ts';
 import VButton from '@/components/UI/basic/VButton.vue';
-import VModal from '@/components/UI/basic/VModal.vue';
+import VPopup from '@/components/UI/basic/VPopup.vue';
 </script>
 
 <style scoped lang="scss">

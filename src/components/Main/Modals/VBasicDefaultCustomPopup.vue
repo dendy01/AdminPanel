@@ -7,9 +7,9 @@
 </template>
 
 <script setup lang="ts">
-import VBasicCustomVideoModal from '@/components/Main/Modals/VBasicCustomVideoModal.vue';
-import VBasicCustomToggleModal from '@/components/Main/Modals/VBasicCustomToggleModal.vue';
-import VBasicCustomFullscreenModal from '@/components/Main/Modals/VBasicCustomFullscreenModal.vue';
+import VBasicCustomVideoModal from '@/components/Main/Modals/VBasicCustomVideoPopup.vue';
+import VBasicCustomToggleModal from '@/components/Main/Modals/VBasicCustomTogglePopup.vue';
+import VBasicCustomFullscreenModal from '@/components/Main/Modals/VBasicCustomFullscreenPopup.vue';
 </script>
 
 <style scoped lang="scss">

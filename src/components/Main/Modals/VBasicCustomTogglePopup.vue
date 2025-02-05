@@ -6,7 +6,7 @@
         <div
             class="modal-content"
         >
-            <VModal :position="ModalType.CENTER">
+            <VPopup :position="ModalType.CENTER">
                 <template #modal-btn="{ toggle }">
                     <VButton
                         :color="GlobalColors.PRIMARY"
@@ -55,7 +55,7 @@
                         </div>
                     </div>
                 </template>
-            </VModal>
+            </VPopup>
         </div>
     </div>
 </template>
@@ -63,7 +63,7 @@
 <script setup lang="ts">
 import { GlobalColors } from '@/GlobalColors.ts';
 import VButton from '@/components/UI/basic/VButton.vue';
-import VModal from '@/components/UI/basic/VModal.vue';
+import VPopup from '@/components/UI/basic/VPopup.vue';
 import CloseIcon from '@/assets/icons/icons-header/close.svg';
 import { ModalType } from '@/model/UI/basic/Modal.ts';
 import { ref } from 'vue';
@@ -83,33 +83,33 @@ const toggleOpen = () => {
 
     .modal-content {
         margin-top: var(--padding-xl);
-
-        .modal-head {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            color: var(--color-text);
-
-            .modal-title {
-                font-size: var(--font-size-xxl);
-                font-weight: 500;
-            }
-
-            svg {
-                width: 20px;
-                height: 20px;
-            }
-        }
-
-        .modal-body {
-            padding: var(--padding-xl) 0;
-        }
-
-        .modal-footer {
-            display: flex;
-            justify-content: flex-end;
-        }
     }
+}
+
+.modal-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    color: var(--color-text);
+
+    .modal-title {
+        font-size: var(--font-size-xxl);
+        font-weight: 500;
+    }
+
+    svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.modal-body {
+    padding: var(--padding-xl) 0;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
 }
 </style>

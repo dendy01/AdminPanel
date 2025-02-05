@@ -11,8 +11,8 @@
 </template>
 
 <script setup lang="ts">
-import VBasicCustomFirstOptionsModal from '@/components/Main/Modals/VBasicCustomFirstOptionsModal.vue';
-import VBasicCustomSecondOptionsModal from '@/components/Main/Modals/VBasicCustomSecondOptionsModal.vue';
+import VBasicCustomFirstOptionsModal from '@/components/Main/Modals/VBasicCustomFirstOptionsPopup.vue';
+import VBasicCustomSecondOptionsModal from '@/components/Main/Modals/VBasicCustomSecondOptionsPopup.vue';
 </script>
 
 <style scoped lang="scss">
