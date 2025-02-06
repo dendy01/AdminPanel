@@ -11,7 +11,8 @@ export const Routes = {
     ACCORDION: 'accordion',
     BADGES: 'badges',
     CRM: 'crm',
-    MODALS: 'modals'
+    MODALS: 'modals',
+    AVATAR: 'avatar'
 };
 
 const routes = [
@@ -54,6 +55,11 @@ const routes = [
                 name: Routes.MODALS,
                 path: `${BASE_URL}/${Routes.MODALS}`,
                 component: () => import('@/views/PreviewModalsPage.vue')
+            },
+            {
+                name: Routes.AVATAR,
+                path: `${BASE_URL}/${Routes.AVATAR}`,
+                component: () => import('@/views/PreviewAvatarPage.vue')
             }
         ]
     },

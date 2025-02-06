@@ -1,0 +1,1 @@
+import{_ as o,c as n,a as s,o as t}from"./index-BCclcZwz.js";const a={},c={class:"login-container"};function r(i,e){return t(),n("div",c,e[0]||(e[0]=[s("h1",null,"Login",-1)]))}const l=o(a,[["render",r]]);export{l as default};

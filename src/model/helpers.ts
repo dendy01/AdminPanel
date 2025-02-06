@@ -18,4 +18,5 @@ export enum TranslateAbbr {
 export enum TranslateContent {
     USERINTERFACE = 'UserInterface',
     DASHBOARDS = 'Dashboards',
+    EXTENDEDUI = 'ExtendedUI',
 }

@@ -22,6 +22,7 @@ import { IHeaderGroup } from '@/model/layout/Header';
 import { Routes } from '@/routes/index.ts';
 import MoonIcon from '@/assets/icons/icons-header/moon.svg';
 import { TranslateContent } from '@/model/helpers.ts';
+import BoxIcon from '@/assets/icons/box.svg';
 
 const header = shallowRef<IHeaderGroup[]>([
     {
@@ -134,6 +135,18 @@ const sidebar = shallowRef<ISidebarGroup[]>([
                         id: useId(),
                         content: 'Modals',
                         link: Routes.MODALS
+                    }
+                ]
+            },
+            {
+                id: useId(),
+                content: TranslateContent.EXTENDEDUI,
+                icon: BoxIcon,
+                select: [
+                    {
+                        id: useId(),
+                        content: 'Avatar',
+                        link: Routes.AVATAR
                     }
                 ]
             }
