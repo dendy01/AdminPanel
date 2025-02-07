@@ -10,13 +10,8 @@
                 :size="AvatarSizes.DEFAULT"
                 :color="variant"
                 :rounded="AvatarRounded.CIRCLE"
+                :image="ProfileImg"
             >
-                <template #avatar>
-                    <img
-                        src="@/assets/icons/icons-header/profile.png"
-                        alt="profile"
-                    >
-                </template>
                 <template #avatar-status>
                     <VBadge
                         :color="variant"
@@ -38,23 +33,5 @@ import { GlobalColors } from '@/GlobalColors.ts';
 import { AvatarRounded, AvatarSizes } from '@/model/UI/basic/Avatar.ts';
 import VBadge from '@/components/UI/basic/VBadge.vue';
 import { BadgeSizes, Positions } from '@/model/UI/basic/Badge.ts';
+import ProfileImg from '@/assets/icons/icons-header/profile.png';
 </script>
-
-<style scoped lang="scss">
-.avatars-card {
-    width: 50%;
-    border-radius: var(--border-radius-xl);
-
-    background-color: var(--bg-card);
-    box-shadow: var(--shadow);
-
-    .avatars-card__content {
-        padding: 0 var(--padding-xxl) var(--padding-xxl) var(--padding-xxl);
-
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 8px;
-    }
-}
-</style>

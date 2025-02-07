@@ -8,37 +8,19 @@
                 :size="AvatarSizes.DEFAULT"
                 :color="Object.values(GlobalColors)[0]"
                 :rounded="AvatarRounded.CIRCLE"
-            >
-                <template #avatar>
-                    <img
-                        src="@/assets/icons/icons-header/profile.png"
-                        alt="profile"
-                    >
-                </template>
-            </VAvatar>
+                :image="ProfileImg"
+            />
             <VAvatar
                 :size="AvatarSizes.DEFAULT"
                 :color="Object.values(GlobalColors)[0]"
                 :rounded="AvatarRounded.ROUND"
-            >
-                <template #avatar>
-                    <img
-                        src="@/assets/icons/icons-header/profile.png"
-                        alt="profile"
-                    >
-                </template>
-            </VAvatar>
+                :image="ProfileImg"
+            />
             <VAvatar
                 :size="AvatarSizes.DEFAULT"
                 :color="Object.values(GlobalColors)[0]"
-            >
-                <template #avatar>
-                    <img
-                        src="@/assets/icons/icons-header/profile.png"
-                        alt="profile"
-                    >
-                </template>
-            </VAvatar>
+                :image="ProfileImg"
+            />
         </div>
     </div>
 </template>
@@ -47,23 +29,5 @@
 import VAvatar from '@/components/UI/basic/VAvatar.vue';
 import { GlobalColors } from '@/GlobalColors.ts';
 import { AvatarRounded, AvatarSizes } from '@/model/UI/basic/Avatar.ts';
+import ProfileImg from '@/assets/icons/icons-header/profile.png';
 </script>
-
-<style scoped lang="scss">
-.avatars-card {
-    width: 50%;
-    border-radius: var(--border-radius-xl);
-
-    background-color: var(--bg-card);
-    box-shadow: var(--shadow);
-
-    .avatars-card__content {
-        padding: 0 var(--padding-xxl) var(--padding-xxl) var(--padding-xxl);
-
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 8px;
-    }
-}
-</style>

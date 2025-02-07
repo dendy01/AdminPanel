@@ -1,0 +1,62 @@
+.avatars-card {
+    width: 50%;
+    border-radius: var(--border-radius-xl);
+
+    background-color: var(--bg-card);
+    box-shadow: var(--shadow);
+
+    &__content {
+        padding: 0 var(--padding-xxl) var(--padding-xxl) var(--padding-xxl);
+
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+}
+
+.avatar-group__wrap {
+    width: 25%;
+    padding: 0 var(--padding-xxl) var(--padding-xxl) var(--padding-xxl);
+
+    .avatars-card__content {
+        margin-top: var(--margin-xl);
+        padding: 0;
+
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+
+        &-item {
+            border-radius: 50%;
+            position: relative;
+
+
+            border: 2px solid var(--color-white);
+
+            &:nth-child(1){
+                left: 0;
+                z-index: 8;
+            }
+
+            &:nth-child(2){
+                left: -20px;
+                z-index: 7;
+            }
+
+            &:nth-child(3){
+                left: -40px;
+                z-index: 6;
+            }
+
+            &:nth-child(4){
+                left: -60px;
+                z-index: 5;
+            }
+
+            &:hover {
+                z-index: 100;
+            }
+        }
+    }
+}

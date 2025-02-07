@@ -103,7 +103,7 @@ const sidebar = shallowRef<ISidebarGroup[]>([
         group: [
             {
                 id: useId(),
-                content: TranslateContent.USERINTERFACE,
+                content: TranslateContent.USER_INTERFACE,
                 icon: ToggleIcon,
                 select: [
                     {
@@ -140,7 +140,7 @@ const sidebar = shallowRef<ISidebarGroup[]>([
             },
             {
                 id: useId(),
-                content: TranslateContent.EXTENDEDUI,
+                content: TranslateContent.EXTENDED_UI,
                 icon: BoxIcon,
                 select: [
                     {

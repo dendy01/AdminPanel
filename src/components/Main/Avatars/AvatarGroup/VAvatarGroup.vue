@@ -6,6 +6,8 @@
         <div class="avatar-group__content">
             <VDefaultGroup />
             <VPullUpGroup />
+            <VPullUpTooltipGroup />
+            <VCountGroup />
         </div>
     </div>
 </template>
@@ -13,9 +15,11 @@
 <script setup lang="ts">
 import VDefaultGroup from '@/components/Main/Avatars/AvatarGroup/VDefaultGroup.vue';
 import VPullUpGroup from '@/components/Main/Avatars/AvatarGroup/VPullUpGroup.vue';
+import VPullUpTooltipGroup from '@/components/Main/Avatars/AvatarGroup/VPullUpTooltipGroup.vue';
+import VCountGroup from '@/components/Main/Avatars/AvatarGroup/VCountGroup.vue';
 </script>
 
-<style>
+<style scoped lang="scss">
 .avatar-group {
     width: 100%;
     border-radius: var(--border-radius-xl);
@@ -23,7 +27,7 @@ import VPullUpGroup from '@/components/Main/Avatars/AvatarGroup/VPullUpGroup.vue
     background-color: var(--bg-card);
     box-shadow: var(--shadow);
 
-    .avatar-group__content {
+    &__content {
         display: flex;
         flex-wrap: wrap;
     }

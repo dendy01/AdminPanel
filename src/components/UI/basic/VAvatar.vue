@@ -1,5 +1,7 @@
 <template>
-    <div class="avatar-wrap">
+    <div
+        class="avatar-wrap"
+    >
         <div
             :class="[
                 'avatar',
@@ -10,6 +12,13 @@
             ]"
         >
             <slot name="avatar" />
+            <img
+                v-if="image"
+                :src="image"
+                :alt="name || 'avatar'"
+                class="avatar-image"
+            >
+            <span v-else>{{ getInitialName() }}</span>
         </div>
         <div class="avatar-status">
             <slot name="avatar-status" />
@@ -23,13 +32,35 @@ import { computed } from 'vue';
 import { colors, GlobalColors } from '@/GlobalColors.ts';
 
 interface IPropsType {
+    image?: string;
+    name?: string;
     size: AvatarSizes;
     color: GlobalColors;
     rounded?: AvatarRounded;
     label?: boolean;
+    tooltip?: boolean;
 }
 
 const props = defineProps<IPropsType>();
+
+const getInitialName = () => {
+    if (!props.name) {
+        return '';
+    }
+
+    const words = props.name.split(' ');
+    let initialName = '';
+
+    if (props.name.length === 1) {
+        return props.name.split(' ')[0];
+    }
+
+    words.forEach((word) => {
+        initialName += word[0].toUpperCase();
+    });
+
+    return initialName;
+};
 
 const avatarColor = computed(() => colors[props.color]['700']);
 const avatarLabelColor = computed(() => colors[props.color]['400']);
