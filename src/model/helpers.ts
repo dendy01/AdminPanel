@@ -16,6 +16,7 @@ export enum TranslateAbbr {
 }
 
 export enum TranslateContent {
-    USERINTERFACE = 'UserInterface',
+    USER_INTERFACE = 'UserInterface',
     DASHBOARDS = 'Dashboards',
+    EXTENDED_UI = 'ExtendedUI',
 }

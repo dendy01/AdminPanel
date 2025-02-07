@@ -22,6 +22,7 @@ import { IHeaderGroup } from '@/model/layout/Header';
 import { Routes } from '@/routes/index.ts';
 import MoonIcon from '@/assets/icons/icons-header/moon.svg';
 import { TranslateContent } from '@/model/helpers.ts';
+import BoxIcon from '@/assets/icons/box.svg';
 
 const header = shallowRef<IHeaderGroup[]>([
     {
@@ -102,7 +103,7 @@ const sidebar = shallowRef<ISidebarGroup[]>([
         group: [
             {
                 id: useId(),
-                content: TranslateContent.USERINTERFACE,
+                content: TranslateContent.USER_INTERFACE,
                 icon: ToggleIcon,
                 select: [
                     {
@@ -129,6 +130,23 @@ const sidebar = shallowRef<ISidebarGroup[]>([
                         id: useId(),
                         content: 'Badges',
                         link: Routes.BADGES
+                    },
+                    {
+                        id: useId(),
+                        content: 'Modals',
+                        link: Routes.MODALS
+                    }
+                ]
+            },
+            {
+                id: useId(),
+                content: TranslateContent.EXTENDED_UI,
+                icon: BoxIcon,
+                select: [
+                    {
+                        id: useId(),
+                        content: 'Avatar',
+                        link: Routes.AVATAR
                     }
                 ]
             }

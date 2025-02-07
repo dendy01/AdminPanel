@@ -11,7 +11,7 @@
             dot && 'dot',
             posAbs && 'position-abs',
             position,
-            badgeBorder && 'badge-border',
+            badgeBorder && 'badge-border'
         ]"
     >
         <slot />

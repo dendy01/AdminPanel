@@ -85,7 +85,7 @@ const {
 } = useI18n();
 
 const changeHeight = (newHeight: number) => {
-    height.value = newHeight + 4;
+    height.value = newHeight + 18;
 };
 
 const isValid = computed<boolean>(() => {
