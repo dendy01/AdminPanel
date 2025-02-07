@@ -23,7 +23,7 @@ import VAvatarLabelInitials from '@/components/Main/Avatars/VAvatarLabelInitials
 import VAvatarShapes from '@/components/Main/Avatars/VAvatarShapes.vue';
 import VAvatarStatusIndicator from '@/components/Main/Avatars/VAvatarStatusIndicator.vue';
 import VAvatarLabelStatusIndicator from '@/components/Main/Avatars/VAvatarLabelStatusIndicator.vue';
-import VAvatarGroup from '@/components/Main/Avatars/AvatarGroup/VAvatarGroup.vue';
+import VAvatarGroup from '@/components/UI/basic/VAvatarGroup.vue';
 </script>
 
 <style scoped lang="scss">
