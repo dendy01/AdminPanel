@@ -12,7 +12,8 @@ export const Routes = {
     BADGES: 'badges',
     CRM: 'crm',
     MODALS: 'modals',
-    AVATAR: 'avatar'
+    AVATAR: 'avatar',
+    DRAG_DROP: 'drag_drop'
 };
 
 const routes = [
@@ -60,6 +61,11 @@ const routes = [
                 name: Routes.AVATAR,
                 path: `${BASE_URL}/${Routes.AVATAR}`,
                 component: () => import('@/views/PreviewAvatarPage.vue')
+            },
+            {
+                name: Routes.DRAG_DROP,
+                path: `${BASE_URL}/${Routes.DRAG_DROP}`,
+                component: () => import('@/views/VPreviewDragDropPage.vue')
             }
         ]
     },

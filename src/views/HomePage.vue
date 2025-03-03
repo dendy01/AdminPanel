@@ -147,6 +147,11 @@ const sidebar = shallowRef<ISidebarGroup[]>([
                         id: useId(),
                         content: 'Avatar',
                         link: Routes.AVATAR
+                    },
+                    {
+                        id: useId(),
+                        content: 'Drag & Drop',
+                        link: Routes.DRAG_DROP
                     }
                 ]
             }
