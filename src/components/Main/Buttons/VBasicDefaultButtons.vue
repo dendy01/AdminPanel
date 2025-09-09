@@ -66,8 +66,8 @@ defineProps<IPropsType>();
 
 <style scoped lang="scss">
 .basic-buttons__wrap {
-    margin-top: 24px;
-    border-radius: 6px;
+    margin-top: var(--margin-xxxl);
+    border-radius: var(--border-radius-lg);
     box-shadow: 0 2px 8px var(--color-bs);
     background-color: var(--bg-card);
 
@@ -77,7 +77,7 @@ defineProps<IPropsType>();
     }
 
     .basic-buttons__wrap--buttons {
-        padding: 20px;
+        padding: var(--padding-xxl);
     }
 
     .basic-buttons__wrap--buttons:first-of-type {
@@ -93,7 +93,7 @@ defineProps<IPropsType>();
 
 .basic-buttons__wrap {
     button {
-        margin: 16px 6px 0 0;
+        margin: var(--margin-xl) 6px 0 0;
     }
 }
 </style>

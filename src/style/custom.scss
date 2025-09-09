@@ -1,14 +1,53 @@
+@import '@/style/variables.scss';
+
+.title {
+    padding: var(--padding-xxl);
+    font-size: var(--font-size-xxl);
+    font-weight: 500;
+    color: var(--color-text);
+}
+
+.title-sm {
+    padding: var(--padding-xxl);
+    font-size: var(--font-size-xl);
+    font-weight: 500;
+    color: var(--color-text);
+}
+
+.link-title {
+    font-size: var(--font-size-xxl);
+    font-weight: 500;
+    color: var(--color-text);
+}
+
+.accordion-title {
+    font-size: var(--font-size-lg);
+    font-weight: 500;
+    padding: var(--padding-lg) var(--padding-xxl);
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    color: var(--color-text);
+
+    span {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+}
+
 .slogan {
+    font-size: var(--font-size-sm);
     font-weight: 500;
     text-transform: capitalize;
     color: var(--color-gray);
 }
 
-.title {
-    font-size: 18px;
-    font-weight: 500;
-    color: var(--color-text);
-    padding: 20px;
+text {
+    font-size: var(--font-size-xl);
 }
 
 .line {
@@ -18,7 +57,7 @@
 }
 
 .btn-content {
-    padding-top: 16px;
+    padding-top: var(--padding-xl);
 
     display: flex;
     flex-wrap: wrap;
@@ -26,5 +65,31 @@
 }
 
 .dropdown {
-    padding: 20px;
+    padding: var(--padding-xxl);
 }
+
+.cross-icon {
+    width: 20px;
+    height: 20px;
+
+    transition: transform var(--duration) var(--timing-function);
+    transform: rotate(90deg);
+}
+
+.active-accordion {
+    margin: var(--margin-md) 0;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow);
+    transition: transform var(--duration) var(--timing-function);
+
+    .cross-icon {
+        transition: transform var(--duration) var(--timing-function);
+        transform: rotate(-90deg);
+    }
+}
+
+.badge-icon {
+    width: 14px;
+    height: 14px;
+}
+

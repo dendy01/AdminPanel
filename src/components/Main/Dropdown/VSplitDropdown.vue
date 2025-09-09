@@ -7,7 +7,7 @@
                 :key="`${variant}_${Math.random}`"
                 :color="variant"
                 :text="variant"
-                :icon-right="Arrow"
+                :icon-right="ArrowIcon"
                 split
                 :position="Positions.TOP_LEFT"
             >
@@ -24,7 +24,7 @@
                         :color="variant"
                         is-icon
                         split-left
-                        :icon-right="Arrow"
+                        :icon-right="ArrowIcon"
                         @click="toggle"
                     />
                 </template>
@@ -48,7 +48,7 @@
 <script setup lang="ts">
 import { GlobalColors } from '@/GlobalColors.ts';
 import VDropdown from '@/components/UI/basic/VDropdown.vue';
-import Arrow from '@/assets/icons/icons-dropdown/arrow-down.svg';
+import ArrowIcon from '@/assets/icons/icons-dropdown/arrow-down.svg';
 import VButton from '@/components/UI/basic/VButton.vue';
 import { Positions } from '@/model/UI/basic/Dropdown.ts';
 
@@ -61,7 +61,7 @@ defineProps<IPropsType>();
 
 <style scoped>
 .dropdown {
-    padding: 20px;
+    padding: var(--padding-xxl);
 }
 
 .dropdown-content {

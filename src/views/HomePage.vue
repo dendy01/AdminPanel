@@ -7,26 +7,27 @@
 </template>
 
 <script setup lang="ts">
-import HomeSmile from '@/assets/icons/home-smile.svg';
-import Toggle from '@/assets/icons/toggle.svg';
+import HomeSmileIcon from '@/assets/icons/home-smile.svg';
+import ToggleIcon from '@/assets/icons/toggle.svg';
 import Sidebar from '@/components/Sidebar/VSidebar.vue';
 import { ISidebarGroup } from '@/model/layout/Sidebar';
 import { provide, shallowRef, useId } from 'vue';
 
-import Notification from '@/assets/icons/icons-header/notification.svg';
-import Star from '@/assets/icons/icons-header/star.svg';
-import Sun from '@/assets/icons/icons-header/sun.svg';
-import Translate from '@/assets/icons/icons-header/translate.svg';
+import NotificationIcon from '@/assets/icons/icons-header/notification.svg';
+import StarIcon from '@/assets/icons/icons-header/star.svg';
+import SunIcon from '@/assets/icons/icons-header/sun.svg';
+import TranslateIcon from '@/assets/icons/icons-header/translate.svg';
 import VMain from '@/views/MainPage.vue';
 import { IHeaderGroup } from '@/model/layout/Header';
-import { Routes } from '@/routes/modelRoutes.ts';
-import Moon from '@/assets/icons/icons-header/moon.svg';
+import { Routes } from '@/routes/index.ts';
+import MoonIcon from '@/assets/icons/icons-header/moon.svg';
 import { TranslateContent } from '@/model/helpers.ts';
+import BoxIcon from '@/assets/icons/box.svg';
 
 const header = shallowRef<IHeaderGroup[]>([
     {
         id: useId(),
-        icon: Translate,
+        icon: TranslateIcon,
         group: [
             {
                 id: useId(),
@@ -48,29 +49,29 @@ const header = shallowRef<IHeaderGroup[]>([
     },
     {
         id: useId(),
-        icon: Sun,
+        icon: SunIcon,
         group: [
             {
                 id: useId(),
-                icon: Sun,
+                icon: SunIcon,
                 content: 'Light'
             },
             {
                 id: useId(),
-                icon: Moon,
+                icon: MoonIcon,
                 content: 'Dark'
             }
         ]
     },
     {
         id: useId(),
-        icon: Star,
+        icon: StarIcon,
         group: [
         ]
     },
     {
         id: useId(),
-        icon: Notification,
+        icon: NotificationIcon,
         group: [
         ]
     }
@@ -85,11 +86,12 @@ const sidebar = shallowRef<ISidebarGroup[]>([
             {
                 id: useId(),
                 content: TranslateContent.DASHBOARDS,
-                icon: HomeSmile,
+                icon: HomeSmileIcon,
                 select: [
                     {
                         id: useId(),
-                        content: 'CRM'
+                        content: 'CRM',
+                        link: Routes.CRM
                     }
                 ]
             }
@@ -101,8 +103,8 @@ const sidebar = shallowRef<ISidebarGroup[]>([
         group: [
             {
                 id: useId(),
-                content: TranslateContent.USERINTERFACE,
-                icon: Toggle,
+                content: TranslateContent.USER_INTERFACE,
+                icon: ToggleIcon,
                 select: [
                     {
                         id: useId(),
@@ -118,6 +120,38 @@ const sidebar = shallowRef<ISidebarGroup[]>([
                         id: useId(),
                         content: 'Dropdowns',
                         link: Routes.DROPDOWN
+                    },
+                    {
+                        id: useId(),
+                        content: 'Accordion',
+                        link: Routes.ACCORDION
+                    },
+                    {
+                        id: useId(),
+                        content: 'Badges',
+                        link: Routes.BADGES
+                    },
+                    {
+                        id: useId(),
+                        content: 'Modals',
+                        link: Routes.MODALS
+                    }
+                ]
+            },
+            {
+                id: useId(),
+                content: TranslateContent.EXTENDED_UI,
+                icon: BoxIcon,
+                select: [
+                    {
+                        id: useId(),
+                        content: 'Avatar',
+                        link: Routes.AVATAR
+                    },
+                    {
+                        id: useId(),
+                        content: 'Drag & Drop',
+                        link: Routes.DRAG_DROP
                     }
                 ]
             }

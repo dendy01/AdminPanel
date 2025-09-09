@@ -28,7 +28,7 @@
                 class="aside-head__close"
                 @click="isCheck.openMenu = !isCheck.openMenu"
             >
-                <Close />
+                <CloseIcon />
             </span>
         </div>
 
@@ -42,7 +42,7 @@
 </template>
 
 <script setup lang="ts">
-import Close from '@/assets/icons/icons-header/close.svg';
+import CloseIcon from '@/assets/icons/icons-header/close.svg';
 import LogoIcon from '@/assets/icons/logo.svg';
 import VSidebarUl from '@/components/Sidebar/VSidebarUl.vue';
 import { ISidebarGroup } from '@/model/layout/Sidebar';
@@ -85,23 +85,23 @@ onUnmounted(() => {
 .aside {
     width: 80px;
     height: 100%;
-    font-size: 15px;
+    font-size: var(--font-size-lg);
     font-weight: 400;
 
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1001;
-    transition: width $transition-time $transition-duration;
+    transition: width var(--duration) var(--timing-function);
 
     color: var(--color-text);
     background-color: var(--bg-primary);
 
     &:hover {
         width: $sidebar-width;
-        padding-right: 4px;
+        padding-right: var(--padding-sm);
         box-shadow: 0 0 5px;
-        transition: width $transition-time $transition-duration;
+        transition: width var(--duration) var(--timing-function);
 
         .aside-title,
         .aside-head__input {
@@ -147,11 +147,11 @@ onUnmounted(() => {
         color: var(--color-primary-700);
 
         .aside-title {
-            font-size: 20px;
+            font-size: var(--font-size-xxxl);
             font-weight: 600;
             text-transform: uppercase;
 
-            margin-left: 12px;
+            margin-left: var(--margin-lg);
 
             color: var(--color-text);
         }
@@ -169,18 +169,18 @@ onUnmounted(() => {
 
     &:hover::-webkit-scrollbar-thumb {
         background-color: var(--color-gray);
-        transition: background-color $transition-time $transition-duration;
+        transition: background-color var(--duration) var(--timing-function);
     }
 }
 
 @media (max-width: $response-sw) {
     .aside {
-        transition: transform $transition-time $transition-duration;
+        transition: transform var(--duration) var(--timing-function);
         transform: translateX(-$sidebar-width);
     }
 
     .aside-active {
-        transition: transform $transition-time $transition-duration;
+        transition: transform var(--duration) var(--timing-function);
         transform: translateX(-$sidebar-width);
     }
 
@@ -188,7 +188,7 @@ onUnmounted(() => {
         width: $sidebar-width;
         transform: translateX(0px);
         box-shadow: 0 0 5px;
-        transition: transform $transition-time $transition-duration;
+        transition: transform var(--duration) var(--timing-function);
 
         &:hover {
             padding-right: 0;

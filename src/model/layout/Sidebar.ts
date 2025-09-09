@@ -2,6 +2,7 @@ export interface ISidebarLink {
     id: string;
     content: string;
     icon: string;
+    link?: string;
     select?: ISelect[];
 }
 

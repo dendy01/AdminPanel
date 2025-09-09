@@ -31,16 +31,16 @@ defineProps<IPropsType>();
 
 <style scoped lang="scss">
 .basic-buttons__wrap {
-    margin-top: 24px;
-    border-radius: 6px;
+    margin-top: var(--margin-xxxl);
+    border-radius: var(--border-radius-lg);
     box-shadow: 0 2px 8px var(--color-bs);
     background-color: var(--bg-card);
 
 
 
     .title {
-        padding: 20px;
-        font-size: 18px;
+        padding: var(--padding-xxl);
+        font-size: var(--font-size-xxl);
         font-weight: 500;
         color: var(--color-text);
     }
@@ -61,7 +61,7 @@ defineProps<IPropsType>();
         display: flex;
 
         .basic-buttons__wrap--row {
-            padding: 20px;
+            padding: var(--padding-xxl);
             border-right: 1px solid var(--color-gray-light);
 
             &:last-of-type {

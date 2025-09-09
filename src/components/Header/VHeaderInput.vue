@@ -11,7 +11,7 @@
             placeholder="Search..."
             ref="inputSearch"
         >
-        <Close
+        <CloseIcon
             @click="setActive"
             class="header-search__close"
         />
@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import Close from '@/assets/icons/icons-header/close.svg';
+import CloseIcon from '@/assets/icons/icons-header/close.svg';
 import { onMounted, onUnmounted, ref, useTemplateRef } from 'vue';
 
 interface IPropsType {
@@ -74,7 +74,7 @@ onUnmounted(() => {
     .header-search__input {
         height: 100%;
         width: 100%;
-        font-size: 16px;
+        font-size: var(--font-size-xl);
         color: var(--color-text);
 
         position: absolute;
@@ -85,7 +85,7 @@ onUnmounted(() => {
     }
 
     .header-search__input::placeholder {
-        font-size: 16px;
+        font-size: var(--font-size-xl);
     }
 
     .header-search__close {
@@ -100,8 +100,8 @@ onUnmounted(() => {
 
 .header-observer {
     opacity: .9;
-    padding: 0 16px;
-    border-radius: 0 0 8px 8px;
+    padding: 0 var(--padding-xl);
+    border-radius: 0 0 var(--border-radius-xl) var(--border-radius-xl);
     background-color: var(--bg-card) !important;
 
     .header-search__close {

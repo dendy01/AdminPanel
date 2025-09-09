@@ -11,7 +11,7 @@
                     <VButton
                         outline
                         :color="variant"
-                        :icon-right="Arrow"
+                        :icon-right="ArrowIcon"
                         @click="toggle"
                     >
                         {{ variant }}
@@ -36,7 +36,7 @@
 <script setup lang="ts">
 import { GlobalColors } from '@/GlobalColors.ts';
 import VDropdown from '@/components/UI/basic/VDropdown.vue';
-import Arrow from '@/assets/icons/icons-dropdown/arrow-down.svg';
+import ArrowIcon from '@/assets/icons/icons-dropdown/arrow-down.svg';
 import VButton from '@/components/UI/basic/VButton.vue';
 import { Positions } from '@/model/UI/basic/Dropdown.ts';
 
@@ -49,12 +49,12 @@ defineProps<IPropsType>();
 
 <style scoped>
 .dropdown {
-    padding: 20px;
+    padding: var(--padding-xxl);
 }
 
 .dropdown-content {
     color: var(--color-text);
-    padding-top: 16px;
+    padding-top: var(--padding-xl);
 
     display: flex;
     gap: 8px;

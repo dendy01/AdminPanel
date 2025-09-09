@@ -1,0 +1,1 @@
+const l=(o,n)=>{const s=n.querySelector(".wave-container");if(n&&s){const e=n.getBoundingClientRect(),t=Math.max(e.width,e.height),i=o.clientX-e.left-t/2,a=o.clientY-e.top-t/2,c=document.createElement("div");c.className="wave",c.style.cssText=`width:${t}px;height:${t}px;top:${a}px;left:${i}px;`,s.append(c),setTimeout(()=>{c.remove()},200)}};export{l as h};

@@ -10,7 +10,7 @@
                     <template #dropdown="{ toggle }">
                         <VButton
                             :color="GlobalColors.PRIMARY"
-                            :icon-right="Arrow"
+                            :icon-right="ArrowIcon"
                             @click="toggle"
                         >
                             Dropdown
@@ -42,7 +42,7 @@
                     <template #dropdown="{ toggle }">
                         <VButton
                             :color="GlobalColors.PRIMARY"
-                            :icon-right="ArrowRight"
+                            :icon-right="ArrowRightIcon"
                             @click="toggle"
                         >
                             Dropend
@@ -73,7 +73,7 @@
                     <template #dropdown="{ toggle }">
                         <VButton
                             :color="GlobalColors.PRIMARY"
-                            :icon-right="ArrowUp"
+                            :icon-right="ArrowUpIcon"
                             @click="toggle"
                         >
                             Dropup
@@ -99,14 +99,14 @@
             <div class="dropdown-content btn-content">
                 <VDropdown
                     :color="GlobalColors.PRIMARY"
-                    :icon-right="More"
+                    :icon-right="MoreIcon"
                     :position="Positions.TOP_LEFT"
                     left
                 >
                     <template #dropdown="{ toggle }">
                         <VButton
                             :color="GlobalColors.PRIMARY"
-                            :icon-left="ArrowLeft"
+                            :icon-left="ArrowLeftIcon"
                             @click="toggle"
                         >
                             Dropstart
@@ -134,20 +134,20 @@
 <script setup lang="ts">
 import { GlobalColors } from '@/GlobalColors.ts';
 import VDropdown from '@/components/UI/basic/VDropdown.vue';
-import Arrow from '@/assets/icons/icons-dropdown/arrow-down.svg';
-import More from '@/assets/icons/icons-dropdown/more.svg';
+import ArrowIcon from '@/assets/icons/icons-dropdown/arrow-down.svg';
+import MoreIcon from '@/assets/icons/icons-dropdown/more.svg';
 import VButton from '@/components/UI/basic/VButton.vue';
 import { Positions } from '@/model/UI/basic/Dropdown.ts';
-import ArrowUp from '@/assets/icons/icons-dropdown/arrow-up.svg';
-import ArrowRight from '@/assets/icons/icons-dropdown/arrow-right.svg';
-import ArrowLeft from '@/assets/icons/icons-dropdown/arrow-left.svg';
+import ArrowUpIcon from '@/assets/icons/icons-dropdown/arrow-up.svg';
+import ArrowRightIcon from '@/assets/icons/icons-dropdown/arrow-right.svg';
+import ArrowLeftIcon from '@/assets/icons/icons-dropdown/arrow-left.svg';
 </script>
 
 <style scoped>
 .dropdown {
     display: flex;
 
-    padding: 20px;
+    padding: 0 var(--padding-xxl) var(--padding-xxl) var(--padding-xxl);
 }
 
 .dropdown-content {
