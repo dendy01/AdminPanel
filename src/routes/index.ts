@@ -10,7 +10,10 @@ export const Routes = {
     DROPDOWN: 'dropdowns',
     ACCORDION: 'accordion',
     BADGES: 'badges',
-    CRM: 'crm'
+    CRM: 'crm',
+    MODALS: 'modals',
+    AVATAR: 'avatar',
+    DRAG_DROP: 'drag_drop'
 };
 
 const routes = [
@@ -48,6 +51,21 @@ const routes = [
                 name: Routes.ACCORDION,
                 path: `${BASE_URL}/${Routes.ACCORDION}`,
                 component: () => import('@/views/PreviewAccordionsPage.vue')
+            },
+            {
+                name: Routes.MODALS,
+                path: `${BASE_URL}/${Routes.MODALS}`,
+                component: () => import('@/views/PreviewModalsPage.vue')
+            },
+            {
+                name: Routes.AVATAR,
+                path: `${BASE_URL}/${Routes.AVATAR}`,
+                component: () => import('@/views/PreviewAvatarPage.vue')
+            },
+            {
+                name: Routes.DRAG_DROP,
+                path: `${BASE_URL}/${Routes.DRAG_DROP}`,
+                component: () => import('@/views/VPreviewDragDropPage.vue')
             }
         ]
     },

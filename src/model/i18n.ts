@@ -4,13 +4,15 @@ const messages  = {
     en: {
         i18nGlobal: {
             UserInterface: 'User Interface',
-            Dashboards: 'Dashboards'
+            Dashboards: 'Dashboards',
+            ExtendedUI: 'Extended UI'
         }
     },
     ru: {
         i18nGlobal: {
             UserInterface: 'Интерфейс',
-            Dashboards: 'Панель управления'
+            Dashboards: 'Панель управления',
+            ExtendedUI: 'Расширенный интерфейс'
         }
     }
 };

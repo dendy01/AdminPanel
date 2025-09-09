@@ -3,7 +3,7 @@ export enum BadgeSizes {
     LG = 'lg',
     MEDIUM = 'medium',
     SM = 'sm',
-    XS = 'xs'
+    XS = 'xs',
 }
 
 export enum Positions {
